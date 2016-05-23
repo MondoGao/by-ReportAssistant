@@ -5,52 +5,12 @@ var notFound = require('../../tpl/not-found-report.tpl');
 var Reminder = require('./reminder');
 
 var pageBegin = 0;
-var itemCount = 6;
+var itemCount = 10;
 var mainFlag = 1;
 var searchInfo = '';
 
-// var test_data = {
-//     result: [{
-//         document_id: 1,
-//         document_name: 'C课设 代码&报告',
-//         uploader: '雪君',
-//         institude: '计算机学院13级',
-//         class: 'C语言课设',
-//         downloads: 234,
-//         type: 'doc',
-//         document_thumb: '这是一小段简洁的介绍，大致介绍文档中的部分内容。这是一小段简洁的介绍，大致介绍文档中的部分内容。'
-//     }, {
-//         document_id: 2,
-//         document_name: 'C课设 代码&报告',
-//         uploader: '雪君',
-//         institude: '计算机学院13级',
-//         class: 'C语言课设',
-//         downloads: 23,
-//         type: 'pdf',
-//         document_thumb: '这是一小段简洁的介绍，大致介绍文档中的部分内容。这是一小段简洁的介绍，大致介绍文档中的部分内容。'
-//     }, {
-//         document_id: 3,
-//         document_name: 'C课设 代码&报告',
-//         uploader: '雪君',
-//         institude: '计算机学院13级',
-//         class: 'C语言课设',
-//         downloads: 12,
-//         type: 'ppt',
-//         document_thumb: '这是一小段简洁的介绍，大致介绍文档中的部分内容。这是一小段简洁的介绍，大致介绍文档中的部分内容。'
-//     }, {
-//         document_id: 4,
-//         document_name: 'C课设 代码&报告',
-//         uploader: '雪君',
-//         institude: '计算机学院13级',
-//         class: 'C语言课设',
-//         downloads: 123,
-//         type: 'docx',
-//         document_thumb: '这是一小段简洁的介绍，大致介绍文档中的部分内容。这是一小段简洁的介绍，大致介绍文档中的部分内容。'
-//     }]
-// };
-
-function loadMoreReport(e) {
-    var $this = $(e.target);
+function loadMoreReport() {
+    var $this = $('.load-more-report');
     if (parseInt($this.attr('disabled')) === 1) {
         return;
     } else {
@@ -70,7 +30,7 @@ function loadMoreReport(e) {
                     begin: pageBegin,
                     count: itemCount
                 }
-            }).done(function(data) {
+            }).done(function (data) {
                 $this.remove();
                 if (data.result.length === 0) {
                     $('.result-item-container').append(endLine());
@@ -83,13 +43,15 @@ function loadMoreReport(e) {
                     $('.result-item-container').append(searchResult(data));
                     jumpDetail(false);
                     $('.result-item-container').append(loadMore());
-                    $('.load-more-report').on('click', loadMoreReport);
+                    $('.result-container').attr('disabled', 0);
+                    // $('.load-more-report').on('click', loadMoreReport);
                 }
-            }).fail(function() {
+            }).fail(function () {
                 $('.loading-icon').addClass('hide');
                 reminder.show('加载失败，请重试');
                 $this.attr('disabled', 0);
-                $this.text('点击加载更多报告');
+                $('.result-container').attr('disabled', 0);
+                // $this.text('点击加载更多报告');
             });
         } else {
             $.ajax({
@@ -100,7 +62,7 @@ function loadMoreReport(e) {
                     begin: pageBegin,
                     count: itemCount
                 }
-            }).done(function(data) {
+            }).done(function (data) {
                 $this.remove();
                 if (data.result.length === 0) {
                     $('.result-item-container').append(endLine());
@@ -113,13 +75,15 @@ function loadMoreReport(e) {
                     $('.result-item-container').append(searchResult(data));
                     jumpDetail(false);
                     $('.result-item-container').append(loadMore());
-                    $('.load-more-report').on('click', loadMoreReport);
+                    $('.result-container').attr('disabled', 0);
+                    // $('.load-more-report').on('click', loadMoreReport);
                 }
-            }).fail(function() {
+            }).fail(function () {
                 $('.loading-icon').addClass('hide');
                 reminder.show('加载失败，请重试');
                 $this.attr('disabled', 0);
-                $this.text('点击加载更多报告');
+                $('.result-container').attr('disabled', 0);
+                // $this.text('点击加载更多报告');
             });
         }
     }
@@ -127,7 +91,7 @@ function loadMoreReport(e) {
 
 function jumpDetail(flag) {
     if (flag) {
-        $('.result-item').on('tap', function(e) {
+        $('.result-item').on('tap', function (e) {
             var inputElem = $(e.currentTarget).children('input'),
                 document_id = $(inputElem).val();
             var url = "./report_detail.html?";
@@ -136,7 +100,7 @@ function jumpDetail(flag) {
             window.location.href = url;
         });
     } else {
-        $('.result-item').off('tap').on('tap', function(e) {
+        $('.result-item').off('tap').on('tap', function (e) {
             var inputElem = $(e.currentTarget).children('input'),
                 document_id = $(inputElem).val();
             var url = "./report_detail.html?";
@@ -149,7 +113,7 @@ function jumpDetail(flag) {
 
 var attachFastClick = Origami.fastclick;
 attachFastClick(document.body);
-$('#search-input').on('focus', function() {
+$('#search-input').on('focus', function () {
     $('.search').addClass('show-cancel-btn');
     // $('.mask-layer').removeClass('hide');
 });
@@ -157,11 +121,11 @@ $('#search-input').on('focus', function() {
 var reminder = new Reminder();
 reminder.init();
 
-$('#search-input').on('blur', function() {
+$('#search-input').on('blur', function () {
     $('.search').removeClass('show-cancel-btn');
 });
 
-$('#search-input').on('keyup', function(e) {
+$('#search-input').on('keyup', function (e) {
     if (e.keyCode === 13) {
         // $('.result-item-container').empty();
         // $('.load-more-container').remove();
@@ -190,7 +154,7 @@ $('#search-input').on('keyup', function(e) {
                 begin: pageBegin,
                 count: itemCount
             }
-        }).done(function(data) {
+        }).done(function (data) {
             $('.loading-icon').addClass('hide');
             $('.result-item-container').empty();
             if (data.result.length === 0) {
@@ -205,9 +169,10 @@ $('#search-input').on('keyup', function(e) {
                 $('.result-item-container').append(searchResult(data));
                 jumpDetail(true);
                 $('.result-item-container').append(loadMore());
-                $('.load-more-report').on('click', loadMoreReport);
+                $('.result-container').attr('disabled', 0);
+                // $('.load-more-report').on('click', loadMoreReport);
             }
-        }).fail(function() {
+        }).fail(function () {
             $('.loading-icon').addClass('hide');
             reminder.show('网络连接错误，请重试');
             pageBegin = pageBeginbak;
@@ -216,7 +181,7 @@ $('#search-input').on('keyup', function(e) {
     }
 });
 
-$('.cancel-btn').on('click', function(e) {
+$('.cancel-btn').on('click', function (e) {
     e.preventDefault();
     $('#search-input').val('').blur();
     $('.search').removeClass('show-cancel-btn');
@@ -232,7 +197,7 @@ $.ajax({
         begin: pageBegin,
         count: itemCount
     }
-}).done(function(data) {
+}).done(function (data) {
     $('.loading-icon').addClass('hide');
     if (data.result.length === 0) {
         // $('.result-item-container').append(endLine());
@@ -246,11 +211,28 @@ $.ajax({
         $('.result-item-container').append(searchResult(data));
         jumpDetail(true);
         $('.result-item-container').append(loadMore());
-        $('.load-more-report').on('click', loadMoreReport);
+        $('.result-container').attr('disabled', 0);
+        // $('.load-more-report').on('click', loadMoreReport);
     }
-}).fail(function(xhr, errorType, error) {
+}).fail(function (xhr, errorType, error) {
     $('.loading-icon').addClass('hide');
     reminder.show('网络连接错误，请重试');
+});
+
+$('.result-container').on('scroll', function (e) {
+    if (parseInt($(e.target).attr('disabled')) === 1) {
+        return;
+    }
+    var $this = $('.result-item-container'),
+        containerH = $(e.currentTarget).height(),
+        itemsH = $this.height(),
+        itemsOffsetH = Math.abs($this.position().top);
+    var diffH = 150;
+    if (itemsH - itemsOffsetH - containerH < diffH) {
+        $(e.target).attr('disabled', 1);
+        loadMoreReport();
+        console.log(1);
+    }
 });
 
 // jumpDetail();
