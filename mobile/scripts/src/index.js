@@ -25,13 +25,15 @@ function loadMoreReport() {
                     count: itemCount
                 }
             }).done(function (data) {
-                $this.remove();
+                $('.load-more-container').remove();
                 if (data.result.length === 0) {
                     $('.result-item-container').append(endLine());
+                    resetLoadMoreReport();
                 } else if (data.result.length < itemCount) {
                     $('.result-item-container').append(searchResult(data));
                     jumpDetail(false);
                     $('.result-item-container').append(endLine());
+                    resetLoadMoreReport();
                 } else {
                     pageBegin += itemCount;
                     $('.result-item-container').append(searchResult(data));
@@ -57,13 +59,15 @@ function loadMoreReport() {
                     count: itemCount
                 }
             }).done(function (data) {
-                $this.remove();
+                $('.load-more-container').remove();
                 if (data.result.length === 0) {
                     $('.result-item-container').append(endLine());
+                    resetLoadMoreReport();
                 } else if (data.result.length < itemCount) {
                     $('.result-item-container').append(searchResult(data));
                     jumpDetail(false);
                     $('.result-item-container').append(endLine());
+                    resetLoadMoreReport();
                 } else {
                     pageBegin += itemCount;
                     $('.result-item-container').append(searchResult(data));
@@ -81,6 +85,18 @@ function loadMoreReport() {
             });
         }
     }
+}
+
+//重置下拉刷新
+function resetLoadMoreReport(timeout) {
+    timeout = timeout || 5000;
+    setTimeout(function () {
+        pageBegin += itemCount;
+        $('.end-line').remove();
+        $('.load-more-container').remove();
+        $('.result-item-container').append(loadMore());
+        $('.result-container').attr('disabled', 0);
+    }, timeout);
 }
 
 function jumpDetail(flag) {
