@@ -16,12 +16,6 @@ function loadMoreReport() {
     } else {
         $this.attr('disabled', 1);
         $this.text('努力加载中...');
-        // setTimeout(function () {
-        //     $this.remove();
-        //     $('.result-item-container').append(searchResult(test_data));
-        //     $('.result-item-container').append(loadMore());
-        //     $('.load-more-report').on('click', loadMoreReport);
-        // }, 500);
         if (mainFlag === 1) {
             $.ajax({
                 url: '/main_page',
@@ -127,15 +121,6 @@ $('#search-input').on('blur', function () {
 
 $('#search-input').on('keyup', function (e) {
     if (e.keyCode === 13) {
-        // $('.result-item-container').empty();
-        // $('.load-more-container').remove();
-        // $('.loading-icon').removeClass('hide');
-        // setTimeout(function () {
-        //     $('.result-item-container').append(searchResult(test_data));
-        //     $('.result-item-container').append(loadMore());
-        //     $('.load-more-report').on('click', loadMoreReport);
-        //     $('.loading-icon').addClass('hide');
-        // }, 500);
         var searchContent = $(e.target).val();
         if (!searchContent) {
             return;
