@@ -89,7 +89,7 @@ function loadMoreReport() {
 
 //重置下拉刷新
 function resetLoadMoreReport(timeout) {
-    timeout = timeout || 5000;
+    timeout = timeout || 300000;
     setTimeout(function () {
         pageBegin += itemCount;
         $('.end-line').remove();
