@@ -56,4 +56,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 a {
     color: inherit;
+    text-decoration: none;
+}
+
+input {
+    outline: 0;
+    border: 0;
+    font-size: inherit;
+    font-family: inherit;
 }
