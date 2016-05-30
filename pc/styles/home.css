@@ -1,0 +1,226 @@
+html, body {
+  font-family: STHeiTi, "Microsoft Yahei", "Helvetica Neue", Helvetica, sans-serif;
+  word-spacing: 2px;
+  letter-spacing: 2px; }
+
+html, ul, li, div, header, footer, body, p {
+  margin: 0;
+  padding: 0; }
+
+a img, :link img, :visited img {
+  border: 0px; }
+
+nav, ul {
+  list-style: none; }
+
+a {
+  color: inherit;
+  text-decoration: none; }
+
+textarea, input {
+  outline: none;
+  padding: 1px 0px; }
+
+.clear {
+  zoom: 1; }
+  .clear:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both; }
+
+body {
+  min-width: 960px;
+  max-width: 1920px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 6.04%;
+  background-color: #F2F2F2; }
+  body header {
+    width: 100%;
+    min-width: 900px; }
+    body header .header-one {
+      padding-top: 20px;
+      width: 100%; }
+      body header .header-one .logo1 {
+        float: left;
+        width: 14.72%;
+        height: 0;
+        padding-bottom: 16.42%;
+        position: relative; }
+        body header .header-one .logo1 img {
+          width: 100%;
+          height: 100%;
+          position: absolute; }
+      body header .header-one .bk {
+        float: left;
+        width: 85.27%;
+        height: 0;
+        padding-bottom: 16.42%;
+        position: relative;
+        overflow: hidden; }
+        body header .header-one .bk img {
+          position: absolute;
+          top: -100px;
+          left: -10px; }
+    body header .header-two {
+      width: 100%; }
+      body header .header-two .logo2 {
+        float: left;
+        width: 14.72%;
+        height: 0;
+        padding-bottom: 3.72%;
+        position: relative; }
+        body header .header-two .logo2 img {
+          width: 100%;
+          height: 100%;
+          position: absolute; }
+      body header .header-two .search {
+        float: left;
+        width: 85.27%;
+        height: 0;
+        padding-bottom: 3.72%;
+        position: relative;
+        overflow: hidden;
+        background-color: #282828; }
+        body header .header-two .search form {
+          position: absolute;
+          margin: auto;
+          top: 0;
+          bottom: 0;
+          width: 80.6%;
+          height: 32px;
+          margin-left: 25px;
+          border-top-left-radius: 16px;
+          border-top-right-radius: 16px;
+          border-bottom-left-radius: 16px;
+          border-bottom-right-radius: 16px;
+          background-color: #fff; }
+          body header .header-two .search form input {
+            height: 98%;
+            width: 80%;
+            padding: 0;
+            border: 0;
+            line-height: 32px;
+            margin-left: 15px; }
+          body header .header-two .search form .search-button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 87px;
+            height: 32px;
+            background-color: red;
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 16px;
+            line-height: 32px;
+            text-align: center;
+            color: #FFFFFF; }
+        body header .header-two .search .upload {
+          display: block;
+          position: absolute;
+          margin: auto;
+          top: 0;
+          bottom: 0;
+          right: 1.95%;
+          color: #FFFFFF;
+          width: 14%;
+          height: 28px;
+          border: 2px solid #FFFFFF;
+          border-top-left-radius: 14px;
+          border-top-right-radius: 14px;
+          border-bottom-left-radius: 14px;
+          border-bottom-right-radius: 14px;
+          text-align: center;
+          line-height: 28px; }
+  body section {
+    padding-top: 26px;
+    width: 100%;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    display: -ms-flexbox;
+    justify-content: space-between;
+    align-content: space-between;
+    flex-wrap: wrap; }
+    body section .report {
+      width: 49.2%;
+      height: 120px;
+      background-color: #FFFFFF;
+      margin-bottom: 6px; }
+      body section .report .icon {
+        float: left;
+        width: 128px;
+        height: 120px;
+        background-color: red; }
+        body section .report .icon img {
+          float: right; }
+      body section .report .report-intro {
+        margin-left: 128px;
+        padding: 18px 68px 0 38px; }
+        body section .report .report-intro a {
+          display: block;
+          font-size: 23px;
+          font-weight: 800;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+        body section .report .report-intro p {
+          font-size: 17px;
+          padding: 4px 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+        body section .report .report-intro span {
+          font-size: 16px;
+          color: #999; }
+  body .changePage {
+    padding: 22px 0 36px 0;
+    width: 350px;
+    margin: 0 auto; }
+    body .changePage img {
+      margin-top: -5px;
+      float: left;
+      margin-right: 20px; }
+    body .changePage ul li {
+      float: left;
+      margin-right: 20px;
+      width: 17px;
+      height: 17px;
+      border: 2px solid #000;
+      transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      /* IE 9 */
+      -moz-transform: rotate(45deg);
+      /* Firefox */
+      -webkit-transform: rotate(45deg);
+      /* Safari and Chrome */
+      -o-transform: rotate(45deg);
+      /* Opera */
+      position: relative; }
+      body .changePage ul li div {
+        font-size: 14px;
+        transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        /* IE 9 */
+        -moz-transform: rotate(-45deg);
+        /* Firefox */
+        -webkit-transform: rotate(-45deg);
+        /* Safari and Chrome */
+        -o-transform: rotate(-45deg);
+        /* Opera */
+        position: absolute;
+        width: 17px;
+        height: 17px;
+        top: 0;
+        left: 1px;
+        bottom: 1px;
+        right: 0;
+        margin: auto;
+        line-height: 17px;
+        text-align: center; }
+    body .changePage ul .pageOn {
+      background-color: #000; }
+      body .changePage ul .pageOn div {
+        color: #fff !important; }
+
+/*# sourceMappingURL=index.css.map */
