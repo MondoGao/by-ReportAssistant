@@ -56,4 +56,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 a {
     color: inherit;
+    text-decoration: none;
+}
+
+input{
+    outline: none;
 }
