@@ -51,7 +51,10 @@ a {
   text-decoration: none; }
 
 input {
-  outline: none; }
+  outline: 0;
+  border: 0;
+  font-size: inherit;
+  font-family: inherit; }
 
 #doc {
   width: 100%; }
