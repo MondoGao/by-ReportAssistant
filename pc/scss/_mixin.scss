@@ -1,0 +1,42 @@
+@mixin transition($transition){
+	-webkit-transition:$transition;
+	-moz-transition:$transition;
+	-ms-transition:$transition;
+	-o-transition:$transition;
+	transition:$transition;
+}
+
+@mixin opacity($opacity){
+	opacity: $opacity;
+	filter:alpha(opacity=$opacity * 100);
+}
+
+@mixin box-sizing($border-box){
+	-moz-box-sizing:$border-box; /* Firefox */
+	-webkit-box-sizing:$border-box; /* Safari */
+	box-sizing:$border-box;
+}
+
+@mixin transform($transform){
+	transform:$transform;
+	-ms-transform:$transform;	/* IE 9 */
+	-moz-transform:$transform; 	/* Firefox */
+	-webkit-transform:$transform; /* Safari and Chrome */
+	-o-transform:$transform; 	/* Opera */
+}
+
+@mixin flex($num){
+	-webkit-box-flex: $num;      /* OLD - iOS 6-, Safari 3.1-6 */
+  	-moz-box-flex: $num;         /* OLD - Firefox 19- */
+  	// width: 20%;               /* For old syntax, otherwise collapses. */
+  	-webkit-flex: $num;          /* Chrome */
+  	-ms-flex: $num;              /* IE 10 */
+  	flex: $num; 
+}
+@mixin order($num){
+	-webkit-box-ordinal-group: $num;   /* OLD - iOS 6-, Safari 3.1-6 */
+  	-moz-box-ordinal-group: $num;      /* OLD - Firefox 19- */
+  	-ms-flex-order: $num;              /* TWEENER - IE 10 */
+  	-webkit-order: $num;               /* NEW - Chrome */
+  	order: $num;                       /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
