@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>报告菌</title>
+    <link rel="stylesheet" href="styles/report_detail.css">
+    <link rel="stylesheet" href="styles/jquery.mCustomScrollbar.min.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <img src="images/logo.png" class="logo">
+        <div class="search-container">
+            <img src="images/header-bg.png">
+            <div>
+                <div class="search">
+                    <input type="text" id="search-input">
+                    <a href="javascript:;" class="search-submit">搜索</a>
+                </div>
+                <a href="javascript:;" class="upload-file">上传文件</a>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="report-preview">
+            <div class="report-thumb-container clearfix">
+                <img src="images/pdf.png">
+                <div>
+                    <h2>simulink熟悉与应用</h2>
+                    <p class="report-thumb-info">13级 自动化学院 matlab与系统仿真</p>
+                    <p class="download-count">已有16人下载</p>
+                </div>
+            </div>
+            <div class="report-ifr-container" id="report-ifr-container">
+                <iframe src="test.html" id="report-preview-file" scrolling="no" frameborder="0"></iframe>
+            </div>
+            <div class="report-download-bar">
+                <a href="javascript:;" class="report-download-button">下载</a>
+            </div>
+        </div>
+        <div class="report-related">
+            <h2>相关文档推荐</h2>
+            <ul class="report-related-list">
+                <li>
+                    <img src="images/pdf.png">
+                    <div>
+                        <h3>simulink熟悉与应用</h3>
+                        <p>自动化学院</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="images/word.png">
+                    <div>
+                        <h3>编译原理报告</h3>
+                        <p>自动化学院</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="images/word.png">
+                    <div>
+                        <h3>simulink熟悉与应用</h3>
+                        <p>自动化学院</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+<script type="text/javascript" src="scripts/lib/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="scripts/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+<!-- <script type="text/javascript" src="./test.js"></script> -->
+</body>
+</html>
