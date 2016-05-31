@@ -39,7 +39,7 @@
                     <span></span>
                 </li>
             </ul>
-            <div class="add-file-container">
+            <div class="add-file-container hide">
                 <div class="upload-file-component">
                     <label for="upload-file-input">点击上传</label>
                     <input type="file" id="upload-file-input">
@@ -47,7 +47,35 @@
                 <p>一次只能选择一个文件上传</p>
                 <p>多个文件请打包上传</p>
             </div>
-            <div class="file-info-container"></div>
+            <div class="upload-file-form">
+                <div class="file-item">
+                    <h3>标题:</h3>
+                    <input type="text" id="filename" placeholder="请输入标题">
+                </div>
+                <div class="file-item">
+                    <h3>课程名称:</h3>
+                    <input type="text" id="courcename" placeholder="请输入你的课程名称">
+                </div>
+                <div class="file-item">
+                    <h3>学院:</h3>
+                    <input type="text" id="academy" placeholder="请输入你的学院">
+                </div>
+                <div class="file-item">
+                    <h3>年级:</h3>
+                    <input type="text" id="grade" placeholder="请输入你的学级，如：13级">
+                </div>
+                <div class="file-item">
+                    <h3>昵称:</h3>
+                    <input type="text" id="nickname" placeholder="请输入你的昵称">
+                </div>
+                <div class="file-item">
+                    <h3>简介:</h3>
+                    <textarea id="file-short-info" placeholder="请输入不多于200字的介绍"></textarea>
+                </div>
+                <div class="file-item">
+                    <a href="javascript:;" class="upload-file-button">确认上传</a>
+                </div>
+            </div>
             <div class="upload-success-container"></div>
         </div>
     </section>
