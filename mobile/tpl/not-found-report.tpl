@@ -1,1 +1,0 @@
-<img src="images/not-found-report.png" class="not-found-report">
