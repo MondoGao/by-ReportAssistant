@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>报告菌</title>
+    <link rel="stylesheet" href="styles/report_upload.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <img src="images/logo.png" class="logo">
+        <div class="search-container">
+            <img src="images/header-bg.png">
+            <div>
+                <div class="search">
+                    <input type="text" id="search-input">
+                    <a href="javascript:;" class="search-submit">搜索</a>
+                </div>
+                <a href="javascript:;" class="upload-file">上传文件</a>
+            </div>
+        </div>
+    </header>
+    <section class="upload-area">
+        <h2>上传文档</h2>
+        <div class="upload-container">
+            <ul class="upload-progress-bar clearfix">
+                <li class="progress-point">
+                    <img src="images/choose_file.png">
+                    <span></span>
+                </li>
+                <li class="progress-join-line"></li>
+                <li class="progress-point">
+                    <img src="images/file_info.png" class="hide">
+                    <span></span>
+                </li>
+                <li class="progress-join-line"></li>
+                <li class="progress-point">
+                    <img src="images/upload_success.png" class="hide">
+                    <span></span>
+                </li>
+            </ul>
+            <div class="add-file-container">
+                <div class="upload-file-component">
+                    <label for="upload-file-input">点击上传</label>
+                    <input type="file" id="upload-file-input">
+                </div>
+                <p>一次只能选择一个文件上传</p>
+                <p>多个文件请打包上传</p>
+            </div>
+            <div class="file-info-container"></div>
+            <div class="upload-success-container"></div>
+        </div>
+    </section>
+</div>
+</body>
+</html>
