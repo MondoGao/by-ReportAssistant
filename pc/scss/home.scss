@@ -1,15 +1,15 @@
 @import "reset";
 @import "mixin";
+#doc{
+	width: 100%;
+}
 body{
-	min-width: 960px;
-	max-width: 1920px;
 	width:100%;
 	box-sizing:border-box;
-	padding: 0 6.04%;
 	background-color:#F2F2F2;
 	header{
-		width: 100%;
-		min-width: 900px;
+		width: 960px;
+		margin: 0 auto;
 		.header-one{
 			padding-top: 20px;
 			width: 100%;
@@ -66,8 +66,8 @@ body{
 					margin: auto;
 					top: 0;
 					bottom: 0;
-					width: 80.6%;
-					height: 32px;
+					width: 647px;
+					height: 27px;
 					margin-left: 25px;
 					border-top-left-radius: 16px;
 					border-top-right-radius: 16px;
@@ -79,7 +79,7 @@ body{
 						width: 80%;
 						padding: 0;
 						border: 0;
-						line-height: 32px;
+						line-height: 27px;
 						margin-left: 15px;
 					}
 					.search-button{
@@ -87,11 +87,11 @@ body{
 						right: 0;
 						top:0;
 						width: 87px;
-						height: 32px;
+						height: 27px;
 						background-color: red;
 						border-top-right-radius: 16px;
 						border-bottom-right-radius: 16px;
-						line-height: 32px;
+						line-height:27px;
 						text-align: center;
 						color:#FFFFFF;
 					}
@@ -105,14 +105,14 @@ body{
 					right: 1.95%;
 					color:#FFFFFF;
 					width: 14%;
-					height: 28px;
+					height: 23px;
 					border: 2px solid #FFFFFF;
 					border-top-left-radius: 14px;
 					border-top-right-radius: 14px;
 					border-bottom-left-radius: 14px;
 					border-bottom-right-radius: 14px;
 					text-align: center;
-					line-height: 28px;
+					line-height: 23px;
 				}
 			}
 		}
@@ -120,7 +120,8 @@ body{
 
 	section{
 		padding-top: 26px;
-		width: 100%;
+		margin: 0 auto;
+		width: 960px;
     	display:-webkit-flex;
     	display:-moz-flex;
     	display:flex;
