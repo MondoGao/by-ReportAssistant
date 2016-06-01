@@ -15,11 +15,38 @@
 <section>
 	{{each list}}
 		<div class="report">
-			<a  class="icon">
+			<input type="hidden" value="{{$value.document_id}}">
+			{{if $value.type === 'doc' || $value.type === 'docx'}}
+			<a  class="icon word">
 				<div class="report-logo">
-					<img src="{{$value.imgurl}}" alt="">
-				</div>	
+					<img src="images/word_logo.png" alt="">
+				</div>
 			</a>
+			{{else if $value.type === 'ppt' || $value.type === 'pptx'}}
+			<a  class="icon ppt">
+				<div class="report-logo">
+					<img src="images/ppt_logo.png" alt="">
+				</div>
+			</a>
+    		{{else if $value.type === 'pdf'}}
+    		<a  class="icon pdf">
+				<div class="report-logo">
+					<img src="images/pdf_logo.png" alt="">
+				</div>
+			</a>
+    		{{else if $value.type === 'zip'}}
+    		<a  class="icon zip">
+				<div class="report-logo">
+					<img src="images/zip_logo.png" alt="">
+				</div>
+			</a>
+    		{{else if $value.type === 'rar'}}
+   	 		<a  class="icon zip">
+				<div class="report-logo">
+					<img src="images/zip_logo.png" alt="">
+				</div>
+			</a>
+    		{{/if}}
 			<div class="report-intro">
 				<a>{{$value.title}}</a>
 				<p>{{$value.intro}}</p>
