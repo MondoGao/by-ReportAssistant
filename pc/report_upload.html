@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>报告菌</title>
+    <link rel="stylesheet" href="styles/report_upload.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <img src="images/logo.png" class="logo">
+        <div class="search-container">
+            <img src="images/header-bg.png">
+            <div>
+                <div class="search">
+                    <input type="text" id="search-input">
+                    <a href="javascript:;" class="search-submit">搜索</a>
+                </div>
+                <a href="javascript:;" class="upload-file">上传文件</a>
+            </div>
+        </div>
+    </header>
+    <section class="upload-area">
+        <h2>上传文档</h2>
+        <div class="upload-container">
+            <ul class="upload-progress-bar clearfix">
+                <li class="progress-point">
+                    <img src="images/choose_file.png">
+                    <span></span>
+                </li>
+                <li class="progress-join-line"></li>
+                <li class="progress-point progress-point-hide">
+                    <img src="images/file_info.png">
+                    <span></span>
+                </li>
+                <li class="progress-join-line"></li>
+                <li class="progress-point progress-point-hide">
+                    <img src="images/upload_success.png">
+                    <span></span>
+                </li>
+            </ul>
+            <div class="add-file-container hide">
+                <div class="upload-file-component">
+                    <label for="upload-file-input">点击上传</label>
+                    <input type="file" id="upload-file-input">
+                </div>
+                <p>一次只能选择一个文件上传</p>
+                <p>多个文件请打包上传</p>
+            </div>
+            <div class="upload-file-form">
+                <div class="upload-file-item">
+                    <h3>标题:</h3>
+                    <input type="text" id="filename" placeholder="请输入标题">
+                </div>
+                <div class="upload-file-item">
+                    <h3>课程名称:</h3>
+                    <input type="text" id="courcename" placeholder="请输入你的课程名称">
+                </div>
+                <div class="upload-file-item">
+                    <h3>学院:</h3>
+                    <input type="text" id="academy" placeholder="请输入你的学院">
+                </div>
+                <div class="upload-file-item">
+                    <h3>年级:</h3>
+                    <input type="text" id="grade" placeholder="请输入你的学级，如：13级">
+                </div>
+                <div class="upload-file-item">
+                    <h3>昵称:</h3>
+                    <input type="text" id="nickname" placeholder="请输入你的昵称">
+                </div>
+                <div class="upload-file-item">
+                    <h3>简介:</h3>
+                    <textarea id="file-short-info" placeholder="请输入不多于200字的介绍"></textarea>
+                </div>
+                <div class="upload-file-item">
+                    <a href="javascript:;" class="upload-file-button">确认上传</a>
+                </div>
+            </div>
+            <div class="upload-success-container"></div>
+        </div>
+    </section>
+</div>
+</body>
+</html>
