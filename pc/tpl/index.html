@@ -1,13 +1,16 @@
 <header>
-		<div class="header-one clear">
-			<div class="logo1"><img src="images/logo1.png" alt=""></div>
-			<div class="bk"><img src="images/bk.png" alt=""></div>
-		</div>
-		<div class="header-two clear">
-			<div class="logo2"><img src="images/logo2.png" alt=""></div>
-			{{include './search'}}
-		</div>
-</header>
+        <img src="images/logo.png" class="logo">
+        <div class="search-container">
+            <img src="images/header-bg.png">
+            <div>
+                <div class="search">
+                    <input type="text" id="search-input">
+                    <a href="javascript:;" class="search-submit">搜索</a>
+                </div>
+                <a href="javascript:;" class="upload-file">上传文件</a>
+            </div>
+        </div>
+    </header>
 
 <section>
 	{{each list}}
