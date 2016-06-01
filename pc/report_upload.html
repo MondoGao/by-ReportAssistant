@@ -26,17 +26,20 @@
             <ul class="upload-progress-bar clearfix">
                 <li class="progress-point">
                     <img src="images/choose_file.png">
-                    <span></span>
+                    <i></i>
+                    <p>选择文档</p>
                 </li>
                 <li class="progress-join-line"></li>
-                <li class="progress-point progress-point-hide">
+                <li class="progress-point">
                     <img src="images/file_info.png">
-                    <span></span>
+                    <i></i>
+                    <p>补充信息</p>
                 </li>
                 <li class="progress-join-line"></li>
-                <li class="progress-point progress-point-hide">
+                <li class="progress-point progress-point-show">
                     <img src="images/upload_success.png">
-                    <span></span>
+                    <i></i>
+                    <p>完成上传</p>
                 </li>
             </ul>
             <div class="add-file-container hide">
@@ -47,7 +50,7 @@
                 <p>一次只能选择一个文件上传</p>
                 <p>多个文件请打包上传</p>
             </div>
-            <div class="upload-file-form">
+            <div class="upload-file-form hide">
                 <div class="upload-file-item">
                     <h3>标题:</h3>
                     <input type="text" id="filename" placeholder="请输入标题">
@@ -76,7 +79,15 @@
                     <a href="javascript:;" class="upload-file-button">确认上传</a>
                 </div>
             </div>
-            <div class="upload-success-container"></div>
+            <div class="upload-success-container">
+                <div class="upload-info">
+                    <p>恭喜！文档上传成功</p>
+                </div>
+                <div class="button-list clearfix">
+                    <a href="javascript:;">继续上传</a>
+                    <a href="javascript:;">查看文档</a>
+                </div>
+            </div>
         </div>
     </section>
 </div>
