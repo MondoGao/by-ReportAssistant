@@ -17,7 +17,7 @@
 		<div class="report">
 			<input type="hidden" value="{{$value.document_id}}">
 			{{if $value.type === 'doc' || $value.type === 'docx'}}
-			<a  class="icon word">
+			<a  class="icon word" href="report_detail.html?id='{{$value.id}}'" target="view_window">
 				<div class="report-logo">
 					<img src="images/word_logo.png" alt="">
 				</div>
