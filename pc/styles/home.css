@@ -180,8 +180,11 @@ body {
         width: 128px;
         height: 120px;
         background-color: red; }
-        body section .report .icon img {
-          float: right; }
+        body section .report .icon .report-logo {
+          width: 120px;
+          height: 120px;
+          float: right;
+          background-color: #282828; }
       body section .report .report-intro {
         margin-left: 128px;
         padding: 18px 68px 0 38px; }

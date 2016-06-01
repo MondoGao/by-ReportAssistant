@@ -12,9 +12,11 @@
 <section>
 	{{each list}}
 		<div class="report">
-			<div class="icon">
-				<img src="{{$value.imgurl}}" alt="">
-			</div>
+			<a  class="icon">
+				<div class="report-logo">
+					<img src="{{$value.imgurl}}" alt="">
+				</div>	
+			</a>
 			<div class="report-intro">
 				<a>{{$value.title}}</a>
 				<p>{{$value.intro}}</p>

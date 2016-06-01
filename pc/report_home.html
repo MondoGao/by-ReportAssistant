@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<script type="text/javascript" src="scripts/lib/flexible.js"></script>
+	<script type="text/javascript" src="scripts/lib/jquery-2.2.4.min.js"></script>
 	<title>天啊，这里什么报告都有，为什么我大一的时候没有这个东西</title>
     <link rel="stylesheet" href="styles/home.css">
 </head>
@@ -18,7 +18,7 @@ var data = {
 			title: 'Sublime基本使用介绍',
 			intro: '13级 自动化学院 MATLAB与系统仿真巴拉巴拉巴拉巴拉',
 			downNum: '已有16人下载',
-			imgurl: 'images/icon.jpg'
+			imgurl: 'images/word_logo.png'
 			
 		},
 		{
@@ -54,5 +54,6 @@ var data = {
 // 加载index模板
 document.getElementById('doc').innerHTML = template('index', data);
 </script>	
+<script type="text/javascript" src="scripts/disk/home.js"></script>
 </body>
 </html>
