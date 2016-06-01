@@ -135,10 +135,24 @@ header {
 #doc {
   width: 100%; }
 
+.word {
+  background-color: #E63F26; }
+
+.ppt {
+  background-color: #4999F2; }
+
+.pdf {
+  background-color: #EE9414; }
+
+.zip {
+  background-color: #3DD6C6; }
+
 body {
+  font-family: STHeiTi,"Microsoft Yahei","Helvetica Neue",Helvetica,sans-serif;
   width: 100%;
   box-sizing: border-box;
-  background-color: #F2F2F2; }
+  background-color: #F2F2F2;
+  padding-top: 20px; }
   body section {
     padding-top: 26px;
     margin: 0 auto;
@@ -152,37 +166,42 @@ body {
     flex-wrap: wrap; }
     body section .report {
       width: 49.2%;
-      height: 120px;
+      height: px;
       background-color: #FFFFFF;
       margin-bottom: 6px; }
       body section .report .icon {
         float: left;
-        width: 128px;
-        height: 120px;
-        background-color: red; }
+        width: 104px;
+        height: 98px; }
         body section .report .icon .report-logo {
-          width: 120px;
-          height: 120px;
+          width: 98px;
+          height: 98px;
           float: right;
           background-color: #282828; }
+          body section .report .icon .report-logo:hover {
+            background-color: transparent; }
+          body section .report .icon .report-logo img {
+            width: 100%;
+            height: 100%; }
       body section .report .report-intro {
-        margin-left: 128px;
-        padding: 18px 68px 0 38px; }
+        margin-left: 104px;
+        padding: 9px 43px 0 24px; }
         body section .report .report-intro a {
           display: block;
-          font-size: 23px;
-          font-weight: 800;
+          margin-bottom: 10px;
+          font-size: 20px;
+          font-weight: bold;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap; }
         body section .report .report-intro p {
-          font-size: 17px;
-          padding: 4px 0;
+          font-size: 13px;
+          margin-bottom: 10px;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap; }
         body section .report .report-intro span {
-          font-size: 16px;
+          font-size: 13px;
           color: #999; }
   body .changePage {
     padding: 22px 0 36px 0;
