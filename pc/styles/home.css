@@ -56,6 +56,10 @@ input {
   font-size: inherit;
   font-family: inherit; }
 
+header {
+  width: 960px;
+  margin: 0 auto; }
+
 .logo {
   float: left; }
 

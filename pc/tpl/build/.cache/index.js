@@ -1,9 +1,7 @@
-/*TMODJS:{"version":10,"md5":"1359689ac27a75ad9920de0e304fa21b"}*/
+/*TMODJS:{"version":11,"md5":"dee58047453803d2b1f35feae7efa103"}*/
 template('index',function($data,$filename
 /**/) {
-'use strict';var $utils=this,$helpers=$utils.$helpers,include=function(filename,data){data=data||$data;var text=$utils.$include(filename,data,$filename);$out+=text;return $out;},$each=$utils.$each,list=$data.list,$value=$data.$value,$index=$data.$index,$escape=$utils.$escape,$out='';$out+='<header> <div class="header-one clear"> <div class="logo1"><img src="images/logo1.png" alt=""></div> <div class="bk"><img src="images/bk.png" alt=""></div> </div> <div class="header-two clear"> <div class="logo2"><img src="images/logo2.png" alt=""></div> ';
-include('./search');
-$out+=' </div> </header> <section> ';
+'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,list=$data.list,$value=$data.$value,$index=$data.$index,$escape=$utils.$escape,$out='';$out+='<header> <img src="images/logo.png" class="logo"> <div class="search-container"> <img src="images/header-bg.png"> <div> <div class="search"> <input type="text" id="search-input"> <a href="javascript:;" class="search-submit">搜索</a> </div> <a href="javascript:;" class="upload-file">上传文件</a> </div> </div> </header> <section> ';
 $each(list,function($value,$index){
 $out+=' <div class="report"> <a class="icon"> <div class="report-logo"> <img src="';
 $out+=$escape($value.imgurl);
