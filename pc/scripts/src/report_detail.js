@@ -33,7 +33,7 @@ if (search !== '') {
             $(ifr).css({
                 height: ifrH + 200 + 'px'
             });
-            var containerW = $('.report-preview').width() - 1,
+            var containerW = $('#page-container', ifrDoc).width(),
                 ifrPW = ifrP[0].offsetWidth;
             console.log(containerW, ifrPW);
             var scale = containerW / ifrPW;
