@@ -35,6 +35,9 @@ if (search !== '') {
             theme: "minimal-dark",
             scrollbarPosition: 'inside'
         });
+        if(!data.result.preview) {
+            return;
+        }
         $('#report-preview-file').attr('src', data.result.preview);
         // $('#report-preview-file').attr('src', 'test2.html');
         $('#report-preview-file').on('load', function () {
