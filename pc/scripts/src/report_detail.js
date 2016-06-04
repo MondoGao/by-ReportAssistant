@@ -33,7 +33,7 @@ if (search !== '') {
             $(ifr).css({
                 height: ifrH + 200 + 'px'
             });
-            var containerW = ifr.offsetWidth,
+            var containerW = ifr.clientWidth,
                 ifrPW = ifrP[0].offsetWidth;
             console.log(containerW, ifrPW);
             var scale = containerW / ifrPW;
