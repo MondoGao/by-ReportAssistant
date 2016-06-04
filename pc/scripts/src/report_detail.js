@@ -6,21 +6,20 @@ if (searchUrl.indexOf('?') !== -1) {
     search = decodeURIComponent(searchUrl.substr(1));
 }
 
+function linkTosearch(searchInput) {
+    if (!!searchInput) {
+        window.open('report_search.html?search=' + encodeURIComponent(searchInput), 'search_window');
+    }
+}
+
 $('#search-input').on('keypress', function (e) {
-    var keycode = e.which,
-        $this = $(e.currentTarget);
-    if (keycode === 13) {
-        if (!!$this.val()) {
-            window.open('report_search.html?search=' + encodeURIComponent($this.val()));
-        }
+    if (e.which === 13) {
+        linkTosearch($(e.currentTarget).val());
     }
 });
 
 $('.search-submit').on('click', function () {
-    var $this = $('#search-input');
-    if (!!$this.val()) {
-        window.open('report_search.html?search=' + encodeURIComponent($this.val()));
-    }
+    linkTosearch($('#search-input').val());
 });
 
 if (search !== '') {
@@ -35,7 +34,7 @@ if (search !== '') {
             theme: "minimal-dark",
             scrollbarPosition: 'inside'
         });
-        if(!data.result.preview) {
+        if (!data.result.preview) {
             return;
         }
         $('#report-preview-file').attr('src', data.result.preview);
@@ -44,7 +43,7 @@ if (search !== '') {
             var ifr = document.getElementById('report-preview-file'),
                 ifrDoc = ifr.contentDocument || ifr.contentWindow.document,
                 ifrHead = ifrDoc.getElementsByTagName('head')[0],
-                ifrStyle = document.createElement('style');
+                ifrStyle = ifrDoc.createElement('style');
             var ifrP = ifrDoc.getElementsByClassName('pf');
             var ifrH = 0,
                 ifrMargin = parseInt($('.pf', ifrDoc).css('margin-top'));
@@ -56,8 +55,9 @@ if (search !== '') {
             $(ifr).css({
                 height: ifrH + 25 + 'px'
             });
-            var containerW = $(ifr).width(),
+            var containerW = ifrDoc.getElementById('page-container').offsetWidth,
                 ifrPW = ifrP[0].offsetWidth;
+            // console.log(containerW, ifrPW);
             var scale = containerW / ifrPW;
             var scaleTxt = "div[id^='pf']{-webkit-transform: scaleX(" + scale + ");transform:scaleX(" + scale + ");-webkit-transform-origin: 0 100%;transform-origin: 0 100%}";
             var touchTxt = "#page-container{-webkit-overflow-scrolling: touch;}";
