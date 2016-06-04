@@ -64,6 +64,8 @@
 	            theme: "minimal-dark",
 	            scrollbarPosition: 'inside'
 	        });
+	        // $('#report-preview-file').attr('src', data.result.preview);
+	        $('#report-preview-file').attr('src', data.result.preview);
 	        $('#report-preview-file').on('load', function () {
 	            var ifr = document.getElementById('report-preview-file'),
 	                ifrDoc = ifr.contentDocument || ifr.contentWindow.document,
@@ -77,15 +79,16 @@
 	            $(ifr).css({
 	                height: ifrH + 200 + 'px'
 	            });
-	            var containerW = $(ifr).width(),
+	            var containerW = ifr.offsetWidth,
 	                ifrPW = ifrP[0].offsetWidth;
-	            console.log(containerW,ifrPW);
+	            console.log(containerW, ifrPW);
 	            var scale = containerW / ifrPW;
 	            var scaleTxt = "div[id^='pf']{-webkit-transform: scaleX(" + scale + ");transform:scaleX(" + scale + ");-webkit-transform-origin: 0 100%;transform-origin: 0 100%}";
 	            var touchTxt = "#page-container{-webkit-overflow-scrolling: touch;}";
 	            ifrStyle.setAttribute('type', 'text/css');
 	            ifrHead.appendChild(ifrStyle);
 	            ifrStyle.innerHTML = scaleTxt + ' ' + touchTxt;
+	            $('.pc', ifrDoc).addClass('opened');
 	            $('.loading').addClass('hide');
 	            $('.container').removeClass('fade');
 	        });
@@ -127,9 +130,9 @@
 	if(!result.preview){
 	$out+=' ';
 	}else{
-	$out+=' <div class="report-ifr-container" id="report-ifr-container"> <iframe src="';
+	$out+=' <div class="report-ifr-container" id="report-ifr-container"> <!--<iframe src="';
 	$out+=$escape(result.preview);
-	$out+='" id="report-preview-file" scrolling="no" frameborder="0"></iframe>  </div> ';
+	$out+='" id="report-preview-file" scrolling="no" frameborder="0"></iframe>--> <iframe id="report-preview-file"></iframe> </div> ';
 	}
 	$out+=' <div class="report-download-bar"> <a href="';
 	$out+=$escape(result.downloadUrl);

@@ -18,6 +18,8 @@ if (search !== '') {
             theme: "minimal-dark",
             scrollbarPosition: 'inside'
         });
+        // $('#report-preview-file').attr('src', data.result.preview);
+        $('#report-preview-file').attr('src', data.result.preview);
         $('#report-preview-file').on('load', function () {
             var ifr = document.getElementById('report-preview-file'),
                 ifrDoc = ifr.contentDocument || ifr.contentWindow.document,
@@ -31,15 +33,16 @@ if (search !== '') {
             $(ifr).css({
                 height: ifrH + 200 + 'px'
             });
-            var containerW = $(ifr).width(),
+            var containerW = ifr.offsetWidth,
                 ifrPW = ifrP[0].offsetWidth;
-            console.log(containerW,ifrPW);
+            console.log(containerW, ifrPW);
             var scale = containerW / ifrPW;
             var scaleTxt = "div[id^='pf']{-webkit-transform: scaleX(" + scale + ");transform:scaleX(" + scale + ");-webkit-transform-origin: 0 100%;transform-origin: 0 100%}";
             var touchTxt = "#page-container{-webkit-overflow-scrolling: touch;}";
             ifrStyle.setAttribute('type', 'text/css');
             ifrHead.appendChild(ifrStyle);
             ifrStyle.innerHTML = scaleTxt + ' ' + touchTxt;
+            $('.pc', ifrDoc).addClass('opened');
             $('.loading').addClass('hide');
             $('.container').removeClass('fade');
         });
