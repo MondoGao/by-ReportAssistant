@@ -79,7 +79,7 @@
 	            $(ifr).css({
 	                height: ifrH + 200 + 'px'
 	            });
-	            var containerW = $('.report-preview').width(),
+	            var containerW = $('.report-preview').width() - 1,
 	                ifrPW = ifrP[0].offsetWidth;
 	            console.log(containerW, ifrPW);
 	            var scale = containerW / ifrPW;
