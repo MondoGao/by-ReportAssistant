@@ -33,19 +33,21 @@
     <ul class="report-related-list">
         {{each result.related}}
         <li>
-            {{if $value.type === 'doc' || $value.type === 'docx'}}
-            <img src="images/word.png">
-            {{else if $value.type === 'ppt' || $value.type === 'pptx'}}
-            <img src="images/ppt.png">
-            {{else if $value.type === 'zip' || $value.type === 'rar'}}
-            <img src="images/zip.png">
-            {{else if $value.type === 'pdf'}}
-            <img src="images/pdf.png">
-            {{/if}}
-            <div>
-                <h3>{{$value.document_name}}</h3>
-                <p>{{$value.institute}}</p>
-            </div>
+            <a href="report_detail.html?id={{$value.document_id}}">
+                {{if $value.type === 'doc' || $value.type === 'docx'}}
+                <img src="images/word.png">
+                {{else if $value.type === 'ppt' || $value.type === 'pptx'}}
+                <img src="images/ppt.png">
+                {{else if $value.type === 'zip' || $value.type === 'rar'}}
+                <img src="images/zip.png">
+                {{else if $value.type === 'pdf'}}
+                <img src="images/pdf.png">
+                {{/if}}
+                <div>
+                    <h3>{{$value.document_name}}</h3>
+                    <p>{{$value.institute}}</p>
+                </div>
+            </a>
         </li>
         {{/each}}
     </ul>
