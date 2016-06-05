@@ -49,8 +49,8 @@ if (search !== '') {
             theme: "minimal-dark",
             scrollbarPosition: 'inside'
         });
-        // $('#report-preview-file').attr('src', data.result.preview);
-        $('#report-preview-file').attr('src', 'test2.html');
+        $('#report-preview-file').attr('src', data.result.preview);
+        // $('#report-preview-file').attr('src', 'test2.html');
         $('#report-preview-file').on('load', function () {
             var ifr = document.getElementById('report-preview-file'),
                 ifrDoc = ifr.contentDocument || ifr.contentWindow.document,
