@@ -64,11 +64,13 @@
 	        $this.text('努力加载中...');
 	        if (mainFlag === 1) {
 	            $.ajax({
-	                url: '/main_page',
+	                url: '/list',
 	                type: 'POST',
 	                data: {
 	                    begin: pageBegin,
-	                    count: itemCount
+	                    count: itemCount,
+	                    sortType: 'document_name',
+	                    sortDir: 'desc'
 	                }
 	            }).done(function (data) {
 	                $('.load-more-container').remove();
@@ -97,12 +99,14 @@
 	            });
 	        } else {
 	            $.ajax({
-	                url: '/search',
+	                url: '/list',
 	                type: 'POST',
 	                data: {
-	                    keyword: searchInfo,
 	                    begin: pageBegin,
-	                    count: itemCount
+	                    count: itemCount,
+	                    sortType: 'document_name',
+	                    sortDir: 'desc',
+	                    search: searchInfo
 	                }
 	            }).done(function (data) {
 	                $('.load-more-container').remove();
@@ -194,12 +198,14 @@
 	        pageBegin = 0;
 	        mainFlag = 0;
 	        $.ajax({
-	            url: '/search',
+	            url: '/list',
 	            type: 'POST',
 	            data: {
-	                keyword: searchContent,
 	                begin: pageBegin,
-	                count: itemCount
+	                count: itemCount,
+	                sortType: 'document_name',
+	                sortDir: 'desc',
+	                search: searchContent
 	            }
 	        }).done(function (data) {
 	            $('.loading-icon').addClass('hide');
@@ -238,11 +244,13 @@
 	// $('.result-item-container').append(loadMore());
 
 	$.ajax({
-	    url: '/main_page',
+	    url: '/list',
 	    type: 'POST',
 	    data: {
 	        begin: pageBegin,
-	        count: itemCount
+	        count: itemCount,
+	        sortType: 'document_name',
+	        sortDir: 'desc'
 	    }
 	}).done(function (data) {
 	    $('.loading-icon').addClass('hide');
