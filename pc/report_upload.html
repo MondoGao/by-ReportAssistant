@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>报告菌</title>
     <link rel="stylesheet" href="styles/report_upload.css">
+    <link rel="stylesheet" href="styles/jquery.mCustomScrollbar.min.css">
 </head>
 <body>
 <div class="container">
@@ -69,15 +70,73 @@
                 <div class="upload-file-item">
                     <h3>学院:</h3>
                     <div class="file-input-item">
-                        <input type="text" id="academy" placeholder="请输入你的学院" class="input-content">
-                        <p></p>
+                        <div class="select-box">
+                            <div class="current-selected input-content" value="" id="academy-select">
+                                <span>请选择学院</span>
+                                <i></i>
+                            </div>
+                            <ul class="select-options hide">
+                                <li>机械科学与工程学院</li>
+                                <li>计算机科学与技术学院</li>
+                                <li>生命科学与技术学院</li>
+                                <li>电气与电子工程学院</li>
+                                <li>材料科学与工程学院</li>
+                                <li>船舶与海洋工程学院</li>
+                                <li>能源与动力工程学院</li>
+                                <li>自动化学院</li>
+                                <li>光学与电子信息学院</li>
+                                <li>水电与数字化工程学院</li>
+                                <li>软件学院</li>
+                                <li>环境科学与工程学院</li>
+                                <li>电子信息与通信学院</li>
+                                <li>建筑与城市规划学院</li>
+                                <li>土木工程与力学学院</li>
+                                <li>化学与化工学院</li>
+                                <li>数学与统计学院</li>
+                                <li>物理学院</li>
+                                <li>公共管理学院</li>
+                                <li>经济学院</li>
+                                <li>管理学院</li>
+                                <li>人文学院</li>
+                                <li>哲学系</li>
+                                <li>中文系</li>
+                                <li>新闻与信息传播学院</li>
+                                <li>马克思主义学院</li>
+                                <li>社会学院</li>
+                                <li>法学院</li>
+                                <li>外国语学院</li>
+                                <li>基础医学院</li>
+                                <li>药学院</li>
+                                <li>医药卫生管理学院</li>
+                                <li>公共卫生学院</li>
+                                <li>法医学系</li>
+                                <li>护理学院</li>
+                                <li>第一临床学院</li>
+                                <li>第二临床学院</li>
+                                <li>第三临床学院</li>
+                                <li>远程与继续教育学院</li>
+                            </ul>
+                            <p></p>
+                        </div>
                     </div>
                 </div>
                 <div class="upload-file-item">
                     <h3>年级:</h3>
                     <div class="file-input-item">
-                        <input type="text" id="grade" placeholder="请输入你的学级，如：13级" class="input-content">
-                        <p></p>
+                        <div class="select-box">
+                            <div class="current-selected input-content" value="" id="grade-select">
+                                <span>请选择年级</span>
+                                <i></i>
+                            </div>
+                            <ul class="select-options hide">
+                                <li>12级</li>
+                                <li>13级</li>
+                                <li>14级</li>
+                                <li>15级</li>
+                                <li>16级</li>
+                            </ul>
+                            <p></p>
+                        </div>
                     </div>
                 </div>
                 <div class="upload-file-item">
@@ -118,6 +177,7 @@
     <div class="loading-item5"></div>
 </div>
 <script type="text/javascript" src="scripts/lib/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="scripts/lib/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="scripts/dist/report_upload.js"></script>
 </body>
 </html>

@@ -51,8 +51,8 @@
 	    formkey: {
 	        filename: 'name',
 	        courcename: 'docClass',
-	        academy: 'institute',
-	        grade: 'grade',
+	        'academy-select': 'institute',
+	        'grade-select': 'grade',
 	        nickname: 'uploader',
 	        'file-short-info': 'desc'
 	    },
@@ -69,7 +69,7 @@
 
 	//输入item错误提示
 	function inputErrorHandle(e) {
-	    var parent = $(e.target).parent().parent(),
+	    var parent = $(e.target).parent(),
 	        error = $(e.target).next(),
 	        input = $(e.target).val();
 	    if ($(e.target).attr('id') !== 'file-short-info' && input === '') {
@@ -82,7 +82,7 @@
 	    var error = parent.find('p'),
 	        inputItem = parent.find('.input-content'),
 	        id = inputItem.attr('id'),
-	        input = inputItem.val();
+	        input = (inputItem.hasClass('current-selected')) ? inputItem.attr('value') : inputItem.val();
 	    if (id !== 'file-short-info' && input === '') {
 	        error.text(UPLOADFILES.errorInfo.inputNotEmpty);
 	        parent.addClass('show-error-info');
@@ -95,7 +95,7 @@
 
 	//输入item错误提示重置
 	function inputErrorReset(e) {
-	    var parent = $(e.target).parent().parent();
+	    var parent = $(e.target).parent();
 	    if (parent.hasClass('show-error-info')) {
 	        parent.removeClass('show-error-info');
 	    }
@@ -127,6 +127,20 @@
 	    }
 	}
 
+	//展开自定义下拉框
+	function toggleSelect(e) {
+	    var selectOptions = $(e.currentTarget).next(),
+	        parent = $(e.currentTarget).parent().parent();
+	    if (parent.hasClass('show-error-info')) {
+	        parent.removeClass('show-error-info');
+	    }
+	    if (selectOptions.hasClass('hide')) {
+	        selectOptions.removeClass('hide');
+	    } else {
+	        selectOptions.addClass('hide');
+	    }
+	}
+
 	$('#search-input').on('keypress', function (e) {
 	    if (e.which === 13) {
 	        linkTosearch($(e.currentTarget).val());
@@ -147,13 +161,33 @@
 
 	$('#upload-file-input').on('change', uploadReport);
 
+	$('.select-options').mCustomScrollbar({
+	    axis: "y",
+	    theme: "minimal-dark",
+	    scrollbarPosition: 'inside'
+	});
+
+	$('#academy-select').on('click', toggleSelect);
+
+	$('#grade-select').on('click', toggleSelect);
+
+	$('#academy-select').next().on('click', 'li', function (e) {
+	    var choose = $(this).text(),
+	        currentInput = $('#academy-select');
+	    currentInput.attr('value', choose).children('span').text(choose);
+	    currentInput.next().addClass('hide');
+	});
+
+	$('#grade-select').next().on('click', 'li', function (e) {
+	    var choose = $(this).text(),
+	        currentInput = $('#grade-select');
+	    currentInput.attr('value', choose).children('span').text(choose);
+	    currentInput.next().addClass('hide');
+	});
+
 	$('#filename').on('focus', inputErrorReset).on('blur', inputErrorHandle);
 
 	$('#courcename').on('focus', inputErrorReset).on('blur', inputErrorHandle);
-
-	$('#academy').on('focus', inputErrorReset).on('blur', inputErrorHandle);
-
-	$('#grade').on('focus', inputErrorReset).on('blur', inputErrorHandle);
 
 	$('#nickname').on('focus', inputErrorReset).on('blur', inputErrorHandle);
 
@@ -161,16 +195,13 @@
 
 	$('.upload-file-button').on('click', function (e) {
 	    var $this = $(e.target),
-	        errorList = $('.upload-file-item'),
+	        errorList = $('.file-input-item'),
 	        errorFlag = 0;
 	    if (parseInt($this.attr('uploading'))) {
 	        return;
 	    }
 	    $this.attr('uploading', 1).addClass('uploading');
-	    errorList.each(function (index) {
-	        if (index === errorList.length - 1) {
-	            return;
-	        }
+	    errorList.each(function () {
 	        if ($(this).hasClass('show-error-info')) {
 	            errorFlag = 1;
 	        } else if (inputErrorDeal($(this), UPLOADFILES.form)) {
