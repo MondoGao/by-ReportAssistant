@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>报告菌</title>
     <link rel="stylesheet" href="styles/report_upload.css">
+    <link rel="stylesheet" href="styles/jquery.mCustomScrollbar.min.css">
 </head>
 <body>
 <div class="container">
@@ -24,7 +25,7 @@
         <h2>上传文档</h2>
         <div class="upload-container">
             <ul class="upload-progress-bar clearfix">
-                <li class="progress-point">
+                <li class="progress-point progress-point-show">
                     <img src="images/choose_file.png">
                     <i></i>
                     <p>选择文档</p>
@@ -36,47 +37,124 @@
                     <p>补充信息</p>
                 </li>
                 <li class="progress-join-line"></li>
-                <li class="progress-point progress-point-show">
+                <li class="progress-point">
                     <img src="images/upload_success.png">
                     <i></i>
                     <p>完成上传</p>
                 </li>
             </ul>
-            <div class="add-file-container hide">
+            <div class="add-file-container show">
                 <div class="upload-file-component">
                     <label for="upload-file-input">点击上传</label>
                     <input type="file" id="upload-file-input">
                 </div>
                 <p>一次只能选择一个文件上传</p>
                 <p>多个文件请打包上传</p>
+                <p>支持doc、docx、ppt、pptx、zip、rar格式</p>
             </div>
-            <div class="upload-file-form hide">
+            <div class="upload-file-form">
                 <div class="upload-file-item">
                     <h3>标题:</h3>
-                    <input type="text" id="filename" placeholder="请输入标题">
+                    <div class="file-input-item">
+                        <input type="text" id="filename" placeholder="请输入标题" class="input-content">
+                        <p></p>
+                    </div>
                 </div>
                 <div class="upload-file-item">
                     <h3>课程名称:</h3>
-                    <input type="text" id="courcename" placeholder="请输入你的课程名称">
+                    <div class="file-input-item">
+                        <input type="text" id="courcename" placeholder="请输入你的课程名称" class="input-content">
+                        <p></p>
+                    </div>
                 </div>
                 <div class="upload-file-item">
                     <h3>学院:</h3>
-                    <input type="text" id="academy" placeholder="请输入你的学院">
+                    <div class="file-input-item">
+                        <div class="select-box">
+                            <div class="current-selected input-content" value="" id="academy-select">
+                                <span>请选择学院</span>
+                                <i></i>
+                            </div>
+                            <ul class="select-options hide">
+                                <li>机械科学与工程学院</li>
+                                <li>计算机科学与技术学院</li>
+                                <li>生命科学与技术学院</li>
+                                <li>电气与电子工程学院</li>
+                                <li>材料科学与工程学院</li>
+                                <li>船舶与海洋工程学院</li>
+                                <li>能源与动力工程学院</li>
+                                <li>自动化学院</li>
+                                <li>光学与电子信息学院</li>
+                                <li>水电与数字化工程学院</li>
+                                <li>软件学院</li>
+                                <li>环境科学与工程学院</li>
+                                <li>电子信息与通信学院</li>
+                                <li>建筑与城市规划学院</li>
+                                <li>土木工程与力学学院</li>
+                                <li>化学与化工学院</li>
+                                <li>数学与统计学院</li>
+                                <li>物理学院</li>
+                                <li>公共管理学院</li>
+                                <li>经济学院</li>
+                                <li>管理学院</li>
+                                <li>人文学院</li>
+                                <li>哲学系</li>
+                                <li>中文系</li>
+                                <li>新闻与信息传播学院</li>
+                                <li>马克思主义学院</li>
+                                <li>社会学院</li>
+                                <li>法学院</li>
+                                <li>外国语学院</li>
+                                <li>基础医学院</li>
+                                <li>药学院</li>
+                                <li>医药卫生管理学院</li>
+                                <li>公共卫生学院</li>
+                                <li>法医学系</li>
+                                <li>护理学院</li>
+                                <li>第一临床学院</li>
+                                <li>第二临床学院</li>
+                                <li>第三临床学院</li>
+                                <li>远程与继续教育学院</li>
+                            </ul>
+                            <p></p>
+                        </div>
+                    </div>
                 </div>
                 <div class="upload-file-item">
                     <h3>年级:</h3>
-                    <input type="text" id="grade" placeholder="请输入你的学级，如：13级">
+                    <div class="file-input-item">
+                        <div class="select-box">
+                            <div class="current-selected input-content" value="" id="grade-select">
+                                <span>请选择年级</span>
+                                <i></i>
+                            </div>
+                            <ul class="select-options hide">
+                                <li>12级</li>
+                                <li>13级</li>
+                                <li>14级</li>
+                                <li>15级</li>
+                                <li>16级</li>
+                            </ul>
+                            <p></p>
+                        </div>
+                    </div>
                 </div>
                 <div class="upload-file-item">
                     <h3>昵称:</h3>
-                    <input type="text" id="nickname" placeholder="请输入你的昵称">
+                    <div class="file-input-item">
+                        <input type="text" id="nickname" placeholder="请输入你的昵称" class="input-content">
+                        <p></p>
+                    </div>
                 </div>
                 <div class="upload-file-item">
                     <h3>简介:</h3>
-                    <textarea id="file-short-info" placeholder="请输入不多于200字的介绍"></textarea>
+                    <div class="file-input-item">
+                        <textarea id="file-short-info" placeholder="选填，输入不多于200字的介绍" class="input-content"></textarea>
+                        <p></p>
+                    </div>
                 </div>
                 <div class="upload-file-item">
-                    <a href="javascript:;" class="upload-file-button">确认上传</a>
+                    <a href="javascript:;" class="upload-file-button" uploading="0">确认上传</a>
                 </div>
             </div>
             <div class="upload-success-container">
@@ -84,12 +162,22 @@
                     <p>恭喜！文档上传成功</p>
                 </div>
                 <div class="button-list clearfix">
-                    <a href="javascript:;">继续上传</a>
-                    <a href="javascript:;">查看文档</a>
+                    <a href="javascript:;" id="continue-upload">继续上传</a>
+                    <a href="javascript:;" id="preview-upload">查看文档</a>
                 </div>
             </div>
         </div>
     </section>
 </div>
+<div class="loading hide">
+    <div class="loading-item1"></div>
+    <div class="loading-item2"></div>
+    <div class="loading-item3"></div>
+    <div class="loading-item4"></div>
+    <div class="loading-item5"></div>
+</div>
+<script type="text/javascript" src="scripts/lib/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="scripts/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="scripts/dist/report_upload.js"></script>
 </body>
 </html>

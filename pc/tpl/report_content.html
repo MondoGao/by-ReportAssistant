@@ -1,0 +1,58 @@
+<div class="report-preview">
+    <div class="report-thumb-container clearfix">
+        {{if result.type === 'doc' || result.type === 'docx'}}
+        <img src="images/word.png">
+        {{else if result.type === 'ppt' || result.type === 'pptx'}}
+        <img src="images/ppt.png">
+        {{else if result.type === 'zip' || result.type === 'rar'}}
+        <img src="images/zip.png">
+        {{else if result.type === 'pdf'}}
+        <img src="images/pdf.png">
+        {{/if}}
+        <div>
+            <h2>{{result.document_name}}</h2>
+            <p class="report-thumb-info">{{result.grade}} {{result.institute}} {{result.class}}</p>
+            <p class="download-count">已有{{result.downloads}}人下载</p>
+        </div>
+    </div>
+    {{if !result.preview}}
+    <div class="report-miss-container">
+        <img src="images/report-preview-miss.png">
+    </div>
+    {{else}}
+    <div class="report-ifr-container" id="report-ifr-container">
+        <!--<iframe src="{{result.preview}}" id="report-preview-file" scrolling="no" frameborder="0"></iframe>-->
+        <iframe id="report-preview-file"></iframe>
+    </div>
+    {{/if}}
+    <div class="report-download-bar">
+        <input type="hidden" value="{{result.downloadUrl}}" id="downloadLink">
+        <a href="javascript:;" class="report-download-button">
+            <span>下载</span>
+        </a>
+    </div>
+</div>
+<div class="report-related">
+    <h2>相关文档推荐</h2>
+    <ul class="report-related-list">
+        {{each result.related}}
+        <li>
+            <a href="report_detail.html?id={{$value.document_id}}" title="{{$value.class}} {{$value.document_name}}">
+                {{if $value.type === 'doc' || $value.type === 'docx'}}
+                <img src="images/word.png">
+                {{else if $value.type === 'ppt' || $value.type === 'pptx'}}
+                <img src="images/ppt.png">
+                {{else if $value.type === 'zip' || $value.type === 'rar'}}
+                <img src="images/zip.png">
+                {{else if $value.type === 'pdf'}}
+                <img src="images/pdf.png">
+                {{/if}}
+                <div>
+                    <h3>{{$value.document_name}}</h3>
+                    <p>{{$value.institute}}</p>
+                </div>
+            </a>
+        </li>
+        {{/each}}
+    </ul>
+</div>

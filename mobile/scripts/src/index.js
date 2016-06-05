@@ -6,6 +6,7 @@ var Reminder = require('./reminder');
 
 var pageBegin = 0;
 var itemCount = 10;
+var pageCount = 1;
 var mainFlag = 1;
 var searchInfo = '';
 
@@ -18,11 +19,13 @@ function loadMoreReport() {
         $this.text('努力加载中...');
         if (mainFlag === 1) {
             $.ajax({
-                url: '/main_page',
+                url: '/list',
                 type: 'POST',
                 data: {
                     begin: pageBegin,
-                    count: itemCount
+                    count: itemCount,
+                    sortType: 'document_name',
+                    sortDir: 'desc'
                 }
             }).done(function (data) {
                 $('.load-more-container').remove();
@@ -35,7 +38,7 @@ function loadMoreReport() {
                     $('.result-item-container').append(endLine());
                     resetLoadMoreReport();
                 } else {
-                    pageBegin += itemCount;
+                    pageBegin += pageCount;
                     $('.result-item-container').append(searchResult(data));
                     jumpDetail(false);
                     $('.result-item-container').append(loadMore());
@@ -51,12 +54,14 @@ function loadMoreReport() {
             });
         } else {
             $.ajax({
-                url: '/search',
+                url: '/list',
                 type: 'POST',
                 data: {
-                    keyword: searchInfo,
                     begin: pageBegin,
-                    count: itemCount
+                    count: itemCount,
+                    sortType: 'document_name',
+                    sortDir: 'desc',
+                    search: searchInfo
                 }
             }).done(function (data) {
                 $('.load-more-container').remove();
@@ -69,7 +74,7 @@ function loadMoreReport() {
                     $('.result-item-container').append(endLine());
                     resetLoadMoreReport();
                 } else {
-                    pageBegin += itemCount;
+                    pageBegin += pageCount;
                     $('.result-item-container').append(searchResult(data));
                     jumpDetail(false);
                     $('.result-item-container').append(loadMore());
@@ -91,7 +96,7 @@ function loadMoreReport() {
 function resetLoadMoreReport(timeout) {
     timeout = timeout || 300000;
     setTimeout(function () {
-        pageBegin += itemCount;
+        pageBegin += pageCount;
         $('.end-line').remove();
         $('.load-more-container').remove();
         $('.result-item-container').append(loadMore());
@@ -148,12 +153,14 @@ $('#search-input').on('keyup', function (e) {
         pageBegin = 0;
         mainFlag = 0;
         $.ajax({
-            url: '/search',
+            url: '/list',
             type: 'POST',
             data: {
-                keyword: searchContent,
                 begin: pageBegin,
-                count: itemCount
+                count: itemCount,
+                sortType: 'document_name',
+                sortDir: 'desc',
+                search: searchContent
             }
         }).done(function (data) {
             $('.loading-icon').addClass('hide');
@@ -166,7 +173,7 @@ $('#search-input').on('keyup', function (e) {
                 jumpDetail(true);
                 $('.result-item-container').append(endLine());
             } else {
-                pageBegin += itemCount;
+                pageBegin += pageCount;
                 $('.result-item-container').append(searchResult(data));
                 jumpDetail(true);
                 $('.result-item-container').append(loadMore());
@@ -192,11 +199,13 @@ $('.cancel-btn').on('click', function (e) {
 // $('.result-item-container').append(loadMore());
 
 $.ajax({
-    url: '/main_page',
+    url: '/list',
     type: 'POST',
     data: {
         begin: pageBegin,
-        count: itemCount
+        count: itemCount,
+        sortType: 'document_name',
+        sortDir: 'desc'
     }
 }).done(function (data) {
     $('.loading-icon').addClass('hide');
@@ -208,7 +217,7 @@ $.ajax({
         jumpDetail(true);
         $('.result-item-container').append(endLine());
     } else {
-        pageBegin += itemCount;
+        pageBegin += pageCount;
         $('.result-item-container').append(searchResult(data));
         jumpDetail(true);
         $('.result-item-container').append(loadMore());
