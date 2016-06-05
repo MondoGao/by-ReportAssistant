@@ -176,6 +176,10 @@
 	$each(result.related,function($value,$index){
 	$out+=' <li> <a href="report_detail.html?id=';
 	$out+=$escape($value.document_id);
+	$out+='" title="';
+	$out+=$escape($value.class);
+	$out+=' ';
+	$out+=$escape($value.document_name);
 	$out+='"> ';
 	if($value.type === 'doc' || $value.type === 'docx'){
 	$out+=' <img src="images/word.png"> ';
@@ -186,11 +190,7 @@
 	}else if($value.type === 'pdf'){
 	$out+=' <img src="images/pdf.png"> ';
 	}
-	$out+=' <div> <h3 title="';
-	$out+=$escape($value.class);
-	$out+=' ';
-	$out+=$escape($value.document_name);
-	$out+='">';
+	$out+=' <div> <h3>';
 	$out+=$escape($value.document_name);
 	$out+='</h3> <p>';
 	$out+=$escape($value.institute);
