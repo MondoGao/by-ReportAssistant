@@ -179,6 +179,7 @@
 	    } else {
 	        var formData = createformData(UPLOADFILES.form);
 	        $('.loading').removeClass('hide');
+	        $('.container').addClass('container-fade');
 	        $.ajax({
 	            url: '/upload',
 	            type: 'POST',
@@ -191,6 +192,7 @@
 	                target: 'preview_window'
 	            });
 	            $('.loading').addClass('hide');
+	            $('.container').removeClass('container-fade');
 	            $('.upload-file-form').removeClass('show');
 	            $('.upload-success-container').addClass('show');
 	            $('.progress-point').eq(1).removeClass('progress-point-show');
