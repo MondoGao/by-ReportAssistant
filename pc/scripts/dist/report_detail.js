@@ -82,6 +82,8 @@
 	            }).done(function (data) {
 	                if (data.code === -1) {
 	                    alert('该文档无法下载，请下载其他文档');
+	                } else {
+	                    $("body").append("<iframe src='" + $('#downloadLink').val() +"' style='display: none;' ></iframe>");
 	                }
 	            }).fail(function () {
 	                alert('该文档无法下载，请下载其他文档');
