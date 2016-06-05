@@ -81,10 +81,12 @@
 	            scrollbarPosition: 'inside'
 	        });
 	        if (!data.result.preview) {
+	            $('.loading').addClass('hide');
+	            $('.container').removeClass('fade');
 	            return;
 	        }
-	        $('#report-preview-file').attr('src', data.result.preview);
-	        // $('#report-preview-file').attr('src', 'test2.html');
+	        // $('#report-preview-file').attr('src', data.result.preview);
+	        $('#report-preview-file').attr('src', 'test2.html');
 	        $('#report-preview-file').on('load', function () {
 	            var ifr = document.getElementById('report-preview-file'),
 	                ifrDoc = ifr.contentDocument || ifr.contentWindow.document,
@@ -150,7 +152,7 @@
 	$out+=$escape(result.downloads);
 	$out+='人下载</p> </div> </div> ';
 	if(!result.preview){
-	$out+=' ';
+	$out+=' <div class="report-miss-container"> <img src="images/report-preview-miss.png"> </div> ';
 	}else{
 	$out+=' <div class="report-ifr-container" id="report-ifr-container"> <!--<iframe src="';
 	$out+=$escape(result.preview);
