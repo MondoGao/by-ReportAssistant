@@ -37,6 +37,8 @@ if (search !== '') {
                 if (data.code === -1) {
                     alert('该文档无法下载，请下载其他文档');
                 }
+            }).fail(function () {
+                alert('该文档无法下载，请下载其他文档');
             });
         });
         if (!data.result.preview) {
