@@ -1,7 +1,7 @@
-/*TMODJS:{"version":27,"md5":"af6642cccde9cc7950938bcffe4be819"}*/
+/*TMODJS:{"version":28,"md5":"d33b36404f3e8a30e089a9a0c95bfd9c"}*/
 template('index',function($data,$filename
 /**/) {
-'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,list=$data.list,$value=$data.$value,$index=$data.$index,$escape=$utils.$escape,$out='';$out+='<header> <img src="images/logo.png" class="logo"> <div class="search-container"> <img src="images/header-bg.png"> <div> <div class="search"> <input type="text" id="search-input"> <a href="javascript:;" class="search-submit">搜索</a> </div> <a href="javascript:;" class="upload-file">上传文件</a> </div> </div> </header> <section> ';
+'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,list=$data.list,$value=$data.$value,$index=$data.$index,$escape=$utils.$escape,$out='';$out+='<header> <img src="images/logo.png" class="logo"> <div class="search-container"> <img src="images/header-bg.png"> <div> <div class="search"> <input type="text" id="search-input"> <a href="javascript:;" class="search-submit">搜索</a> </div> <a href="report_upload.html" class="upload-file" target="upload_window">上传文件</a> </div> </div> </header> <section> ';
 $each(list,function($value,$index){
 $out+=' <div class="report"> <input type="hidden" value="';
 $out+=$escape($value.document_id);
