@@ -29,16 +29,26 @@ if (search !== '') {
         type: 'GET'
     }).done(function (data) {
         $('#report-container').append(reportPreview(data));
-        $("#report-ifr-container").mCustomScrollbar({
-            axis: "y",
-            theme: "minimal-dark",
-            scrollbarPosition: 'inside'
+        $('.report-download-button').on('click', function () {
+            $.ajax({
+                url: $('#downloadLink').val(),
+                type: 'GET'
+            }).done(function (data) {
+                if (data.code === -1) {
+                    alert('该文档无法下载，请下载其他文档');
+                }
+            });
         });
         if (!data.result.preview) {
             $('.loading').addClass('hide');
             $('.container').removeClass('fade');
             return;
         }
+        $("#report-ifr-container").mCustomScrollbar({
+            axis: "y",
+            theme: "minimal-dark",
+            scrollbarPosition: 'inside'
+        });
         // $('#report-preview-file').attr('src', data.result.preview);
         $('#report-preview-file').attr('src', 'test2.html');
         $('#report-preview-file').on('load', function () {

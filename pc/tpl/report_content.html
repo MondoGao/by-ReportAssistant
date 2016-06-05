@@ -26,7 +26,8 @@
     </div>
     {{/if}}
     <div class="report-download-bar">
-        <a href="{{result.downloadUrl}}" class="report-download-button">
+        <input type="hidden" value="{{result.downloadUrl}}" id="downloadLink">
+        <a href="javascript:;" class="report-download-button">
             <span>下载</span>
         </a>
     </div>

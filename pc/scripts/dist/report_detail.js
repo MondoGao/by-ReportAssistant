@@ -75,16 +75,26 @@
 	        type: 'GET'
 	    }).done(function (data) {
 	        $('#report-container').append(reportPreview(data));
-	        $("#report-ifr-container").mCustomScrollbar({
-	            axis: "y",
-	            theme: "minimal-dark",
-	            scrollbarPosition: 'inside'
+	        $('.report-download-button').on('click', function () {
+	            $.ajax({
+	                url: $('#downloadLink').val(),
+	                type: 'GET'
+	            }).done(function (data) {
+	                if (data.code === -1) {
+	                    alert('该文档无法下载，请下载其他文档');
+	                }
+	            });
 	        });
 	        if (!data.result.preview) {
 	            $('.loading').addClass('hide');
 	            $('.container').removeClass('fade');
 	            return;
 	        }
+	        $("#report-ifr-container").mCustomScrollbar({
+	            axis: "y",
+	            theme: "minimal-dark",
+	            scrollbarPosition: 'inside'
+	        });
 	        // $('#report-preview-file').attr('src', data.result.preview);
 	        $('#report-preview-file').attr('src', 'test2.html');
 	        $('#report-preview-file').on('load', function () {
@@ -158,9 +168,9 @@
 	$out+=$escape(result.preview);
 	$out+='" id="report-preview-file" scrolling="no" frameborder="0"></iframe>--> <iframe id="report-preview-file"></iframe> </div> ';
 	}
-	$out+=' <div class="report-download-bar"> <a href="';
+	$out+=' <div class="report-download-bar"> <input type="hidden" value="';
 	$out+=$escape(result.downloadUrl);
-	$out+='" class="report-download-button"> <span>下载</span> </a> </div> </div> <div class="report-related"> <h2>相关文档推荐</h2> <ul class="report-related-list"> ';
+	$out+='" id="downloadLink"> <a href="javascript:;" class="report-download-button"> <span>下载</span> </a> </div> </div> <div class="report-related"> <h2>相关文档推荐</h2> <ul class="report-related-list"> ';
 	$each(result.related,function($value,$index){
 	$out+=' <li> <a href="report_detail.html?id=';
 	$out+=$escape($value.document_id);
