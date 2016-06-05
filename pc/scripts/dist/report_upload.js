@@ -110,6 +110,23 @@
 	    return form;
 	}
 
+	//上传文件操作
+	function uploadReport(e) {
+	    var file = e.target.files[0],
+	        filename = file.name,
+	        mimetype = filename.toLowerCase().substr(filename.lastIndexOf('.') + 1);
+	    if ($.inArray(mimetype, UPLOADFILES.mimeList) === -1) {
+	        alert('不支持该文件类型，请上传合适格式文件');
+	    } else {
+	        UPLOADFILES.form.file = file;
+	        UPLOADFILES.form.postfix = mimetype;
+	        $('.add-file-container').removeClass('show');
+	        $('.upload-file-form').addClass('show');
+	        $('.progress-point').eq(0).removeClass('progress-point-show');
+	        $('.progress-point').eq(1).addClass('progress-point-show');
+	    }
+	}
+
 	$('#search-input').on('keypress', function (e) {
 	    if (e.which === 13) {
 	        linkTosearch($(e.currentTarget).val());
@@ -128,21 +145,7 @@
 	    window.location.reload();
 	});
 
-	$('#upload-file-input').on('change', function (e) {
-	    var file = e.target.files[0],
-	        filename = file.name,
-	        mimetype = filename.toLowerCase().substr(filename.lastIndexOf('.') + 1);
-	    if ($.inArray(mimetype, UPLOADFILES.mimeList) === -1) {
-	        alert('不支持该文件类型，请上传合适格式文件');
-	    } else {
-	        UPLOADFILES.form.file = file;
-	        UPLOADFILES.form.postfix = mimetype;
-	        $('.add-file-container').removeClass('show');
-	        $('.upload-file-form').addClass('show');
-	        $('.progress-point').eq(0).removeClass('progress-point-show');
-	        $('.progress-point').eq(1).addClass('progress-point-show');
-	    }
-	});
+	$('#upload-file-input').on('change', uploadReport);
 
 	$('#filename').on('focus', inputErrorReset).on('blur', inputErrorHandle);
 
@@ -197,6 +200,18 @@
 	            $('.upload-success-container').addClass('show');
 	            $('.progress-point').eq(1).removeClass('progress-point-show');
 	            $('.progress-point').eq(2).addClass('progress-point-show');
+	        }).fail(function () {
+	            alert('上传失败，请重试');
+	            $this.attr('uploading', 0).removeClass('uploading');
+	            $('#upload-file-input').remove();
+	            $('.upload-file-component').append('<input type="file" id="upload-file-input">');
+	            $('#upload-file-input').on('change', uploadReport);
+	            $('.loading').addClass('hide');
+	            $('.container').removeClass('container-fade');
+	            $('.upload-file-form').removeClass('show');
+	            $('.add-file-container').addClass('show');
+	            $('.progress-point').eq(1).removeClass('progress-point-show');
+	            $('.progress-point').eq(0).addClass('progress-point-show');
 	        });
 	    }
 	});
