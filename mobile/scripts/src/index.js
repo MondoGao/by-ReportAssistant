@@ -6,6 +6,7 @@ var Reminder = require('./reminder');
 
 var pageBegin = 0;
 var itemCount = 10;
+var pageCount = 1;
 var mainFlag = 1;
 var searchInfo = '';
 
@@ -37,7 +38,7 @@ function loadMoreReport() {
                     $('.result-item-container').append(endLine());
                     resetLoadMoreReport();
                 } else {
-                    pageBegin += itemCount;
+                    pageBegin += pageCount;
                     $('.result-item-container').append(searchResult(data));
                     jumpDetail(false);
                     $('.result-item-container').append(loadMore());
@@ -73,7 +74,7 @@ function loadMoreReport() {
                     $('.result-item-container').append(endLine());
                     resetLoadMoreReport();
                 } else {
-                    pageBegin += itemCount;
+                    pageBegin += pageCount;
                     $('.result-item-container').append(searchResult(data));
                     jumpDetail(false);
                     $('.result-item-container').append(loadMore());
@@ -95,7 +96,7 @@ function loadMoreReport() {
 function resetLoadMoreReport(timeout) {
     timeout = timeout || 300000;
     setTimeout(function () {
-        pageBegin += itemCount;
+        pageBegin += pageCount;
         $('.end-line').remove();
         $('.load-more-container').remove();
         $('.result-item-container').append(loadMore());
@@ -172,7 +173,7 @@ $('#search-input').on('keyup', function (e) {
                 jumpDetail(true);
                 $('.result-item-container').append(endLine());
             } else {
-                pageBegin += itemCount;
+                pageBegin += pageCount;
                 $('.result-item-container').append(searchResult(data));
                 jumpDetail(true);
                 $('.result-item-container').append(loadMore());
@@ -216,7 +217,7 @@ $.ajax({
         jumpDetail(true);
         $('.result-item-container').append(endLine());
     } else {
-        pageBegin += itemCount;
+        pageBegin += pageCount;
         $('.result-item-container').append(searchResult(data));
         jumpDetail(true);
         $('.result-item-container').append(loadMore());

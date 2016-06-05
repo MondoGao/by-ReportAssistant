@@ -52,6 +52,7 @@
 
 	var pageBegin = 0;
 	var itemCount = 10;
+	var pageCount = 1;
 	var mainFlag = 1;
 	var searchInfo = '';
 
@@ -83,7 +84,7 @@
 	                    $('.result-item-container').append(endLine());
 	                    resetLoadMoreReport();
 	                } else {
-	                    pageBegin += itemCount;
+	                    pageBegin += pageCount;
 	                    $('.result-item-container').append(searchResult(data));
 	                    jumpDetail(false);
 	                    $('.result-item-container').append(loadMore());
@@ -119,7 +120,7 @@
 	                    $('.result-item-container').append(endLine());
 	                    resetLoadMoreReport();
 	                } else {
-	                    pageBegin += itemCount;
+	                    pageBegin += pageCount;
 	                    $('.result-item-container').append(searchResult(data));
 	                    jumpDetail(false);
 	                    $('.result-item-container').append(loadMore());
@@ -141,7 +142,7 @@
 	function resetLoadMoreReport(timeout) {
 	    timeout = timeout || 300000;
 	    setTimeout(function () {
-	        pageBegin += itemCount;
+	        pageBegin += pageCount;
 	        $('.end-line').remove();
 	        $('.load-more-container').remove();
 	        $('.result-item-container').append(loadMore());
@@ -218,7 +219,7 @@
 	                jumpDetail(true);
 	                $('.result-item-container').append(endLine());
 	            } else {
-	                pageBegin += itemCount;
+	                pageBegin += pageCount;
 	                $('.result-item-container').append(searchResult(data));
 	                jumpDetail(true);
 	                $('.result-item-container').append(loadMore());
@@ -262,7 +263,7 @@
 	        jumpDetail(true);
 	        $('.result-item-container').append(endLine());
 	    } else {
-	        pageBegin += itemCount;
+	        pageBegin += pageCount;
 	        $('.result-item-container').append(searchResult(data));
 	        jumpDetail(true);
 	        $('.result-item-container').append(loadMore());
