@@ -19,14 +19,15 @@ $.ajax({
     success: function(data) {
        	console.log(data.result);
         report_data.list = data.result;
+        console.log(report_data.list);
+		document.getElementById('doc').innerHTML = template('index', report_data);
     },
     error: function(data) {
         document.write = $.parseJSON(data.responseText).error;
    	},     
 }); 
 
-console.log(report_data.list);
-document.getElementById('doc').innerHTML = template('index', report_data);
+	
 }
 
 //下一页或上一页
