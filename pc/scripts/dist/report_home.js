@@ -1,6 +1,6 @@
 //一进页面加载代码
 function firstshow(){
-	getdata(0);
+	getdata(1);
 }
 firstshow();
 
