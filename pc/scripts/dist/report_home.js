@@ -88,7 +88,7 @@ turnpage();
 
 //搜索
 $(".search-submit").click(function(){
-	{"begin":begin,"count":20,"sortType":"document_name","sortDir":"desc"}
+	
 	$.ajax({
        	type: "post",
        	url: "/list",
