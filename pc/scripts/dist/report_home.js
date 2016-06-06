@@ -37,58 +37,35 @@ function turnpage(){
 			console.log(pageOn);
 		}
 	}
+
 	$("#next").click(function(){
 		if(pageOn<($("li").length-1)){
 			pageOn = pageOn + 1;
+			getdata(pageOn+1);
 			$("li").eq(pageOn-1).removeClass("pageOn");
 			$("li").eq(pageOn).addClass("pageOn"); 
-			getdata(2);
 		}
 		else{
 			return;
 		}
 	})
-	// 	$.ajax({
- //        	type: "post",
- //    		url: "/list", 
- //    		data:{"begin":11,"count":10,"sortType":"document_name","sortDir":"desc"},
- //    		dataType:"json",     
- //    		success: function(data) {
- //       		 	report_data.list = data.result;
-	// 			document.getElementById('doc').innerHTML = template('index', report_data);
- //    		},
- //    		error: function(data) {
- //        		document.write = $.parseJSON(data.responseText).error;
- //   			},         
- //    	}) 
-	// })
-	// $("#prev").click(function(){
-	// 	if(pageOn>=1){
-	// 		pageOn = pageOn - 1;
-	// 		$("li").eq(pageOn+1).removeClass("pageOn");
-	// 		$("li").eq(pageOn).addClass("pageOn");
-	// 	}
-	// 	else{
-	// 		return;
-	// 	}
-	// 	$.ajax({
- //        	type: "post",
- //        	url: "/main_page",     
- //        	success: function(data) {
- //           		console.log(data.result.document_id);
- //        	},
- //        	error: function(data) {
-	//             document.write = $.parseJSON(data.responseText).error;
- //    		},     
- //    	}) 
-	// })
-	console.log("fanye")
+
+	$("#prev").click(function(){
+		if(pageOn>=1){
+			pageOn = pageOn - 1;
+			getdata(pageOn+1);
+			$("li").eq(pageOn+1).removeClass("pageOn");
+			$("li").eq(pageOn).addClass("pageOn");
+		}
+		else{
+			return;
+		} 	 
+	})
 }
 turnpage();
 
 //搜索
 $(".search-submit").click(function(){
-	
 	$.ajax({
        	type: "post",
        	url: "/list",
