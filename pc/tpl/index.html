@@ -17,53 +17,42 @@
 		<div class="report">
 			<input type="hidden" value="{{$value.document_id}}">
 			{{if $value.type === 'doc' || $value.type === 'docx'}}
-			<a  class="icon word" href="report_detail.html?id='{{$value.id}}'" target="view_window">
+			<a  class="icon word" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 				<div class="report-logo">
 					<img src="images/word_logo.png" alt="">
 				</div>
 			</a>
 			{{else if $value.type === 'ppt' || $value.type === 'pptx'}}
-			<a  class="icon ppt">
+			<a  class="icon ppt" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 				<div class="report-logo">
 					<img src="images/ppt_logo.png" alt="">
 				</div>
 			</a>
     		{{else if $value.type === 'pdf'}}
-    		<a  class="icon pdf">
+    		<a  class="icon pdf" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 				<div class="report-logo">
 					<img src="images/pdf_logo.png" alt="">
 				</div>
 			</a>
     		{{else if $value.type === 'zip'}}
-    		<a  class="icon zip">
+    		<a  class="icon zip" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 				<div class="report-logo">
 					<img src="images/zip_logo.png" alt="">
 				</div>
 			</a>
     		{{else if $value.type === 'rar'}}
-   	 		<a  class="icon zip">
+   	 		<a  class="icon zip" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 				<div class="report-logo">
 					<img src="images/zip_logo.png" alt="">
 				</div>
 			</a>
     		{{/if}}
 			<div class="report-intro">
-				<a>{{$value.title}}</a>
-				<p>{{$value.intro}}</p>
-				<span>{{$value.downNum}}</span>
+				<a>{{$value.document_name}}</a>
+				<p>{{$value.grade}}&nbsp;{{$value.institute}}&nbsp;{{$value.class}}</p>
+				<span>已有{{$value.downloads}}人下载</span>
 			</div>
 		</div>	
 	{{/each}}
 </section>
 
-<div class="changePage clear">
-	<img src="images/prev.png" alt="">
-	<ul>
-		<li class="pageOn"><div>1</div></li>
-		<li><div>2</div></li>
-		<li><div>3</div></li>
-		<li><div>4</div></li>
-		<li><div>5</div></li>
-	</ul>
-	<img src="images/next.png" alt="">
-</div>
