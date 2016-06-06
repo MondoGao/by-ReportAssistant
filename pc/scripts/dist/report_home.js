@@ -1,27 +1,30 @@
 //一进页面加载代码
-function firstshow(){
-var report_data = {
-	list: [
-		
-	]
-};
-$.ajax({
-    type: "post",
-    url: "/list", 
-    data:{"begin":1,"count":10,"sortType":"document_name","sortDir":"desc"},
-    dataType:"json",     
-    success: function(data) {
-       	console.log(data.result);
-        report_data.list = data.result;
-        console.log(report_data.list);
-		document.getElementById('doc').innerHTML = template('index', report_data);
-    },
-    error: function(data) {
-        document.write = $.parseJSON(data.responseText).error;
-   	},     
-}); 
+function getdata(){
+	var report_data = {
+		list: [
+		]
+	};
+	firstshow(1);
+	
 }
-firstshow();
+getdata();
+function firstshow(begin){
+	$.ajax({
+    	type: "post",
+    	url: "/list", 
+    	data:{"begin":begin,"count":10,"sortType":"document_name","sortDir":"desc"},
+    	dataType:"json",     
+    	success: function(data) {
+       		console.log(data.result);
+        	report_data.list = data.result;
+        	console.log(report_data.list);
+			document.getElementById('doc').innerHTML = template('index', report_data);
+    	},
+    	error: function(data) {
+        	document.write = $.parseJSON(data.responseText).error;
+   		},     
+	}); 
+};
 
 
 
