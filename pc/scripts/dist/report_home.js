@@ -31,12 +31,13 @@ function getdata(begin){
 //下一页或上一页
 function turnpage(){
 	var pageOn = 0;
-	for(var i=0;i<$("li").length;i++){
-		if($("li").eq(i).hasClass("pageOn")){
-			pageOn = i;
-			console.log(pageOn);
-		}
-	}
+	$("li").eq(0).addClass("pageOn");
+	// for(var i=0;i<$("li").length;i++){
+	// 	if($("li").eq(i).hasClass("pageOn")){
+	// 		pageOn = i;
+	// 		console.log(pageOn);
+	// 	}
+	// }
 	$("#next").click(function(){
 		if(pageOn<($("li").length-1)){
 			pageOn = pageOn + 1;
