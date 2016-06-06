@@ -1,6 +1,6 @@
 function firstshow(){
     var hrefPra = gethref();
-    var searchKey ='"'+hrefPra[hrefPra.length-1]+'"';
+    var searchKey =hrefPra[hrefPra.length-1];
 	getdata(1,searchKey);
 }
 firstshow();
@@ -36,6 +36,6 @@ function gethref(){
 $(".search-submit").click(function(){
     if($("#search-input").val()){
         console.log("1");
-        window.location.href = "report_search.html?search=" + $("#search-input").val();
+        window.location.href ='report_search.html?search="' + $("#search-input").val()+'"';
     }
 })
