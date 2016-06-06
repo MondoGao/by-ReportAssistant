@@ -42,7 +42,7 @@ function turnpage(){
 			pageOn = pageOn + 1;
 			$("li").eq(pageOn-1).removeClass("pageOn");
 			$("li").eq(pageOn).addClass("pageOn"); 
-			getdata(1);
+			getdata(2);
 		}
 		else{
 			return;
@@ -88,9 +88,10 @@ turnpage();
 
 //搜索
 $(".search-submit").click(function(){
+	{"begin":begin,"count":20,"sortType":"document_name","sortDir":"desc"}
 	$.ajax({
        	type: "post",
-       	url: "/search",
+       	url: "/list",
        	data:"",     
        	success: function(data) {
        		console.log(data.result.document_id);
