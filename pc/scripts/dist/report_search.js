@@ -1,7 +1,8 @@
 function firstshow(){
     var hrefPra = gethref();
-    var searchKey =hrefPra[hrefPra.length-1];
+    var searchKey = hrefPra[hrefPra.length-1];
 	getdata(1,searchKey);
+    console.log(searchKey);
 }
 firstshow();
 
@@ -14,7 +15,7 @@ function getdata(begin,searchKey){
 	$.ajax({
     	type: "post",
     	url: "/list", 
-    	data:{"begin":begin,"count":10,"sortType":"document_name","sortDir":"desc","search":searchKey},
+    	data:{"begin":begin,"count":10,"search":"W"},
     	dataType:"json", 
     	async: false,    
     	success: function(data) {
@@ -28,8 +29,9 @@ function getdata(begin,searchKey){
 }
 
 function gethref(){
-    var href = window.location.pathname;
-    var hrefPra = href.split("/");
+    var href = window.location.href;
+    console.log(href);
+    var hrefPra = href.split("=");
     return hrefPra;
 }
 

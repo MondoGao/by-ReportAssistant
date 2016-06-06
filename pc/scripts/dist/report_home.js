@@ -13,7 +13,7 @@ function getdata(begin){
 	$.ajax({
     	type: "post",
     	url: "/list", 
-    	data:{"begin":begin,"count":10,"sortType":"document_name","sortDir":"desc"},
+    	data:{"begin":begin,"count":10},
     	dataType:"json", 
     	async: false,    
     	success: function(data) {
@@ -78,6 +78,6 @@ turnpage();
 $(".search-submit").click(function(){
 	if($("#search-input").val()){
 		console.log("1");
-		window.open('report_search.html?search="' + $("#search-input").val()+'"');
+		window.open('report_search.html?search=' + $("#search-input").val());
 	}
 })
