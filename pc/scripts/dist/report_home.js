@@ -2,13 +2,13 @@
 window.onload = function () {
 var report_data = {
 	list: [
-		{
-			id:'sdsd',
-			type: 'doc',
-			title: 'Sublime基本使用介绍',
-			intro: '13级 自动化学院 MATLAB与系统仿真巴拉巴拉巴拉巴拉',
-			downNum: '已有16人下载',
-		},
+		// {
+		// 	id:'sdsd',
+		// 	type: 'doc',
+		// 	title: 'Sublime基本使用介绍',
+		// 	intro: '13级 自动化学院 MATLAB与系统仿真巴拉巴拉巴拉巴拉',
+		// 	downNum: '已有16人下载',
+		// },
 	]
 };
 $.ajax({
@@ -24,7 +24,7 @@ $.ajax({
         document.write = $.parseJSON(data.responseText).error;
    	},     
 }) 
-document.getElementById('doc').innerHTML = template('index', data);
+document.getElementById('doc').innerHTML = template('index', report_data);
 }
 
 //下一页或上一页
