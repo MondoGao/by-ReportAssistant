@@ -4,11 +4,31 @@
 	<meta charset="UTF-8">
 	<script type="text/javascript" src="scripts/lib/jquery-2.2.4.min.js"></script>
 	<title>报告菌</title>
+	<script>
+        var mobileSite = '../mobile/index.html';
+
+        function detectmob() {
+            if (navigator.userAgent.match(/Android/i) ||
+                navigator.userAgent.match(/webOS/i) ||
+                navigator.userAgent.match(/iPhone/i) ||
+                navigator.userAgent.match(/iPad/i) ||
+                navigator.userAgent.match(/iPod/i) ||
+                navigator.userAgent.match(/BlackBerry/i) ||
+                navigator.userAgent.match(/Windows Phone/i)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        if (detectmob()) {
+            window.location.href = mobileSite;
+        }
+    </script>
     <link rel="stylesheet" href="styles/home.css">
 </head>
 <body>
 <div id="doc">loading..</div>
-<!-- <div class="changePage clear">
+<div class="changePage clear">
 	<img src="images/prev.png" alt="" id="prev">
 	<ul id="page_num">
 		<li><div>1</div></li>
@@ -19,7 +39,7 @@
 		<li><div>6</div></li>
 	</ul>
 	<img src="images/next.png" alt="" id="next">
-</div> -->
+</div>
 
 <script src="tpl/build/template.js"></script>
 <script type="text/javascript" src="scripts/dist/report_search.js"></script>

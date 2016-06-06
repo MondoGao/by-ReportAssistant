@@ -8,7 +8,7 @@ firstshow();
 function getdata(begin){
 	var report_data = {
 		list: [
-		]
+		]     
 	};
 	$.ajax({
     	type: "post",
