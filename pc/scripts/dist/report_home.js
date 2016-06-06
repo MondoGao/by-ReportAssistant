@@ -38,11 +38,11 @@ function turnpage(){
 		}
 	}
 	$("#next").click(function(){
-		if(pageOn<$("li").length-1){
+		if(pageOn<($("li").length-1)){
 			pageOn = pageOn + 1;
 			$("li").eq(pageOn-1).removeClass("pageOn");
 			$("li").eq(pageOn).addClass("pageOn"); 
-			getdata(pageOn);
+			// getdata(1);
 		}
 		else{
 			return;
