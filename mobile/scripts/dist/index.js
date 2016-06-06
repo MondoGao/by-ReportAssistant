@@ -107,7 +107,7 @@
 	                    count: itemCount,
 	                    sortType: 'document_name',
 	                    sortDir: 'desc',
-	                    search: searchInfo
+	                    keyword: searchInfo
 	                }
 	            }).done(function (data) {
 	                $('.load-more-container').remove();
@@ -207,7 +207,7 @@
 	                count: itemCount,
 	                sortType: 'document_name',
 	                sortDir: 'desc',
-	                search: searchContent
+	                keyword: searchContent
 	            }
 	        }).done(function (data) {
 	            $('.loading-icon').addClass('hide');
