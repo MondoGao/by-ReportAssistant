@@ -61,7 +61,7 @@ function loadMoreReport() {
                     count: itemCount,
                     sortType: 'document_name',
                     sortDir: 'desc',
-                    search: searchInfo
+                    keyword: searchInfo
                 }
             }).done(function (data) {
                 $('.load-more-container').remove();
@@ -161,7 +161,7 @@ $('#search-input').on('keyup', function (e) {
                 count: itemCount,
                 sortType: 'document_name',
                 sortDir: 'desc',
-                search: searchContent
+                keyword: searchContent
             }
         }).done(function (data) {
             $('.loading-icon').addClass('hide');

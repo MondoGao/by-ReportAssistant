@@ -2,6 +2,7 @@ var reportPreview = require('../../tpl/report_content.html');
 
 var searchUrl = window.location.search,
     search = '';
+var docWidth = 833;
 if (searchUrl.indexOf('?') !== -1) {
     search = decodeURIComponent(searchUrl.substr(1));
 }
@@ -74,6 +75,12 @@ if (search !== '') {
             var containerW = ifrDoc.getElementById('page-container').offsetWidth,
                 ifrPW = ifrP[0].offsetWidth;
             // console.log(containerW, ifrPW);
+            if(containerW > docWidth) {
+                $('.pc', ifrDoc).addClass('opened');
+                $('.loading').addClass('hide');
+                $('.container').removeClass('fade');
+                return;
+            }
             var scale = containerW / ifrPW;
             var scaleTxt = "div[id^='pf']{-webkit-transform: scaleX(" + scale + ");transform:scaleX(" + scale + ");-webkit-transform-origin: 0 100%;transform-origin: 0 100%}";
             var touchTxt = "#page-container{-webkit-overflow-scrolling: touch;}";
