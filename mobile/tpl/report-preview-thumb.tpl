@@ -7,7 +7,7 @@
 {{else if result.type === 'zip'}}
 <img src="images/zip.png">
 {{else if result.type === 'rar'}}
-<img src="images/rar.png">
+<img src="images/zip.png">
 {{/if}}
 <div class="report-info-container">
     <p class="report-name">{{result.document_name}}</p>

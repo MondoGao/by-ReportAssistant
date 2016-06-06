@@ -192,6 +192,7 @@
 	        if (!searchContent) {
 	            return;
 	        }
+	        $(e.target).blur();
 	        searchInfo = searchContent;
 	        $('.loading-icon').removeClass('hide');
 	        var pageBeginbak = pageBegin,
@@ -316,7 +317,7 @@
 	}else if($value.type === 'zip'){
 	$out+=' <img class="result-filetype-icon" src="images/zip.png"> ';
 	}else if($value.type === 'rar'){
-	$out+=' <img class="result-filetype-icon" src="images/rar.png"> ';
+	$out+=' <img class="result-filetype-icon" src="images/zip.png"> ';
 	}
 	$out+=' <h3 class="filename">';
 	$out+=$escape($value.document_name);
