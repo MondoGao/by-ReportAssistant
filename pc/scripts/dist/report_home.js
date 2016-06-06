@@ -6,7 +6,7 @@ window.onload = function () {
         data:{"begin":1,"count":10,"sortType":"document_name","sortDir":"desc"},
         dataType:"json",     
         success: function(data) {
-           	console.log(data.result.document_id);
+           	console.log(data.result);
         },
         error: function(data) {
             document.write = $.parseJSON(data.responseText).error;
