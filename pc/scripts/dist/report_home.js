@@ -2,7 +2,7 @@
 window.onload = function () {
 	$.ajax({
         type: "post",
-        url: "/main_page",     
+        url: "/list",     
         success: function(data) {
            	console.log(data.result.document_id);
         },
