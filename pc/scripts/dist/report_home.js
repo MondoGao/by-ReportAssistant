@@ -39,30 +39,29 @@ function turnpage(){
 			console.log(pageOn);
 		}
 	}
-	$("#next").click(function(){
-		if(pageOn<=3){
-			pageOn = pageOn + 1;
-			$("li").eq(pageOn-1).removeClass("pageOn");
-			$("li").eq(pageOn).addClass("pageOn");
-			$.ajax({
-        	type: "post",
-    		url: "/list", 
-    		data:{"begin":11,"count":10,"sortType":"document_name","sortDir":"desc"},
-    		dataType:"json",     
-    		success: function(data) {
-       		 	report_data.list = data.result;
-				document.getElementById('doc').innerHTML = template('index', report_data);
-    		},
-    		error: function(data) {
-        		document.write = $.parseJSON(data.responseText).error;
-   			},         
-    		}) 
-		}
-		else{
-			return;
-		}
-		
-	})
+	// $("#next").click(function(){
+	// 	if(pageOn<=3){
+	// 		pageOn = pageOn + 1;
+	// 		$("li").eq(pageOn-1).removeClass("pageOn");
+	// 		$("li").eq(pageOn).addClass("pageOn");
+	// 	}
+	// 	else{
+	// 		return;
+	// 	}
+	// 	$.ajax({
+ //        	type: "post",
+ //    		url: "/list", 
+ //    		data:{"begin":11,"count":10,"sortType":"document_name","sortDir":"desc"},
+ //    		dataType:"json",     
+ //    		success: function(data) {
+ //       		 	report_data.list = data.result;
+	// 			document.getElementById('doc').innerHTML = template('index', report_data);
+ //    		},
+ //    		error: function(data) {
+ //        		document.write = $.parseJSON(data.responseText).error;
+ //   			},         
+ //    	}) 
+	// })
 	// $("#prev").click(function(){
 	// 	if(pageOn>=1){
 	// 		pageOn = pageOn - 1;
