@@ -1,18 +1,13 @@
 //一进页面加载代码
-function getdata(){
+function firstshow(){
 	var report_data = {
 		list: [
 		]
 	};
-	firstshow(1);
-	turnpage();
-}
-getdata();
-function firstshow(begin){
 	$.ajax({
     	type: "post",
     	url: "/list", 
-    	data:{"begin":begin,"count":10,"sortType":"document_name","sortDir":"desc"},
+    	data:{"begin":1,"count":10,"sortType":"document_name","sortDir":"desc"},
     	dataType:"json",     
     	success: function(data) {
        		console.log(data.result);
@@ -24,7 +19,8 @@ function firstshow(begin){
         	document.write = $.parseJSON(data.responseText).error;
    		},     
 	}); 
-};
+}
+firstshow();
 
 
 
@@ -33,13 +29,13 @@ function firstshow(begin){
 
 //下一页或上一页
 function turnpage(){
-	// var pageOn = 0;
-	// for(var i=0;i<=$("li").length;i++){
-	// 	if($("li").eq(i).hasClass("pageOn")){
-	// 		pageOn = i;
-	// 		console.log(pageOn);
-	// 	}
-	// }
+	var pageOn = 0;
+	for(var i=0;i<=$("li").length;i++){
+		if($("li").eq(i).hasClass("pageOn")){
+			pageOn = i;
+			console.log(pageOn);
+		}
+	}
 	// $("#next").click(function(){
 	// 	if(pageOn<=3){
 	// 		pageOn = pageOn + 1;
@@ -83,9 +79,8 @@ function turnpage(){
  //    		},     
  //    	}) 
 	// })
-	console.log("enheng");
 }
-
+turnpage();
 
 //搜索
 $(".search-submit").click(function(){
