@@ -23,7 +23,9 @@ $.ajax({
     error: function(data) {
         document.write = $.parseJSON(data.responseText).error;
    	},     
-}) 
+}); 
+
+console.log(report_data.list);
 document.getElementById('doc').innerHTML = template('index', report_data);
 }
 
