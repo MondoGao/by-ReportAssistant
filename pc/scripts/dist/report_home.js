@@ -45,9 +45,7 @@ function turnpage(){
 			$("li").eq(pageOn-1).removeClass("pageOn");
 			$("li").eq(pageOn).addClass("pageOn"); 
 		}
-		else{
-			return;
-		}
+		
 	})
 
 	$("#prev").click(function(){
@@ -57,9 +55,7 @@ function turnpage(){
 			$("li").eq(pageOn+1).removeClass("pageOn");
 			$("li").eq(pageOn).addClass("pageOn");
 		}
-		else{
-			return;
-		} 	 
+	
 	})
 }
 turnpage();
