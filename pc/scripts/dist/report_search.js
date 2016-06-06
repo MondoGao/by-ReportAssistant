@@ -30,6 +30,7 @@ function getdata(begin,searchKey){
 
 function gethref(){
     var href = window.location.href;
+    console.log(href);
     var hrefPra = href.split("=");
     return hrefPra;
 }
