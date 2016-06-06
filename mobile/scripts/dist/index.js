@@ -192,6 +192,7 @@
 	        if (!searchContent) {
 	            return;
 	        }
+	        $(e.target).blur();
 	        searchInfo = searchContent;
 	        $('.loading-icon').removeClass('hide');
 	        var pageBeginbak = pageBegin,

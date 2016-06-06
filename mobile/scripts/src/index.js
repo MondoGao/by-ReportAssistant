@@ -146,6 +146,7 @@ $('#search-input').on('keyup', function (e) {
         if (!searchContent) {
             return;
         }
+        $(e.target).blur();
         searchInfo = searchContent;
         $('.loading-icon').removeClass('hide');
         var pageBeginbak = pageBegin,
