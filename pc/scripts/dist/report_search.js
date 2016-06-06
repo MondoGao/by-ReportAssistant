@@ -2,6 +2,7 @@ function firstshow(){
     var hrefPra = gethref();
     var searchKey =hrefPra[1];
 	getdata(1,searchKey);
+    console.log(searchKey);
 }
 firstshow();
 
