@@ -8,7 +8,8 @@ function firstshow(){
     	type: "post",
     	url: "/list", 
     	data:{"begin":1,"count":10,"sortType":"document_name","sortDir":"desc"},
-    	dataType:"json",     
+    	dataType:"json", 
+    	async: false,    
     	success: function(data) {
        		console.log(data.result);
         	report_data.list = data.result;
