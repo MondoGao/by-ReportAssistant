@@ -1,18 +1,6 @@
 //一进页面加载代码
 window.onload = function () {
-	$.ajax({
-        type: "post",
-        url: "/list", 
-        data:{"begin":1,"count":10,"sortType":"document_name","sortDir":"desc"},
-        dataType:"json",     
-        success: function(data) {
-           	console.log(data.result[0].document_id);
-        },
-        error: function(data) {
-            document.write = $.parseJSON(data.responseText).error;
-    		},     
-    }) 
-var data = {
+var report_data = {
 	list: [
 		{
 			id:'sdsd',
@@ -21,37 +9,21 @@ var data = {
 			intro: '13级 自动化学院 MATLAB与系统仿真巴拉巴拉巴拉巴拉',
 			downNum: '已有16人下载',
 		},
-		{
-			type: 'pdf',
-			title: 'Sublime基本使用介绍',
-			intro: '13级 自动化学院 MATLAB与系统仿真巴拉巴拉巴拉巴拉',
-			downNum: '已有16人下载',
-		},
-		{
-			type: 'ppt',
-			title: 'Sublime基本使用介绍',
-			intro: '13级 自动化学院 MATLAB与系统仿真巴拉巴拉巴拉巴拉',
-			downNum: '已有16人下载',
-
-		
-		},
-		{
-			type:'zip',
-			title: 'Sublime基本使用介绍',
-			intro: '13级 自动化学院 MATLAB与系统仿真巴拉巴拉巴拉巴拉',
-			downNum: '已有16人下载',
-
-			
-		},
-		{
-			type:'rar',
-			title: 'Sublime基本使用介绍',
-			intro: '13级 自动化学院 MATLAB与系统仿真巴拉巴拉巴拉巴拉',
-			downNum: '已有16人下载',
-
-		}
 	]
 };
+$.ajax({
+    type: "post",
+    url: "/list", 
+    data:{"begin":1,"count":10,"sortType":"document_name","sortDir":"desc"},
+    dataType:"json",     
+    success: function(data) {
+       	console.log(data.result);
+        report_data.list = data.result;
+    },
+    error: function(data) {
+        document.write = $.parseJSON(data.responseText).error;
+   	},     
+}) 
 document.getElementById('doc').innerHTML = template('index', data);
 }
 
