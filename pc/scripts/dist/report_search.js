@@ -1,6 +1,6 @@
 function firstshow(){
     var hrefPra = gethref();
-    var searchKey =hrefPra[hrefPra.length-1];
+    var searchKey =hrefPra[1];
 	getdata(1,searchKey);
 }
 firstshow();
@@ -29,7 +29,7 @@ function getdata(begin,searchKey){
 
 function gethref(){
     var href = window.location.pathname;
-    var hrefPra = href.split("/");
+    var hrefPra = href.split("=");
     return hrefPra;
 }
 
