@@ -4,12 +4,11 @@ function getdata(){
 		list: [
 		]
 	};
-	//一进页面就渲染
-	showdata(1);
+	firstshow(1);
 	turnpage();
 }
 getdata();
-function showdata(begin){
+function firstshow(begin){
 	$.ajax({
     	type: "post",
     	url: "/list", 
@@ -28,8 +27,12 @@ function showdata(begin){
 };
 
 
+
+	
+
+
 //下一页或上一页
-function turnpage (){
+function turnpage(){
 	// var pageOn = 0;
 	// for(var i=0;i<=$("li").length;i++){
 	// 	if($("li").eq(i).hasClass("pageOn")){
@@ -80,9 +83,9 @@ function turnpage (){
  //    		},     
  //    	}) 
 	// })
-	console.log("asd");
+	console.log("enheng");
 }
-turnpage();
+
 
 //搜索
 $(".search-submit").click(function(){
