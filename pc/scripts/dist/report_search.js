@@ -15,7 +15,7 @@ function getdata(begin,searchKey){
 	$.ajax({
     	type: "post",
     	url: "/list", 
-    	data:{"begin":begin,"count":10,"sortType":"document_name","sortDir":"desc","search":"W"},
+    	data:{"begin":begin,"count":10,"search":"W"},
     	dataType:"json", 
     	async: false,    
     	success: function(data) {
