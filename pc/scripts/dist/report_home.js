@@ -42,7 +42,7 @@ function turnpage(){
 			pageOn = pageOn + 1;
 			$("li").eq(pageOn-1).removeClass("pageOn");
 			$("li").eq(pageOn).addClass("pageOn"); 
-			// getdata(1);
+			getdata(1);
 		}
 		else{
 			return;
