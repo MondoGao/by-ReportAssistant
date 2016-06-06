@@ -1,15 +1,15 @@
 //一进页面加载代码
-var report_data = {
-	list: [
-	]
-};
 function firstshow(){
-	getdata(1);
+	getdata(0);
 }
 firstshow();
 
 
 function getdata(begin){
+	var report_data = {
+		list: [
+		]
+	};
 	$.ajax({
     	type: "post",
     	url: "/list", 
@@ -42,7 +42,7 @@ function turnpage(){
 			pageOn = pageOn + 1;
 			$("li").eq(pageOn-1).removeClass("pageOn");
 			$("li").eq(pageOn).addClass("pageOn"); 
-			getdata((pageOn)*10+1);
+			getdata(pageOn);
 		}
 		else{
 			return;
