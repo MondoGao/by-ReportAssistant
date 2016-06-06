@@ -5,7 +5,7 @@
             <div>
                 <div class="search">
                     <input type="text" id="search-input">
-                    <a href="report_search?" class="search-submit">搜索</a>
+                    <a href="javascript:;" class="search-submit" target="view_window">搜索</a>
                 </div>
                 <a href="report_upload.html" class="upload-file" target="upload_window">上传文件</a>
             </div>
@@ -23,25 +23,25 @@
 				</div>
 			</a>
 			{{else if $value.type === 'ppt' || $value.type === 'pptx'}}
-			<a  class="icon ppt" href="report_detail.html?id='{{$value.document_id}}'" target="view_window">
+			<a  class="icon ppt" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 				<div class="report-logo">
 					<img src="images/ppt_logo.png" alt="">
 				</div>
 			</a>
     		{{else if $value.type === 'pdf'}}
-    		<a  class="icon pdf" href="report_detail.html?id='{{$value.document_id}}'" target="view_window">
+    		<a  class="icon pdf" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 				<div class="report-logo">
 					<img src="images/pdf_logo.png" alt="">
 				</div>
 			</a>
     		{{else if $value.type === 'zip'}}
-    		<a  class="icon zip" href="report_detail.html?id='{{$value.document_id}}'" target="view_window">
+    		<a  class="icon zip" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 				<div class="report-logo">
 					<img src="images/zip_logo.png" alt="">
 				</div>
 			</a>
     		{{else if $value.type === 'rar'}}
-   	 		<a  class="icon zip" href="report_detail.html?id='{{$value.document_id}}'" target="view_window">
+   	 		<a  class="icon zip" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 				<div class="report-logo">
 					<img src="images/zip_logo.png" alt="">
 				</div>

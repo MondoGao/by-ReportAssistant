@@ -76,15 +76,7 @@ turnpage();
 
 //搜索
 $(".search-submit").click(function(){
-	$.ajax({
-       	type: "post",
-       	url: "/list",
-       	data:"",     
-       	success: function(data) {
-       		console.log(data.result.document_id);
-        },
-        error: function(data) {
-	        document.write = $.parseJSON(data.responseText).error;
-    	},     
-    }) 	
+	if($("#search-input").val()){
+		$(".search-submit").href = "report_search?search="+$("#search-input").val();
+	}
 })
