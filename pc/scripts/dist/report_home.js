@@ -13,7 +13,7 @@ function getdata(begin){
 	$.ajax({
     	type: "post",
     	url: "/list", 
-    	data:{"begin":begin,"count":10,"sortType":"document_name","sortDir":"desc"},
+    	data:{"begin":begin,"count":20,"sortType":"document_name","sortDir":"desc"},
     	dataType:"json", 
     	async: false,    
     	success: function(data) {
