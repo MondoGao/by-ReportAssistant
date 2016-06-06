@@ -44,11 +44,7 @@ function turnpage(){
 			pageOn = pageOn + 1;
 			$("li").eq(pageOn-1).removeClass("pageOn");
 			$("li").eq(pageOn).addClass("pageOn");
-		}
-		else{
-			return;
-		}
-		$.ajax({
+			$.ajax({
         	type: "post",
     		url: "/list", 
     		data:{"begin":11,"count":10,"sortType":"document_name","sortDir":"desc"},
@@ -60,28 +56,33 @@ function turnpage(){
     		error: function(data) {
         		document.write = $.parseJSON(data.responseText).error;
    			},         
-    	}) 
-	})
-	$("#prev").click(function(){
-		if(pageOn>=1){
-			pageOn = pageOn - 1;
-			$("li").eq(pageOn+1).removeClass("pageOn");
-			$("li").eq(pageOn).addClass("pageOn");
+    		}) 
 		}
 		else{
 			return;
 		}
-		$.ajax({
-        	type: "post",
-        	url: "/main_page",     
-        	success: function(data) {
-           		console.log(data.result.document_id);
-        	},
-        	error: function(data) {
-	            document.write = $.parseJSON(data.responseText).error;
-    		},     
-    	}) 
+		
 	})
+	// $("#prev").click(function(){
+	// 	if(pageOn>=1){
+	// 		pageOn = pageOn - 1;
+	// 		$("li").eq(pageOn+1).removeClass("pageOn");
+	// 		$("li").eq(pageOn).addClass("pageOn");
+	// 	}
+	// 	else{
+	// 		return;
+	// 	}
+	// 	$.ajax({
+ //        	type: "post",
+ //        	url: "/main_page",     
+ //        	success: function(data) {
+ //           		console.log(data.result.document_id);
+ //        	},
+ //        	error: function(data) {
+	//             document.write = $.parseJSON(data.responseText).error;
+ //    		},     
+ //    	}) 
+	// })
 }
 turnpage();
 
