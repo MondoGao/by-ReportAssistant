@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/*TMODJS:{"version":29,"md5":"83f3b0ce7e98d8914909b7de4d1ad7c6"}*/
-=======
-/*TMODJS:{"version":28,"md5":"d33b36404f3e8a30e089a9a0c95bfd9c"}*/
->>>>>>> d60160aa914b38176743881e1439cb2a43c0ff88
+/*TMODJS:{"version":30,"md5":"8ea218cd0e3c1f69f31222be08987216"}*/
 template('index',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,list=$data.list,$value=$data.$value,$index=$data.$index,$escape=$utils.$escape,$out='';$out+='<header> <img src="images/logo.png" class="logo"> <div class="search-container"> <img src="images/header-bg.png"> <div> <div class="search"> <input type="text" id="search-input"> <a href="javascript:;" class="search-submit">搜索</a> </div> <a href="report_upload.html" class="upload-file" target="upload_window">上传文件</a> </div> </div> </header> <section> ';
