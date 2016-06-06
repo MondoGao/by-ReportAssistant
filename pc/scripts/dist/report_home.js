@@ -29,13 +29,13 @@ firstshow();
 
 //下一页或上一页
 function turnpage(){
-	// var pageOn = 0;
-	// for(var i=0;i<=$("li").length;i++){
-	// 	if($("li").eq(i).hasClass("pageOn")){
-	// 		pageOn = i;
-	// 		console.log(pageOn);
-	// 	}
-	// }
+	var pageOn = 0;
+	for(var i=0;i<$("li").length;i++){
+		if($("li").eq(i).hasClass("pageOn")){
+			pageOn = i;
+			console.log(pageOn);
+		}
+	}
 	// $("#next").click(function(){
 	// 	if(pageOn<=3){
 	// 		pageOn = pageOn + 1;
