@@ -37,25 +37,21 @@ function turnpage(){
 			console.log(pageOn);
 		}
 	}
-
 	$("#next").click(function(){
 		if(pageOn<($("li").length-1)){
-			pageOn = pageOn + 1;
-			getdata(pageOn+1);
+			// pageOn = pageOn + 1;
+			// getdata(pageOn+1);
 			$("li").eq(pageOn-1).removeClass("pageOn");
 			$("li").eq(pageOn).addClass("pageOn"); 
-		}
-		
+		}		
 	})
-
 	$("#prev").click(function(){
 		if(pageOn>=1){
-			pageOn = pageOn - 1;
-			getdata(pageOn+1);
+			// pageOn = pageOn - 1;
+			// getdata(pageOn+1);
 			$("li").eq(pageOn+1).removeClass("pageOn");
 			$("li").eq(pageOn).addClass("pageOn");
 		}
-	
 	})
 }
 turnpage();
