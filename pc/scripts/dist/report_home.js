@@ -3,7 +3,7 @@ window.onload = function () {
 	$.ajax({
         type: "post",
         url: "/list", 
-        data:{"begin":1,"count":10},
+        data:{"begin":1,"count":10,"sortType":"document_name","sortDir":"desc"},
         dataType:"json",     
         success: function(data) {
            	console.log(data.result.document_id);
