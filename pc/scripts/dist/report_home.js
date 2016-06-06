@@ -1,31 +1,31 @@
 //一进页面加载代码
+var report_data = {
+	list: [
+	]
+};
 function firstshow(){
-	var report_data = {
-		list: [
-		]
-	};
+	getdata(1);
+}
+firstshow();
+
+
+function getdata(begin){
 	$.ajax({
     	type: "post",
     	url: "/list", 
-    	data:{"begin":1,"count":10,"sortType":"document_name","sortDir":"desc"},
+    	data:{"begin":begin,"count":10,"sortType":"document_name","sortDir":"desc"},
     	dataType:"json", 
     	async: false,    
     	success: function(data) {
-       		console.log(data.result);
         	report_data.list = data.result;
-        	console.log(report_data.list);
 			document.getElementById('doc').innerHTML = template('index', report_data);
     	},
     	error: function(data) {
         	document.write = $.parseJSON(data.responseText).error;
    		},     
-	}); 
+	});
 }
-firstshow();
 
-
-
-	
 
 
 //下一页或上一页
@@ -37,15 +37,17 @@ function turnpage(){
 			console.log(pageOn);
 		}
 	}
-	// $("#next").click(function(){
-	// 	if(pageOn<=3){
-	// 		pageOn = pageOn + 1;
-	// 		$("li").eq(pageOn-1).removeClass("pageOn");
-	// 		$("li").eq(pageOn).addClass("pageOn");
-	// 	}
-	// 	else{
-	// 		return;
-	// 	}
+	$("#next").click(function(){
+		if(pageOn<$("li").length-1){
+			pageOn = pageOn + 1;
+			$("li").eq(pageOn-1).removeClass("pageOn");
+			$("li").eq(pageOn).addClass("pageOn"); 
+			getdata((pageOn)*10+1);
+		}
+		else{
+			return;
+		}
+	}
 	// 	$.ajax({
  //        	type: "post",
  //    		url: "/list", 
