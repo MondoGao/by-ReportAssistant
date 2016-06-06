@@ -38,14 +38,15 @@ function turnpage(){
 			getdata(pageOn+1);
 			$("li").eq(pageOn-1).removeClass("pageOn");
 			$("li").eq(pageOn).addClass("pageOn"); 
-		}else{
-			pageOn = pageOn + 1;
-			var pageUL = document.getElementById("page_num");
-			pageUL.innerHTML +=	"<li><div>"+parseInt(pageOn+1)+"</div></li>";
-			getdata(pageOn+1);
-			$("li").eq(pageOn-1).removeClass("pageOn");
-			$("li").eq(pageOn).addClass("pageOn"); 
-		}	
+		}
+		// else{
+		// 	pageOn = pageOn + 1;
+		// 	var pageUL = document.getElementById("page_num");
+		// 	pageUL.innerHTML +=	"<li><div>"+parseInt(pageOn+1)+"</div></li>";
+		// 	getdata(pageOn+1);
+		// 	$("li").eq(pageOn-1).removeClass("pageOn");
+		// 	$("li").eq(pageOn).addClass("pageOn"); 
+		// }	
 	})
 	$("#prev").click(function(){
 		if(pageOn>=1){
