@@ -1,15 +1,7 @@
 //一进页面加载代码
 window.onload = function () {
 var report_data = {
-	list: [
-		// {
-		// 	id:'sdsd',
-		// 	type: 'doc',
-		// 	title: 'Sublime基本使用介绍',
-		// 	intro: '13级 自动化学院 MATLAB与系统仿真巴拉巴拉巴拉巴拉',
-		// 	downNum: '已有16人下载',
-		// },
-	]
+	list: [];
 };
 $.ajax({
     type: "post",
@@ -26,8 +18,6 @@ $.ajax({
         document.write = $.parseJSON(data.responseText).error;
    	},     
 }); 
-
-	
 }
 
 //下一页或上一页
@@ -50,13 +40,16 @@ function turnpage(){
 		}
 		$.ajax({
         	type: "post",
-        	url: "/main_page",     
-        	success: function(data) {
-           		console.log(data.result.document_id);
-        	},
-        	error: function(data) {
-	            document.write = $.parseJSON(data.responseText).error;
-    		},     
+        	url: "/list",     
+        	data:{"begin":2,"count":10,"sortType":"document_name","sortDir":"desc"},
+   			dataType:"json",     
+    		success: function(data) {
+        		report_data.list = data.result;
+				document.getElementById('doc').innerHTML = template('index', report_data);
+    		},
+	    	error: function(data) {
+    	    	document.write = $.parseJSON(data.responseText).error;
+   			},     
     	}) 
 	})
 	$("#prev").click(function(){
