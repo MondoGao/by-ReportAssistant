@@ -2,7 +2,9 @@
 window.onload = function () {
 	$.ajax({
         type: "post",
-        url: "/list",     
+        url: "/list", 
+        data:{"begin":1,"count":10},
+        dataType:"json",     
         success: function(data) {
            	console.log(data.result.document_id);
         },
