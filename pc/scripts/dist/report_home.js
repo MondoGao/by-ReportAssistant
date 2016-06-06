@@ -47,7 +47,7 @@ function turnpage(){
 		else{
 			return;
 		}
-	}
+	})
 	// 	$.ajax({
  //        	type: "post",
  //    		url: "/list", 
