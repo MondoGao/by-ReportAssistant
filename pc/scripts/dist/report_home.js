@@ -32,19 +32,20 @@ function getdata(begin){
 function turnpage(){
 	var pageOn = 0;
 	$("li").eq(0).addClass("pageOn");
-	// for(var i=0;i<$("li").length;i++){
-	// 	if($("li").eq(i).hasClass("pageOn")){
-	// 		pageOn = i;
-	// 		console.log(pageOn);
-	// 	}
-	// }
 	$("#next").click(function(){
 		if(pageOn<($("li").length-1)){
 			pageOn = pageOn + 1;
 			getdata(pageOn+1);
 			$("li").eq(pageOn-1).removeClass("pageOn");
 			$("li").eq(pageOn).addClass("pageOn"); 
-		}		
+		}else{
+			pageOn = pageOn + 1;
+			var pageUL = document.getElementById("page_num");
+			pageUL.innerHTML +=	"<li><div>"+parseInt(pageOn+1)+"</div></li>";
+			getdata(pageOn+1);
+			$("li").eq(pageOn-1).removeClass("pageOn");
+			$("li").eq(pageOn).addClass("pageOn"); 
+		}	
 	})
 	$("#prev").click(function(){
 		if(pageOn>=1){
