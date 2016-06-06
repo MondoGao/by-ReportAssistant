@@ -77,6 +77,7 @@ turnpage();
 //搜索
 $(".search-submit").click(function(){
 	if($("#search-input").val()){
-		$(".search-submit").href = "report_search?search="+$("#search-input").val();
+		console.log("1");
+		window.open("report_search?search=" + $("#search-input").val());
 	}
 })
