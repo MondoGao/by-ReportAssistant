@@ -4,11 +4,12 @@ function getdata(){
 		list: [
 		]
 	};
-	firstshow(1);
-	
+	//一进页面就渲染
+	showdata(1);
+	turnpage();
 }
 getdata();
-function firstshow(begin){
+function showdata(begin){
 	$.ajax({
     	type: "post",
     	url: "/list", 
@@ -27,19 +28,15 @@ function firstshow(begin){
 };
 
 
-
-	
-
-
 //下一页或上一页
-function turnpage(){
-	var pageOn = 0;
-	for(var i=0;i<=$("li").length;i++){
-		if($("li").eq(i).hasClass("pageOn")){
-			pageOn = i;
-			console.log(pageOn);
-		}
-	}
+function turnpage (){
+	// var pageOn = 0;
+	// for(var i=0;i<=$("li").length;i++){
+	// 	if($("li").eq(i).hasClass("pageOn")){
+	// 		pageOn = i;
+	// 		console.log(pageOn);
+	// 	}
+	// }
 	// $("#next").click(function(){
 	// 	if(pageOn<=3){
 	// 		pageOn = pageOn + 1;
@@ -83,6 +80,7 @@ function turnpage(){
  //    		},     
  //    	}) 
 	// })
+	console.log("asd");
 }
 turnpage();
 
