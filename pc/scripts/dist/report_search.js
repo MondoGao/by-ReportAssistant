@@ -1,6 +1,6 @@
 function firstshow(){
     var hrefPra = gethref();
-    var searchKey =  hrefPra[hrefPra.length-1];
+    var searchKey ='"'+hrefPra[hrefPra.length-1]+'"';
 	getdata(1,searchKey);
 }
 firstshow();
