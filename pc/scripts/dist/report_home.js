@@ -25,7 +25,7 @@ function getdata(begin){
                     pageHtml += "<li><div>"+parseInt(i+1)+"</div></li>";
                 }
                 console.log(pageHtml);
-                var pageNum = document.getElementById('pageNum');
+                var pageNum = document.getElementById('page_num');
                 pageNum.innerHTML = pageHtml;
             }
         	report_data.list = data.result;
