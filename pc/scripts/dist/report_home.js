@@ -61,10 +61,10 @@ function turnpage(){
 		$("li").eq(i).click((function(i){
 			return function(){
 				console.log(i);
+				getdata(pageOn+1);
 				$("li").eq(pageOn).removeClass("pageOn");
 				$("li").eq(i).addClass("pageOn");
 				pageOn = i;
-				getdata(pageOn+1);
 			}
 		})(i));
 	}
