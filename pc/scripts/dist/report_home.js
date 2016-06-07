@@ -1,6 +1,5 @@
 //一进页面加载代码
 function firstshow(){
-	var pageNum;
 	getdata(1,1);
 }
 firstshow();
