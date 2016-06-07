@@ -56,17 +56,16 @@ function turnpage(){
 			$("li").eq(pageOn).addClass("pageOn");
 		}
 	})
-	console.log($("li").length);
-	for(var i=0;i<$("li").length;i++){
-		$("li").eq(i).click((function(i){
+	for(var j=0;j<$("li").length;j++){
+		$("li").eq(j).click((function(j){
 			return function(){
-				console.log(i);
-				getdata(pageOn+1);
-				$("li").eq(pageOn).removeClass("pageOn");
-				$("li").eq(i).addClass("pageOn");
-				pageOn = i;
-			}
-		})(i));
+					console.log(j);
+					getdata(j+1);
+					$("li").eq(pageOn).removeClass("pageOn");
+					$("li").eq(j).addClass("pageOn");
+					pageOn = j;				
+				}
+		})(j));
 	}
 }
 turnpage();

@@ -220,6 +220,7 @@ body {
     body .changePage ul {
       float: left; }
       body .changePage ul li {
+        cursor: pointer;
         float: left;
         margin-right: 20px;
         width: 17px;
