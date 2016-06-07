@@ -141,6 +141,15 @@
 	    }
 	}
 
+	//进度上传处理
+	function progressHandle(e) {
+	    if(e.lengthComputable) {
+	        var percent = e.loaded / e.total * 100;
+	        console.log(percent);
+	        $('.progress-bar').text(percent.toFixed(2) + '%');
+	    }
+	}
+
 	$('#search-input').on('keypress', function (e) {
 	    if (e.which === 13) {
 	        linkTosearch($(e.currentTarget).val());
@@ -212,20 +221,27 @@
 	        $this.attr('uploading', 0).removeClass('uploading');
 	    } else {
 	        var formData = createformData(UPLOADFILES.form);
-	        $('.loading').removeClass('hide');
+	        $('.loading-container').removeClass('hide');
 	        $('.container').addClass('container-fade');
 	        $.ajax({
 	            url: '/upload',
 	            type: 'POST',
 	            data: formData,
 	            processData: false,
-	            contentType: false
+	            contentType: false,
+	            xhr: function () {
+	                var xhr = $.ajaxSettings.xhr();
+	                if (xhr.upload) {
+	                    xhr.upload.addEventListener('progress', progressHandle, false);
+	                    return xhr;
+	                }
+	            }
 	        }).done(function (data) {
 	            $('#preview-upload').attr({
 	                href: 'report_detail.html?id=' + data.result,
 	                target: 'preview_window'
 	            });
-	            $('.loading').addClass('hide');
+	            $('.loading-container').addClass('hide');
 	            $('.container').removeClass('container-fade');
 	            $('.upload-file-form').removeClass('show');
 	            $('.upload-success-container').addClass('show');
@@ -237,7 +253,7 @@
 	            $('#upload-file-input').remove();
 	            $('.upload-file-component').append('<input type="file" id="upload-file-input">');
 	            $('#upload-file-input').on('change', uploadReport);
-	            $('.loading').addClass('hide');
+	            $('.loading-container').addClass('hide');
 	            $('.container').removeClass('container-fade');
 	            $('.upload-file-form').removeClass('show');
 	            $('.add-file-container').addClass('show');
