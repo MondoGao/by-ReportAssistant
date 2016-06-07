@@ -3,8 +3,9 @@ var Reminder = require('./reminder_component');
 var reminder = new Reminder();
 
 var PREVIEW = {
-    errorInfo: {
-        fileDownloadFail: '该文档无法下载，请下载其他文档'
+    reminderInfo: {
+        fileDownloadFail: '该文档无法下载，请下载其他文档',
+        isDownloadFile: '确认下载该文档？'
     }
 };
 
@@ -39,18 +40,20 @@ if (search !== '') {
     }).done(function (data) {
         $('#report-container').append(reportPreview(data));
         $('.report-download-button').on('click', function () {
-            $.ajax({
-                url: $('#downloadLink').val(),
-                type: 'GET'
-            }).done(function (data) {
-                if (data.code === -1) {
-                    reminder.show(PREVIEW.errorInfo.fileDownloadFail);
-                } else {
-                    $("body").append("<iframe src='" + $('#downloadLink').val() + "' style='display: none;' ></iframe>");
-                }
-            }).fail(function () {
-                reminder.show(PREVIEW.errorInfo.fileDownloadFail);
-            });
+            (reminder.show(PREVIEW.reminderInfo.isDownloadFile)).done(function () {
+                $.ajax({
+                    url: $('#downloadLink').val(),
+                    type: 'GET'
+                }).done(function (data) {
+                    if (data.code === -1) {
+                        reminder.show(PREVIEW.reminderInfo.fileDownloadFail);
+                    } else {
+                        $("body").append("<iframe src='" + $('#downloadLink').val() + "' style='display: none;' ></iframe>");
+                    }
+                }).fail(function () {
+                    reminder.show(PREVIEW.reminderInfo.fileDownloadFail);
+                });
+            })
         });
         if (!data.result.preview) {
             $('.loading-container').addClass('hide');
