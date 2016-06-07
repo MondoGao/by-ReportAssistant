@@ -57,6 +57,7 @@
 	        'file-short-info': 'desc'
 	    },
 	    mimeList: ['doc', 'docx', 'ppt', 'pptx', 'pdf', 'zip', 'rar'],
+	    transcodeTime: 300000,
 	    form: {}
 	};
 
@@ -134,7 +135,7 @@
 	        parent = currentSelect.parent().parent();
 	    if (currentSelect.hasClass('selected-placeholder')) {
 	        currentSelect.removeClass('selected-placeholder');
-	    } else if(!currentSelect.attr('value')) {
+	    } else if (!currentSelect.attr('value')) {
 	        currentSelect.addClass('selected-placeholder');
 	    }
 	    if (parent.hasClass('show-error-info')) {
@@ -243,10 +244,16 @@
 	                }
 	            }
 	        }).done(function (data) {
-	            $('#preview-upload').attr({
-	                href: 'report_detail.html?id=' + data.result,
-	                target: 'preview_window'
+	            $('#upload-file-id').val(data.result);
+	            $('#preview-upload').on('click', function () {
+	                alert('文档转码中，请稍后再查看');
 	            });
+	            setTimeout(function () {
+	                $('#preview-upload').off('click').attr({
+	                    href: 'report_detail.html?id=' + parseInt($('#upload-file-id').val()),
+	                    target: 'preview_window'
+	                });
+	            }, UPLOADFILES.transcodeTime);
 	            $('.loading-container').addClass('hide');
 	            $('.container').removeClass('container-fade');
 	            $('.upload-file-form').removeClass('show');
