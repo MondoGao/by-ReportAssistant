@@ -17,11 +17,11 @@
 		{{if $value.type === 'doc' || $value.type === 'docx'}}
 		<a class="report" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 			<input type="hidden" value="{{$value.document_id}}">
-			<a  class="icon word">
+			<div  class="icon word">
 				<div class="report-logo">
 					<img src="images/word_logo.png" alt="">
 				</div>
-			</a>
+			</div>
 			<div class="report-intro">
 				<a>{{$value.document_name}}</a>
 				<p>{{$value.grade}}&nbsp;{{$value.institute}}&nbsp;{{$value.class}}</p>
@@ -31,11 +31,11 @@
 		{{else if $value.type === 'ppt' || $value.type === 'pptx'}}
 		<a class="report" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 			<input type="hidden" value="{{$value.document_id}}">
-			<a  class="icon ppt" >
+			<div  class="icon ppt" >
 				<div class="report-logo">
 					<img src="images/ppt_logo.png" alt="">
 				</div>
-			</a>
+			</div>
 			<div class="report-intro">
 				<a>{{$value.document_name}}</a>
 				<p>{{$value.grade}}&nbsp;{{$value.institute}}&nbsp;{{$value.class}}</p>
@@ -45,11 +45,11 @@
     	{{else if $value.type === 'pdf'}}
     	<a class="report" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 			<input type="hidden" value="{{$value.document_id}}">
-    		<a  class="icon pdf" >
+    		<div class="icon pdf" >
 				<div class="report-logo">
 					<img src="images/pdf_logo.png" alt="">
 				</div>
-			</a>
+			</div>
 			<div class="report-intro">
 				<a>{{$value.document_name}}</a>
 				<p>{{$value.grade}}&nbsp;{{$value.institute}}&nbsp;{{$value.class}}</p>
@@ -59,11 +59,11 @@
     	{{else if $value.type === 'zip'}}
     	<a class="report" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 			<input type="hidden" value="{{$value.document_id}}">
-    		<a  class="icon zip" >
+    		<div class="icon zip" >
 				<div class="report-logo">
 					<img src="images/zip_logo.png" alt="">
 				</div>
-			</a>
+			</div>
 			<div class="report-intro">
 				<a>{{$value.document_name}}</a>
 				<p>{{$value.grade}}&nbsp;{{$value.institute}}&nbsp;{{$value.class}}</p>
@@ -73,11 +73,11 @@
     	{{else if $value.type === 'rar'}}
     	<a class="report" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 			<input type="hidden" value="{{$value.document_id}}">
-   	 		<a  class="icon zip" >
+   	 		<div class="icon zip" >
 				<div class="report-logo">
 					<img src="images/zip_logo.png" alt="">
 				</div>
-			</a>
+			</div>
 			<div class="report-intro">
 				<a>{{$value.document_name}}</a>
 				<p>{{$value.grade}}&nbsp;{{$value.institute}}&nbsp;{{$value.class}}</p>
