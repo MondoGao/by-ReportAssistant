@@ -15,42 +15,42 @@
 <section>
 	{{each list}}
 		<a class="report" href="report_detail.html?id={{$value.document_id}}" target="view_window">
-		{{if $value.type === 'doc' || $value.type === 'docx'}}
-			<input type="hidden" value="{{$value.document_id}}">
+			{{if $value.type === 'doc' || $value.type === 'docx'}}
+			<input type="hidden" value="{{$value.document_id}}"/>
 			<div  class="icon word">
 				<div class="report-logo">
 					<img src="images/word_logo.png" alt="">
 				</div>
 			</div>	
-		{{else if $value.type === 'ppt' || $value.type === 'pptx'}}
-			<input type="hidden" value="{{$value.document_id}}">
+			{{else if $value.type === 'ppt' || $value.type === 'pptx'}}
+			<input type="hidden" value="{{$value.document_id}}"/>
 			<div  class="icon ppt" >
 				<div class="report-logo">
 					<img src="images/ppt_logo.png" alt="">
 				</div>
 			</div>
-    	{{else if $value.type === 'pdf'}}
-			<input type="hidden" value="{{$value.document_id}}">
+    		{{else if $value.type === 'pdf'}}
+			<input type="hidden" value="{{$value.document_id}}"/>
     		<div class="icon pdf" >
 				<div class="report-logo">
 					<img src="images/pdf_logo.png" alt="">
 				</div>
 			</div>
-    	{{else if $value.type === 'zip'}}
-			<input type="hidden" value="{{$value.document_id}}">
+    		{{else if $value.type === 'zip'}}
+			<input type="hidden" value="{{$value.document_id}}"/>
     		<div class="icon zip" >
 				<div class="report-logo">
 					<img src="images/zip_logo.png" alt="">
 				</div>
 			</div>
-    	{{else if $value.type === 'rar'}}
-			<input type="hidden" value="{{$value.document_id}}">
+    		{{else if $value.type === 'rar'}}
+			<input type="hidden" value="{{$value.document_id}}"/>
    	 		<div class="icon zip" >
 				<div class="report-logo">
 					<img src="images/zip_logo.png" alt="">
 				</div>
 			</div>
-    	{{/if}}
+    		{{/if}}
     		<div class="report-intro">
 				<a>{{$value.document_name}}</a>
 				<p>{{$value.grade}}&nbsp;{{$value.institute}}&nbsp;{{$value.class}}</p>
