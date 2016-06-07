@@ -15,7 +15,7 @@ function getdata(begin,searchKey){
 	$.ajax({
     	type: "post",
     	url: "/list", 
-    	data:{"begin":begin,"count":10,"keyword":'"'+searchKey+'"'},
+    	data:{"begin":begin,"count":10,"keyword":searchKey},
     	dataType:"json", 
     	async: false,    
     	success: function(data) {
