@@ -166,9 +166,10 @@ body {
     align-content: space-between;
     flex-wrap: wrap; }
     body section .report {
+      cursor: pointer;
       display: block;
       width: 49.2%;
-      height: px;
+      height: 98px;
       background-color: #FFFFFF;
       margin-bottom: 6px; }
       body section .report .icon {
