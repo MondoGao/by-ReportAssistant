@@ -24,7 +24,6 @@ function getdata(begin){
                 for(var i=0;i<data.pageSize;i++){
                     pageHtml += "<li><div>"+parseInt(i+1)+"</div></li>";
                 }
-                console.log(pageHtml);
                 var pageNum = document.getElementById('page_num');
                 pageNum.innerHTML = pageHtml;
             }
@@ -86,9 +85,8 @@ turnpage();
 //搜索
 $(".search-submit").click(function(){
 	if($("#search-input").val()){
-		console.log("1");
 		var searchkey = encodeURIComponent($("#search-input").val());
 		console.log(searchkey);
-		window.open('report_search.html?search=' + encodeURIComponent($("#search-input").val()));
+		window.open('report_search.html?search=' + searchkey);
 	}
 })

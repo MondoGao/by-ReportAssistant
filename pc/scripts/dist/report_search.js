@@ -1,6 +1,6 @@
 function firstshow(){
     var hrefPra = gethref();
-    var searchKey = hrefPra[hrefPra.length-1];
+    var searchKey = decodeURI(hrefPra[hrefPra.length-1]);
 	getdata(1,searchKey);
     console.log(searchKey);
 }
@@ -26,7 +26,6 @@ function getdata(begin,searchKey){
                 for(var i=0;i<data.pageSize;i++){
                     pageHtml += "<li><div>"+parseInt(i+1)+"</div></li>";
                 }
-                console.log(pageHtml);
                 var pageNum = document.getElementById('page_num');
                 pageNum.innerHTML = pageHtml;
             }
@@ -48,7 +47,8 @@ function gethref(){
 
 $(".search-submit").click(function(){
     if($("#search-input").val()){
-        console.log("1");
-        window.location.href ='report_search.html?search=' + $("#search-input").val();
+        var searchkey = encodeURIComponent($("#search-input").val());
+        console.log(searchkey);
+        window.location.href ='report_search.html?search=' + searchkey;
     }
 })
