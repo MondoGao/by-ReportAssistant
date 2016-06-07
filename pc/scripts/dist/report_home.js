@@ -39,6 +39,7 @@ function getdata(begin){
 //下一页或上一页
 function turnpage(){
 	var pageOn = 0;
+	var pageLi = document.getElementsByTagName('li');
 	$("li").eq(0).addClass("pageOn");
 	$("#next").click(function(){
 		if(pageOn<($("li").length-1)){
@@ -56,16 +57,16 @@ function turnpage(){
 			$("li").eq(pageOn).addClass("pageOn");
 		}
 	})
-	for(var j=0;j < $("li").length;j++){
-		$("li").eq(j).click((function(j){
+	for(var j=0;j<pageLi.length;j++){
+		pageLi[j].onclick = (function(j){
 			return function (){
 					console.log(j);
 					getdata(j+1);
 					$("li").eq(pageOn).removeClass("pageOn");
 					$("li").eq(j).addClass("pageOn");
 					pageOn = j;				
-				}
-		})(j));
+			}
+		})(j);
 	}
 }
 turnpage();
