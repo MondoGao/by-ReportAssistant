@@ -56,9 +56,9 @@ function turnpage(){
 			$("li").eq(pageOn).addClass("pageOn");
 		}
 	})
-	for(var j=0;j<$("li").length;j++){
+	for(var j=0;j < $("li").length;j++){
 		$("li").eq(j).click((function(j){
-			return function(){
+			return function (){
 					console.log(j);
 					getdata(j+1);
 					$("li").eq(pageOn).removeClass("pageOn");
@@ -80,7 +80,7 @@ $(".search-submit").click(function(){
 	}
 })
 //2.回车搜索
-document.onkeydown = function(event){                //网页内按下回车触发
+document.onkeydown = function(event){               
     var e = event || window.event || arguments.callee.caller.arguments[0];
     if(e.keyCode==13)
     {
@@ -91,6 +91,6 @@ document.onkeydown = function(event){                //网页内按下回车触�
 
 //增加进入详情面的点击热键
 $(".report").click(function(){
-	var detail = $("input[type='hidden']").val();
-	window.open("report_detail.html?id="+detail);
+	var detailURL = $("input[type='hidden']").val();
+	window.open("report_detail.html?id="+detailURL);
 })
