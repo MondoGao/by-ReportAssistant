@@ -1,6 +1,18 @@
 //一进页面加载代码
 function firstshow(){
+	var pageNum;
 	getdata(1);
+	console.log(pageNum);
+	if(pageNum <= 1){
+                $(".changePage").css("display","none");
+            }else{
+                var pageHtml="";
+                for(var i=0;i<pageNum;i++){
+                    pageHtml += "<li><div>"+parseInt(i+1)+"</div></li>";
+                }
+                var pageNum = document.getElementById('page_num');
+                pageNum.innerHTML = pageHtml;
+            }
 }
 firstshow();
 
@@ -17,16 +29,7 @@ function getdata(begin){
     	dataType:"json", 
     	async: false,    
     	success: function(data) {
-    		if(data.pageSize <= 1){
-                $(".changePage").css("display","none");
-            }else{
-                var pageHtml="";
-                for(var i=0;i<data.pageSize;i++){
-                    pageHtml += "<li><div>"+parseInt(i+1)+"</div></li>";
-                }
-                var pageNum = document.getElementById('page_num');
-                pageNum.innerHTML = pageHtml;
-            }
+    		pageNum = data.pageSize;
         	report_data.list = data.result;
 			document.getElementById('doc').innerHTML = template('index', report_data);
     	},
@@ -80,25 +83,14 @@ $(".search-submit").click(function(){
 		window.open('report_search.html?search=' + searchkey);
 	}
 })
-//2.回车搜索
-// document.onkeydown = function(event){               
-//     var e = event || window.event || arguments.callee.caller.arguments[0];
-//     if(e.keyCode==13)
-//     {
-//         $(".search-submit").trigger("click");   
-//         return false;                               
-//     }
-// }
+// 2.回车搜索
+document.onkeydown = function(event){               
+    var e = event || window.event || arguments.callee.caller.arguments[0];
+    if(e.keyCode==13)
+    {
+        $(".search-submit").trigger("click");   
+        return false;                               
+    }
+}
 
-//增加进入详情面的点击热键
-// function opendetail(){
-// 	for(var i=0;i<$(".report").length;i++){
-// 		$(".report").eq(i).click((function(i){
-// 			return function(){
-// 				var detailURL = $("input[type='hidden']").eq(i).val();
-// 				window.open("report_detail.html?id="+detailURL);
-// 			}
-// 		})(i));
-// 	}
-// }
-// opendetail();
+

@@ -63,9 +63,3 @@ document.onkeydown = function(event){
         return false;                               
     }
 }
-
-//增加进入详情面的点击热键
-$(".report").click(function(){
-    var detailURL = $("input[type='hidden']").val();
-    window.open("report_detail.html?id="+detailURL);
-})
