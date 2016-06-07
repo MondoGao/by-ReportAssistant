@@ -57,6 +57,7 @@
 	        'file-short-info': 'desc'
 	    },
 	    mimeList: ['doc', 'docx', 'ppt', 'pptx', 'pdf', 'zip', 'rar'],
+	    transcodeTime: 300000,
 	    form: {}
 	};
 
@@ -129,8 +130,14 @@
 
 	//展开自定义下拉框
 	function toggleSelect(e) {
-	    var selectOptions = $(e.currentTarget).next(),
-	        parent = $(e.currentTarget).parent().parent();
+	    var currentSelect = $(e.currentTarget),
+	        selectOptions = currentSelect.next(),
+	        parent = currentSelect.parent().parent();
+	    if (currentSelect.hasClass('selected-placeholder')) {
+	        currentSelect.removeClass('selected-placeholder');
+	    } else if (!currentSelect.attr('value')) {
+	        currentSelect.addClass('selected-placeholder');
+	    }
 	    if (parent.hasClass('show-error-info')) {
 	        parent.removeClass('show-error-info');
 	    }
@@ -138,6 +145,15 @@
 	        selectOptions.removeClass('hide');
 	    } else {
 	        selectOptions.addClass('hide');
+	    }
+	}
+
+	//进度上传处理
+	function progressHandle(e) {
+	    if (e.lengthComputable) {
+	        var percent = e.loaded / e.total * 100;
+	        console.log(percent);
+	        $('.progress-bar').text(percent.toFixed(2) + '%');
 	    }
 	}
 
@@ -212,20 +228,33 @@
 	        $this.attr('uploading', 0).removeClass('uploading');
 	    } else {
 	        var formData = createformData(UPLOADFILES.form);
-	        $('.loading').removeClass('hide');
+	        $('.loading-container').removeClass('hide');
 	        $('.container').addClass('container-fade');
 	        $.ajax({
 	            url: '/upload',
 	            type: 'POST',
 	            data: formData,
 	            processData: false,
-	            contentType: false
+	            contentType: false,
+	            xhr: function () {
+	                var xhr = $.ajaxSettings.xhr();
+	                if (xhr.upload) {
+	                    xhr.upload.addEventListener('progress', progressHandle, false);
+	                    return xhr;
+	                }
+	            }
 	        }).done(function (data) {
-	            $('#preview-upload').attr({
-	                href: 'report_detail.html?id=' + data.result,
-	                target: 'preview_window'
+	            $('#upload-file-id').val(data.result);
+	            $('#preview-upload').on('click', function () {
+	                alert('文档转码中，请稍后再查看');
 	            });
-	            $('.loading').addClass('hide');
+	            setTimeout(function () {
+	                $('#preview-upload').off('click').attr({
+	                    href: 'report_detail.html?id=' + parseInt($('#upload-file-id').val()),
+	                    target: 'preview_window'
+	                });
+	            }, UPLOADFILES.transcodeTime);
+	            $('.loading-container').addClass('hide');
 	            $('.container').removeClass('container-fade');
 	            $('.upload-file-form').removeClass('show');
 	            $('.upload-success-container').addClass('show');
@@ -237,7 +266,7 @@
 	            $('#upload-file-input').remove();
 	            $('.upload-file-component').append('<input type="file" id="upload-file-input">');
 	            $('#upload-file-input').on('change', uploadReport);
-	            $('.loading').addClass('hide');
+	            $('.loading-container').addClass('hide');
 	            $('.container').removeClass('container-fade');
 	            $('.upload-file-form').removeClass('show');
 	            $('.add-file-container').addClass('show');

@@ -91,7 +91,7 @@
                     <h3>学院:</h3>
                     <div class="file-input-item">
                         <div class="select-box">
-                            <div class="current-selected input-content" value="" id="academy-select">
+                            <div class="current-selected selected-placeholder input-content" value="" id="academy-select">
                                 <span>请选择学院</span>
                                 <i></i>
                             </div>
@@ -144,11 +144,16 @@
                     <h3>年级:</h3>
                     <div class="file-input-item">
                         <div class="select-box">
-                            <div class="current-selected input-content" value="" id="grade-select">
+                            <div class="current-selected selected-placeholder input-content" value="" id="grade-select">
                                 <span>请选择年级</span>
                                 <i></i>
                             </div>
                             <ul class="select-options hide">
+                                <!--<li>07级</li>-->
+                                <!--<li>08级</li>-->
+                                <!--<li>09级</li>-->
+                                <li>10级</li>
+                                <li>11级</li>
                                 <li>12级</li>
                                 <li>13级</li>
                                 <li>14级</li>
@@ -178,6 +183,7 @@
                 </div>
             </div>
             <div class="upload-success-container">
+                <input type="hidden" id="upload-file-id">
                 <div class="upload-info">
                     <p>恭喜！文档上传成功</p>
                 </div>
@@ -189,12 +195,18 @@
         </div>
     </section>
 </div>
-<div class="loading hide">
-    <div class="loading-item1"></div>
-    <div class="loading-item2"></div>
-    <div class="loading-item3"></div>
-    <div class="loading-item4"></div>
-    <div class="loading-item5"></div>
+<div class="loading-container hide">
+    <div class="loading">
+        <div class="loading-item1"></div>
+        <div class="loading-item2"></div>
+        <div class="loading-item3"></div>
+        <div class="loading-item4"></div>
+        <div class="loading-item5"></div>
+    </div>
+    <p>
+        <span>上传中</span>
+        <span class="progress-bar">0%</span>
+    </p>
 </div>
 <script type="text/javascript" src="scripts/lib/jquery-2.2.4.min.js"></script>
 <script type="text/javascript" src="scripts/lib/jquery.mCustomScrollbar.concat.min.js"></script>

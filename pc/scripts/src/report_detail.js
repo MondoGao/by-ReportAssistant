@@ -45,7 +45,7 @@ if (search !== '') {
             });
         });
         if (!data.result.preview) {
-            $('.loading').addClass('hide');
+            $('.loading-container').addClass('hide');
             $('.container').removeClass('fade');
             return;
         }
@@ -77,7 +77,7 @@ if (search !== '') {
             // console.log(containerW, ifrPW);
             if(containerW > docWidth) {
                 $('.pc', ifrDoc).addClass('opened');
-                $('.loading').addClass('hide');
+                $('.loading-container').addClass('hide');
                 $('.container').removeClass('fade');
                 return;
             }
@@ -88,7 +88,7 @@ if (search !== '') {
             ifrHead.appendChild(ifrStyle);
             ifrStyle.innerHTML = scaleTxt + ' ' + touchTxt;
             $('.pc', ifrDoc).addClass('opened');
-            $('.loading').addClass('hide');
+            $('.loading-container').addClass('hide');
             $('.container').removeClass('fade');
         });
     }).fail(function () {
