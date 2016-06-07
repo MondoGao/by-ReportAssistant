@@ -56,17 +56,15 @@ input {
   font-size: inherit;
   font-family: inherit; }
 
-header {
-  width: 960px;
-  margin: 0 auto; }
-
 .logo {
-  float: left; }
+  float: left;
+  height: 200px; }
 
 .search-container {
   position: relative;
   overflow: hidden;
-  padding-left: 15px; }
+  padding-left: 15px;
+  height: 200px; }
   .search-container img {
     width: 100%;
     display: block; }
@@ -75,7 +73,7 @@ header {
     left: 15px;
     right: 0;
     bottom: 0;
-    height: 36px;
+    height: 37px;
     background-color: #282828;
     padding: 5px 20px;
     -webkit-box-sizing: border-box;
@@ -111,7 +109,7 @@ header {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     padding: 0 20px;
-    line-height: 24px;
+    line-height: 25px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box; }
@@ -127,13 +125,16 @@ header {
   border-radius: 15px;
   color: #fff;
   text-align: center;
-  line-height: 22px; }
+  line-height: 23px; }
   .upload-file:hover {
     background-color: #fff;
     color: #282828; }
 
 #doc {
-  width: 100%; }
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1080px;
+  min-width: 960px; }
 
 .word {
   background-color: #E63F26; }
@@ -156,7 +157,7 @@ body {
   body section {
     padding-top: 26px;
     margin: 0 auto;
-    width: 960px;
+    width: 100%;
     display: -webkit-flex;
     display: -moz-flex;
     display: flex;
@@ -165,6 +166,7 @@ body {
     align-content: space-between;
     flex-wrap: wrap; }
     body section .report {
+      display: block;
       width: 49.2%;
       height: px;
       background-color: #FFFFFF;
@@ -205,52 +207,55 @@ body {
           color: #999; }
   body .changePage {
     padding: 22px 0 36px 0;
-    width: 390px;
-    margin: 0 auto; }
+    display: inline-block;
+    margin-left: 50%;
+    transform: translateX(-50%); }
     body .changePage img {
       margin-top: -5px;
       float: left;
       margin-right: 20px; }
-    body .changePage ul li {
-      float: left;
-      margin-right: 20px;
-      width: 17px;
-      height: 17px;
-      border: 2px solid #000;
-      transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      /* IE 9 */
-      -moz-transform: rotate(45deg);
-      /* Firefox */
-      -webkit-transform: rotate(45deg);
-      /* Safari and Chrome */
-      -o-transform: rotate(45deg);
-      /* Opera */
-      position: relative; }
-      body .changePage ul li div {
-        font-size: 14px;
-        transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-        /* IE 9 */
-        -moz-transform: rotate(-45deg);
-        /* Firefox */
-        -webkit-transform: rotate(-45deg);
-        /* Safari and Chrome */
-        -o-transform: rotate(-45deg);
-        /* Opera */
-        position: absolute;
+    body .changePage ul {
+      float: left; }
+      body .changePage ul li {
+        float: left;
+        margin-right: 20px;
         width: 17px;
         height: 17px;
-        top: 0;
-        left: 1px;
-        bottom: 1px;
-        right: 0;
-        margin: auto;
-        line-height: 17px;
-        text-align: center; }
-    body .changePage ul .pageOn {
-      background-color: #000; }
-      body .changePage ul .pageOn div {
-        color: #fff !important; }
+        border: 2px solid #000;
+        transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        /* IE 9 */
+        -moz-transform: rotate(45deg);
+        /* Firefox */
+        -webkit-transform: rotate(45deg);
+        /* Safari and Chrome */
+        -o-transform: rotate(45deg);
+        /* Opera */
+        position: relative; }
+        body .changePage ul li div {
+          font-size: 14px;
+          transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+          /* IE 9 */
+          -moz-transform: rotate(-45deg);
+          /* Firefox */
+          -webkit-transform: rotate(-45deg);
+          /* Safari and Chrome */
+          -o-transform: rotate(-45deg);
+          /* Opera */
+          position: absolute;
+          width: 17px;
+          height: 17px;
+          top: 0;
+          left: 1px;
+          bottom: 1px;
+          right: 0;
+          margin: auto;
+          line-height: 17px;
+          text-align: center; }
+      body .changePage ul .pageOn {
+        background-color: #000; }
+        body .changePage ul .pageOn div {
+          color: #fff !important; }
 
 /*# sourceMappingURL=home.css.map */

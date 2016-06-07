@@ -15,10 +15,21 @@ function getdata(begin,searchKey){
 	$.ajax({
     	type: "post",
     	url: "/list", 
-    	data:{"begin":begin,"count":10,"search":"W"},
+    	data:{"begin":begin,"count":10,"keyword":searchKey},
     	dataType:"json", 
     	async: false,    
     	success: function(data) {
+            if(data.pageSize <= 1){
+                $(".changePage").css("display","none");
+            }else{
+                var pageHtml="";
+                for(var i=0;i<data.pageSize;i++){
+                    pageHtml += "<li><div>"+parseInt(i+1)+"</div></li>";
+                }
+                console.log(pageHtml);
+                var pageNum = document.getElementById('page_num');
+                pageNum.innerHTML = pageHtml;
+            }
         	report_data.list = data.result;
 			document.getElementById('doc').innerHTML = template('index', report_data);
     	},
@@ -38,6 +49,6 @@ function gethref(){
 $(".search-submit").click(function(){
     if($("#search-input").val()){
         console.log("1");
-        window.location.href ='report_search.html?search="' + $("#search-input").val()+'"';
+        window.location.href ='report_search.html?search=' + $("#search-input").val();
     }
 })

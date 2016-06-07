@@ -8,7 +8,7 @@ firstshow();
 function getdata(begin){
 	var report_data = {
 		list: [
-		]
+		]     
 	};
 	$.ajax({
     	type: "post",
@@ -17,6 +17,17 @@ function getdata(begin){
     	dataType:"json", 
     	async: false,    
     	success: function(data) {
+    		if(data.pageSize <= 1){
+                $(".changePage").css("display","none");
+            }else{
+                var pageHtml="";
+                for(var i=0;i<data.pageSize;i++){
+                    pageHtml += "<li><div>"+parseInt(i+1)+"</div></li>";
+                }
+                console.log(pageHtml);
+                var pageNum = document.getElementById('page_num');
+                pageNum.innerHTML = pageHtml;
+            }
         	report_data.list = data.result;
 			document.getElementById('doc').innerHTML = template('index', report_data);
     	},
@@ -25,8 +36,6 @@ function getdata(begin){
    		},     
 	});
 }
-
-
 
 //下一页或上一页
 function turnpage(){
