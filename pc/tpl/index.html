@@ -14,77 +14,45 @@
 
 <section>
 	{{each list}}
+		<div class="report">
+			<input type="hidden" value="{{$value.document_id}}"/>
 		{{if $value.type === 'doc' || $value.type === 'docx'}}
-		<a class="report" href="report_detail.html?id={{$value.document_id}}" target="view_window">
-			<input type="hidden" value="{{$value.document_id}}">
-			<a  class="icon word">
+			<a class="icon word"  href="report_detail.html?id={{$value.document_id}}" target="view_window">
 				<div class="report-logo">
 					<img src="images/word_logo.png" alt="">
 				</div>
-			</a>
-			<div class="report-intro">
-				<a>{{$value.document_name}}</a>
-				<p>{{$value.grade}}&nbsp;{{$value.institute}}&nbsp;{{$value.class}}</p>
-				<span>已有{{$value.downloads}}人下载</span>
-			</div>
-		</a>	
+			</a>	
 		{{else if $value.type === 'ppt' || $value.type === 'pptx'}}
-		<a class="report" href="report_detail.html?id={{$value.document_id}}" target="view_window">
-			<input type="hidden" value="{{$value.document_id}}">
-			<a  class="icon ppt" >
+			<a class="icon ppt" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 				<div class="report-logo">
 					<img src="images/ppt_logo.png" alt="">
 				</div>
 			</a>
-			<div class="report-intro">
-				<a>{{$value.document_name}}</a>
-				<p>{{$value.grade}}&nbsp;{{$value.institute}}&nbsp;{{$value.class}}</p>
-				<span>已有{{$value.downloads}}人下载</span>
-			</div>
-		</a>
     	{{else if $value.type === 'pdf'}}
-    	<a class="report" href="report_detail.html?id={{$value.document_id}}" target="view_window">
-			<input type="hidden" value="{{$value.document_id}}">
-    		<a  class="icon pdf" >
+    		<a class="icon pdf" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 				<div class="report-logo">
 					<img src="images/pdf_logo.png" alt="">
 				</div>
 			</a>
-			<div class="report-intro">
-				<a>{{$value.document_name}}</a>
-				<p>{{$value.grade}}&nbsp;{{$value.institute}}&nbsp;{{$value.class}}</p>
-				<span>已有{{$value.downloads}}人下载</span>
-			</div>
-		</a>
     	{{else if $value.type === 'zip'}}
-    	<a class="report" href="report_detail.html?id={{$value.document_id}}" target="view_window">
-			<input type="hidden" value="{{$value.document_id}}">
-    		<a  class="icon zip" >
+    		<a class="icon zip" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 				<div class="report-logo">
 					<img src="images/zip_logo.png" alt="">
 				</div>
 			</a>
-			<div class="report-intro">
-				<a>{{$value.document_name}}</a>
-				<p>{{$value.grade}}&nbsp;{{$value.institute}}&nbsp;{{$value.class}}</p>
-				<span>已有{{$value.downloads}}人下载</span>
-			</div>
-		</a>
     	{{else if $value.type === 'rar'}}
-    	<a class="report" href="report_detail.html?id={{$value.document_id}}" target="view_window">
-			<input type="hidden" value="{{$value.document_id}}">
-   	 		<a  class="icon zip" >
+   	 		<a class="icon zip" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 				<div class="report-logo">
 					<img src="images/zip_logo.png" alt="">
 				</div>
 			</a>
-			<div class="report-intro">
-				<a>{{$value.document_name}}</a>
+    	{{/if}}
+    		<a class="report-intro" href="report_detail.html?id={{$value.document_id}}" target="view_window">
+				<h3>{{$value.document_name}}</h3>
 				<p>{{$value.grade}}&nbsp;{{$value.institute}}&nbsp;{{$value.class}}</p>
 				<span>已有{{$value.downloads}}人下载</span>
-			</div>
-		</a>
-    	{{/if}}
+			</a>
+		</div>
 	{{/each}}
 </section>
 

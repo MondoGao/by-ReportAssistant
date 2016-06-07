@@ -166,11 +166,14 @@ body {
     align-content: space-between;
     flex-wrap: wrap; }
     body section .report {
+      cursor: pointer;
       display: block;
       width: 49.2%;
-      height: px;
+      height: 98px;
       background-color: #FFFFFF;
       margin-bottom: 6px; }
+      body section .report:hover {
+        background-color: rgba(188, 193, 191, 0.33); }
       body section .report .icon {
         float: left;
         width: 104px;
@@ -186,9 +189,10 @@ body {
             width: 100%;
             height: 100%; }
       body section .report .report-intro {
+        display: block !important;
         margin-left: 104px;
         padding: 9px 43px 0 24px; }
-        body section .report .report-intro a {
+        body section .report .report-intro h3 {
           display: block;
           margin-bottom: 10px;
           font-size: 20px;
@@ -209,6 +213,10 @@ body {
     padding: 22px 0 36px 0;
     display: inline-block;
     margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
     transform: translateX(-50%); }
     body .changePage img {
       margin-top: -5px;
@@ -217,6 +225,7 @@ body {
     body .changePage ul {
       float: left; }
       body .changePage ul li {
+        cursor: pointer;
         float: left;
         margin-right: 20px;
         width: 17px;
