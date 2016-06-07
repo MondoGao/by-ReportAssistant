@@ -13,11 +13,11 @@
 .reminder-container {
     position: absolute;
     width: 400px;
-    height: 190px;
+    // height: 190px;
     top: 45%;
     left: 50%;
     @include translate(-50%, -50%);
-    padding: 10px;
+    padding: 20px 10px 25px;
     border: 1px solid #ccc;
     background-color: #fff;
     font-size: 15px;
@@ -40,7 +40,7 @@
     & > p {
         width: 75%;
         margin: 0 auto;
-        padding: 50px 0 35px;
+        padding: 40px 0 25px;
         line-height: 1.5;
         font-size: 16px;
         text-align: center;
