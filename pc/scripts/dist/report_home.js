@@ -90,3 +90,9 @@ $(".search-submit").click(function(){
 		window.open('report_search.html?search=' + searchkey);
 	}
 })
+
+//样式效果
+$(".report").click(function(){
+	var detail = $("input[type='hidden']").val();
+	window.open("report_detail.html?id="+detail);
+})
