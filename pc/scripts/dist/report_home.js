@@ -58,7 +58,7 @@ function turnpage(){
 		}
 	})
 	for(var j=0;j<pageLi.length;j++){
-		pageLi[j].onclick = (function(j){
+		pageLi[j].onclick = (function (j){
 			return function (){
 					console.log(j);
 					getdata(j+1);
