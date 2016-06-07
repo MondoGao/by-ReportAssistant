@@ -1,23 +1,12 @@
 //一进页面加载代码
 function firstshow(){
 	var pageNum;
-	getdata(1);
-	console.log(pageNum);
-	if(pageNum <= 1){
-                $(".changePage").css("display","none");
-            }else{
-                var pageHtml="";
-                for(var i=0;i<pageNum;i++){
-                    pageHtml += "<li><div>"+parseInt(i+1)+"</div></li>";
-                }
-                var pageNum = document.getElementById('page_num');
-                pageNum.innerHTML = pageHtml;
-            }
+	getdata(1,1);
 }
 firstshow();
 
 
-function getdata(begin){
+function getdata(begin,firstIn){
 	var report_data = {
 		list: [
 		]     
@@ -29,7 +18,18 @@ function getdata(begin){
     	dataType:"json", 
     	async: false,    
     	success: function(data) {
-    		pageNum = data.pageSize;
+    		if(firstIn){
+    			if(data.pageSize <= 1){
+                	$(".changePage").css("display","none");
+            	}else{
+                	var pageHtml="";
+                	for(var i=0;i<data.pageSize;i++){
+                   	 	pageHtml += "<li><div>"+parseInt(i+1)+"</div></li>";
+                	}
+                	var pageNum = document.getElementById('page_num');
+                	pageNum.innerHTML = pageHtml;
+            	}
+    		}
         	report_data.list = data.result;
 			document.getElementById('doc').innerHTML = template('index', report_data);
     	},
