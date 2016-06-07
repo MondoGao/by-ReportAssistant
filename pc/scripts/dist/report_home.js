@@ -56,10 +56,11 @@ function turnpage(){
 			$("li").eq(pageOn).addClass("pageOn");
 		}
 	})
+	console.log($("li").length);
 	for(var i=0;i<$("li").length;i++){
 		$("li").eq(i).click((function(i){
 			return function(){
-				console.log(".");
+				console.log(i);
 				$("li").eq(pageOn).removeClass("pageOn");
 				$("li").eq(i).addClass("pageOn");
 				pageOn = i;
