@@ -94,8 +94,10 @@ document.onkeydown = function(event){
 function opendetail(){
 	for(var i=0;i<$(".report").length;i++){
 		$(".report").eq(i).click((function(i){
-			var detailURL = $("input[type='hidden']").eq(i).val();
-			window.open("report_detail.html?id="+detailURL);
+			return function(){
+				var detailURL = $("input[type='hidden']").eq(i).val();
+				window.open("report_detail.html?id="+detailURL);
+			}
 		})(i));
 	}
 }
