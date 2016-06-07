@@ -29,7 +29,6 @@ function getdata(begin){
             }
         	report_data.list = data.result;
 			document.getElementById('doc').innerHTML = template('index', report_data);
-			opendetail();
     	},
     	error: function(data) {
         	document.write = $.parseJSON(data.responseText).error;
@@ -101,4 +100,4 @@ function opendetail(){
 		})(i));
 	}
 }
-
+opendetail();
