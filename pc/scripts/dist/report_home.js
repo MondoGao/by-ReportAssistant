@@ -29,6 +29,7 @@ function getdata(begin){
             }
         	report_data.list = data.result;
 			document.getElementById('doc').innerHTML = template('index', report_data);
+			opendetail();
     	},
     	error: function(data) {
         	document.write = $.parseJSON(data.responseText).error;
@@ -90,7 +91,12 @@ document.onkeydown = function(event){
 }
 
 //增加进入详情面的点击热键
-$(".report").click(function(){
-	var detailURL = $("input[type='hidden']").val();
-	window.open("report_detail.html?id="+detailURL);
-})
+function opendetail(){
+	for(var i=0;i<$(".report").length;i++){
+		$(".report").eq(i).click((function(i){
+			var detailURL = $("input[type='hidden']").eq(i).val();
+			window.open("report_detail.html?id="+detailURL);
+		})(i));
+	}
+}
+
