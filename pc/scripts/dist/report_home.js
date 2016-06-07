@@ -83,6 +83,7 @@ function turnpage(){
 turnpage();
 
 //搜索
+//1.点击搜索
 $(".search-submit").click(function(){
 	if($("#search-input").val()){
 		var searchkey = encodeURIComponent($("#search-input").val());
@@ -90,7 +91,15 @@ $(".search-submit").click(function(){
 		window.open('report_search.html?search=' + searchkey);
 	}
 })
-
+//2.回车搜索
+document.onkeydown = function(event){                //网页内按下回车触发
+    var e = event || window.event || arguments.callee.caller.arguments[0];
+    if(e.keyCode==13)
+    {
+        $(".search-submit").trigger("click");   
+        return false;                               
+    }
+}
 //样式效果
 $(".report").click(function(){
 	var detail = $("input[type='hidden']").val();
