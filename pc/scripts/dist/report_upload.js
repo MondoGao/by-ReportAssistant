@@ -129,8 +129,14 @@
 
 	//展开自定义下拉框
 	function toggleSelect(e) {
-	    var selectOptions = $(e.currentTarget).next(),
-	        parent = $(e.currentTarget).parent().parent();
+	    var currentSelect = $(e.currentTarget),
+	        selectOptions = currentSelect.next(),
+	        parent = currentSelect.parent().parent();
+	    if (currentSelect.hasClass('selected-placeholder')) {
+	        currentSelect.removeClass('selected-placeholder');
+	    } else if(!currentSelect.attr('value')) {
+	        currentSelect.addClass('selected-placeholder');
+	    }
 	    if (parent.hasClass('show-error-info')) {
 	        parent.removeClass('show-error-info');
 	    }
@@ -143,7 +149,7 @@
 
 	//进度上传处理
 	function progressHandle(e) {
-	    if(e.lengthComputable) {
+	    if (e.lengthComputable) {
 	        var percent = e.loaded / e.total * 100;
 	        console.log(percent);
 	        $('.progress-bar').text(percent.toFixed(2) + '%');
