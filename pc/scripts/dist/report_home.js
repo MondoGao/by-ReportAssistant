@@ -87,6 +87,8 @@ turnpage();
 $(".search-submit").click(function(){
 	if($("#search-input").val()){
 		console.log("1");
-		window.open('report_search.html?search=' + $("#search-input").val());
+		var searchkey = encodeURIComponent($("#search-input").val());
+		console.log(searchkey);
+		window.open('report_search.html?search=' + encodeURIComponent($("#search-input").val()));
 	}
 })
