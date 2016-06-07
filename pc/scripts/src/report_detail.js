@@ -1,4 +1,12 @@
 var reportPreview = require('../../tpl/report_content.html');
+var Reminder = require('./reminder_component');
+var reminder = new Reminder();
+
+var PREVIEW = {
+    errorInfo: {
+        fileDownloadFail: '该文档无法下载，请下载其他文档'
+    }
+};
 
 var searchUrl = window.location.search,
     search = '';
@@ -36,12 +44,12 @@ if (search !== '') {
                 type: 'GET'
             }).done(function (data) {
                 if (data.code === -1) {
-                    alert('该文档无法下载，请下载其他文档');
+                    reminder.show(PREVIEW.errorInfo.fileDownloadFail);
                 } else {
-                    $("body").append("<iframe src='" + $('#downloadLink').val() +"' style='display: none;' ></iframe>");
+                    $("body").append("<iframe src='" + $('#downloadLink').val() + "' style='display: none;' ></iframe>");
                 }
             }).fail(function () {
-                alert('该文档无法下载，请下载其他文档');
+                reminder.show(PREVIEW.errorInfo.fileDownloadFail);
             });
         });
         if (!data.result.preview) {
@@ -75,7 +83,7 @@ if (search !== '') {
             var containerW = ifrDoc.getElementById('page-container').offsetWidth,
                 ifrPW = ifrP[0].offsetWidth;
             // console.log(containerW, ifrPW);
-            if(containerW > docWidth) {
+            if (containerW > docWidth) {
                 $('.pc', ifrDoc).addClass('opened');
                 $('.loading-container').addClass('hide');
                 $('.container').removeClass('fade');
