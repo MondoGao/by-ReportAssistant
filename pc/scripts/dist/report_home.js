@@ -46,20 +46,7 @@ function turnpage(){
 			getdata(pageOn+1);
 			$("li").eq(pageOn-1).removeClass("pageOn");
 			$("li").eq(pageOn).addClass("pageOn"); 
-		}
-		/*
-			可翻页的数量不大 
-			超出的页面暂且没管
-			限定了页数
-		*/ 
-		// else{
-		// 	pageOn = pageOn + 1;
-		// 	var pageUL = document.getElementById("page_num");
-		// 	pageUL.innerHTML +=	"<li><div>"+parseInt(pageOn+1)+"</div></li>";
-		// 	getdata(pageOn+1);
-		// 	$("li").eq(pageOn-1).removeClass("pageOn");
-		// 	$("li").eq(pageOn).addClass("pageOn"); 
-		// }	
+		}	
 	})
 	$("#prev").click(function(){
 		if(pageOn>=1){
@@ -72,6 +59,7 @@ function turnpage(){
 	for(var i=0;i<$("li").length;i++){
 		$("li").eq(i).click((function(i){
 			return function(){
+				console.log(".");
 				$("li").eq(pageOn).removeClass("pageOn");
 				$("li").eq(i).addClass("pageOn");
 				pageOn = i;
@@ -100,7 +88,8 @@ document.onkeydown = function(event){                //网页内按下回车触�
         return false;                               
     }
 }
-//样式效果
+
+//增加进入详情面的点击热键
 $(".report").click(function(){
 	var detail = $("input[type='hidden']").val();
 	window.open("report_detail.html?id="+detail);
