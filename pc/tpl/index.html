@@ -47,11 +47,11 @@
 				</div>
 			</a>
     	{{/if}}
-    		<div class="report-intro">
+    		<a class="report-intro" href="report_detail.html?id={{$value.document_id}}" target="view_window">
 				<a>{{$value.document_name}}</a>
 				<p>{{$value.grade}}&nbsp;{{$value.institute}}&nbsp;{{$value.class}}</p>
 				<span>已有{{$value.downloads}}人下载</span>
-			</div>
+			</a>
 		</div>
 	{{/each}}
 </section>
