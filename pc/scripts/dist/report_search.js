@@ -47,6 +47,41 @@ function gethref(){
     return hrefPra;
 }
 
+//下一页或上一页
+function turnpage(){
+    var pageOn = 0;
+    var pageLi = document.getElementsByTagName('li');
+    $("li").eq(0).addClass("pageOn");
+    $("#next").click(function(){
+        if(pageOn<($("li").length-1)){
+            pageOn = pageOn + 1;
+            getdata(pageOn+1);
+            $("li").eq(pageOn-1).removeClass("pageOn");
+            $("li").eq(pageOn).addClass("pageOn"); 
+        }   
+    })
+    $("#prev").click(function(){
+        if(pageOn>=1){
+            pageOn = pageOn - 1;
+            getdata(pageOn+1);
+            $("li").eq(pageOn+1).removeClass("pageOn");
+            $("li").eq(pageOn).addClass("pageOn");
+        }
+    })
+    for(var j=0;j<pageLi.length;j++){
+        pageLi[j].onclick = (function (j){
+            return function (){
+                    console.log(j);
+                    getdata(j+1);
+                    $("li").eq(pageOn).removeClass("pageOn");
+                    $("li").eq(j).addClass("pageOn");
+                    pageOn = j;             
+            }
+        })(j);
+    }
+}
+turnpage();
+
 //搜索
 //1.点击搜索
 $(".search-submit").click(function(){
