@@ -90,7 +90,7 @@
 	        inputItem = parent.find('.input-content'),
 	        id = inputItem.attr('id'),
 	        input = (inputItem.hasClass('current-selected')) ? inputItem.attr('value') : inputItem.val();
-	    if (id !== 'file-short-info' && input === '') {
+	    if (id !== 'nickname' && id !== 'file-short-info' && input === '') {
 	        error.text(UPLOADFILES.errorInfo.inputNotEmpty);
 	        parent.addClass('show-error-info');
 	        return true;
@@ -211,7 +211,7 @@
 
 	$('#courcename').on('focus', inputErrorReset).on('blur', inputErrorHandle);
 
-	$('#nickname').on('focus', inputErrorReset).on('blur', inputErrorHandle);
+	// $('#nickname').on('focus', inputErrorReset).on('blur', inputErrorHandle);
 
 	$('#file-short-info').on('focus', inputErrorReset).on('blur', inputErrorHandle);
 
