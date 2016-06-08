@@ -131,23 +131,23 @@ input {
     background-color: #fff;
     color: #282828; }
 
-#doc {
+#doc, header {
   width: 80%;
   margin: 0 auto;
   max-width: 1080px;
   min-width: 960px; }
 
 .word {
-  background-color: #E63F26; }
-
-.ppt {
   background-color: #4999F2; }
 
-.pdf {
+.ppt {
   background-color: #EE9414; }
 
+.pdf {
+  background-color: #E63F26; }
+
 .zip {
-  background-color: #3DD6C6; }
+  background-color: #3DD5C6; }
 
 body {
   font-family: STHeiTi,"Microsoft Yahei","Helvetica Neue",Helvetica,sans-serif;
@@ -175,6 +175,8 @@ body {
       margin-bottom: 6px; }
       body section .report:hover {
         background-color: rgba(188, 193, 191, 0.33); }
+        body section .report:hover .icon .report-logo {
+          background-color: transparent !important; }
       body section .report .icon {
         float: left;
         width: 104px;
@@ -184,8 +186,6 @@ body {
           height: 98px;
           float: right;
           background-color: #282828; }
-          body section .report .icon .report-logo:hover {
-            background-color: transparent; }
           body section .report .icon .report-logo img {
             width: 100%;
             height: 100%; }
