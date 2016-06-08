@@ -138,16 +138,16 @@ input {
   min-width: 960px; }
 
 .word {
-  background-color: #E63F26; }
-
-.ppt {
   background-color: #4999F2; }
 
-.pdf {
+.ppt {
   background-color: #EE9414; }
 
+.pdf {
+  background-color: #E63F26; }
+
 .zip {
-  background-color: #3DD6C6; }
+  background-color: #3DD5C6; }
 
 body {
   font-family: STHeiTi,"Microsoft Yahei","Helvetica Neue",Helvetica,sans-serif;
