@@ -266,6 +266,8 @@ body {
           text-align: center; }
         body .changePage ul li:hover {
           background-color: #000; }
+          body .changePage ul li:hover div {
+            color: #fff !important; }
       body .changePage ul .pageOn {
         background-color: #000; }
         body .changePage ul .pageOn div {
