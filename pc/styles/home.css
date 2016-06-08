@@ -154,7 +154,8 @@ body {
   width: 100%;
   box-sizing: border-box;
   background-color: #F2F2F2;
-  padding-top: 20px; }
+  padding-top: 20px;
+  padding-bottom: 80px; }
   body section {
     padding-top: 26px;
     margin: 0 auto;

@@ -1,4 +1,4 @@
-/*TMODJS:{"version":85,"md5":"c2e83dcf27da631f8403aa4286b401c5"}*/
+/*TMODJS:{"version":86,"md5":"d2bdf9419a9a00115e8c2d9b29ec6163"}*/
 template('index',function($data,$filename
 /**/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$each=$utils.$each,list=$data.list,$value=$data.$value,$index=$data.$index,$escape=$utils.$escape,$out='';$out+=' <section> ';
@@ -37,6 +37,8 @@ $out+='&nbsp;';
 $out+=$escape($value.institute);
 $out+='&nbsp;';
 $out+=$escape($value.class);
+$out+='&nbsp;';
+$out+=$escape($value.uploader);
 $out+='</p> <span>已有';
 $out+=$escape($value.downloads);
 $out+='人下载</span> </a> </div> ';
