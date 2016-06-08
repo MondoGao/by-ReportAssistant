@@ -22,8 +22,10 @@
     <p class="file-download-info">
         已有<span class="download-num">{{$value.downloads}}</span>人下载
     </p>
+    {{if $value.document_thumb}}
     <p class="file-thumb-content">
         {{$value.document_thumb}}
     </p>
+    {{/if}}
 </div>
 {{/each}}

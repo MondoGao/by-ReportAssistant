@@ -331,9 +331,13 @@
 	$out+=$escape($value.uploader);
 	$out+=' </p> <p class="file-download-info"> 已有<span class="download-num">';
 	$out+=$escape($value.downloads);
-	$out+='</span>人下载 </p> <p class="file-thumb-content"> ';
+	$out+='</span>人下载 </p> ';
+	if($value.document_thumb){
+	$out+=' <p class="file-thumb-content"> ';
 	$out+=$escape($value.document_thumb);
-	$out+=' </p> </div> ';
+	$out+=' </p> ';
+	}
+	$out+=' </div> ';
 	});
 	return new String($out);
 	});
