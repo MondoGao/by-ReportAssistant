@@ -1,6 +1,12 @@
+var Reminder = require('./reminder_component');
+var reminder = new Reminder();
+
 var UPLOADFILES = {
     errorInfo: {
-        inputNotEmpty: '输入不能为空'
+        inputNotEmpty: '输入不能为空',
+        fileTypeErr: '文件格式不正确，请重新选择',
+        uploadFail: '文件上传失败，请重试',
+        fileTranscode: '文件转码中，请稍后查看'
     },
     formkey: {
         filename: 'name',
@@ -71,7 +77,7 @@ function uploadReport(e) {
         filename = file.name,
         mimetype = filename.toLowerCase().substr(filename.lastIndexOf('.') + 1);
     if ($.inArray(mimetype, UPLOADFILES.mimeList) === -1) {
-        alert('不支持该文件类型，请上传合适格式文件');
+        reminder.show(UPLOADFILES.errorInfo.fileTypeErr);
     } else {
         UPLOADFILES.form.file = file;
         UPLOADFILES.form.postfix = mimetype;
@@ -200,7 +206,7 @@ $('.upload-file-button').on('click', function (e) {
         }).done(function (data) {
             $('#upload-file-id').val(data.result);
             $('#preview-upload').on('click', function () {
-                alert('文档转码中，请稍后再查看');
+                reminder.show(UPLOADFILES.errorInfo.fileTranscode);
             });
             setTimeout(function () {
                 $('#preview-upload').off('click').attr({
@@ -215,7 +221,7 @@ $('.upload-file-button').on('click', function (e) {
             $('.progress-point').eq(1).removeClass('progress-point-show');
             $('.progress-point').eq(2).addClass('progress-point-show');
         }).fail(function () {
-            alert('上传失败，请重试');
+            reminder.show(UPLOADFILES.errorInfo.uploadFail);
             $this.attr('uploading', 0).removeClass('uploading');
             $('#upload-file-input').remove();
             $('.upload-file-component').append('<input type="file" id="upload-file-input">');

@@ -1,0 +1,64 @@
+@import "../../scss/css3";
+
+.reminder-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+.reminder-container {
+    position: absolute;
+    width: 400px;
+    // height: 190px;
+    top: 45%;
+    left: 50%;
+    @include translate(-50%, -50%);
+    padding: 20px 10px 25px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 15px;
+    color: #282828;
+
+    & > a {
+        position: absolute;
+        top: 0;
+        right: 0;
+        &::before {
+            content: '\e901';
+            display: block;
+            font-family: 'icomoon';
+            font-size: 18px;
+            color: #a0a0a0;
+            padding: 10px;
+        }
+    }
+
+    & > p {
+        width: 75%;
+        margin: 0 auto;
+        padding: 40px 0 25px;
+        line-height: 1.5;
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+.reminder-button-list {
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0;
+    & > a {
+        display: inline-block;
+        padding: 10px 25px;
+        background-color: #ee344a;
+        font-size: 15px;
+        color: #fff;
+        &:nth-child(2) {
+            margin-left: 35px;
+        }
+    }
+}
