@@ -86,7 +86,7 @@ if (search !== '') {
             var containerW = ifrDoc.getElementById('page-container').offsetWidth,
                 ifrPW = ifrP[0].offsetWidth;
             // console.log(containerW, ifrPW);
-            if (containerW > docWidth) {
+            if (containerW > docWidth && ifrPW <= 833) {
                 $('.pc', ifrDoc).addClass('opened');
                 $('.loading-container').addClass('hide');
                 $('.container').removeClass('fade');
