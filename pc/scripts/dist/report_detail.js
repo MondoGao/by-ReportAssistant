@@ -229,7 +229,7 @@
 	if($value.type === 'doc' || $value.type === 'docx'){
 	$out+=' <input type="hidden" docType="doc"> <img src="images/word.png"> ';
 	}else if($value.type === 'ppt' || $value.type === 'pptx'){
-	$out+=' <input type="hidden" docType=ppt"> <img src="images/ppt.png"> ';
+	$out+=' <input type="hidden" docType="ppt"> <img src="images/ppt.png"> ';
 	}else if($value.type === 'zip' || $value.type === 'rar'){
 	$out+=' <input type="hidden" docType="zip"> <img src="images/zip.png"> ';
 	}else if($value.type === 'pdf'){
