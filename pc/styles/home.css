@@ -57,8 +57,9 @@ input {
   font-family: inherit; }
 
 .logo {
-  float: left;
-  height: 200px; }
+  float: left; }
+  .logo > img {
+    height: 200px; }
 
 .search-container {
   position: relative;

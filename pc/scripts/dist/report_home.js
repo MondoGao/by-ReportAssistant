@@ -79,7 +79,7 @@ $(".search-submit").click(function(){
 	if($("#search-input").val()){
 		var searchkey = encodeURIComponent($("#search-input").val());
 		console.log(searchkey);
-		window.open('report_search.html?search=' + searchkey);
+		window.open('report_search.html?search=' + searchkey,'search-window');
 	}
 })
 // 2.回车搜索
