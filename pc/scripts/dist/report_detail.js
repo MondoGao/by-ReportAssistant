@@ -101,6 +101,31 @@
 	                });
 	            })
 	        });
+	        $('.report-related-list li').hover(function () {
+	            var docType = $(this).find('input').attr('docType'),
+	                img = $(this).find('img');
+	            if (docType === 'doc') {
+	                img.attr('src', 'images/word-hover.png');
+	            } else if (docType === 'pdf') {
+	                img.attr('src', 'images/pdf-hover.png');
+	            } else if (docType === 'ppt') {
+	                img.attr('src', 'images/ppt-hover.png');
+	            } else if (docType === 'zip') {
+	                img.attr('src', 'images/zip-hover.png');
+	            }
+	        }, function () {
+	            var docType = $(this).find('input').attr('docType'),
+	                img = $(this).find('img');
+	            if (docType === 'doc') {
+	                img.attr('src', 'images/word.png');
+	            } else if (docType === 'pdf') {
+	                img.attr('src', 'images/pdf.png');
+	            } else if (docType === 'ppt') {
+	                img.attr('src', 'images/ppt.png');
+	            } else if (docType === 'zip') {
+	                img.attr('src', 'images/zip.png');
+	            }
+	        });
 	        if (!data.result.preview) {
 	            $('.loading-container').addClass('hide');
 	            $('.container').removeClass('fade');
@@ -202,13 +227,13 @@
 	$out+=$escape($value.document_name);
 	$out+='"> ';
 	if($value.type === 'doc' || $value.type === 'docx'){
-	$out+=' <img src="images/word.png"> ';
+	$out+=' <input type="hidden" docType="doc"> <img src="images/word.png"> ';
 	}else if($value.type === 'ppt' || $value.type === 'pptx'){
-	$out+=' <img src="images/ppt.png"> ';
+	$out+=' <input type="hidden" docType=ppt"> <img src="images/ppt.png"> ';
 	}else if($value.type === 'zip' || $value.type === 'rar'){
-	$out+=' <img src="images/zip.png"> ';
+	$out+=' <input type="hidden" docType="zip"> <img src="images/zip.png"> ';
 	}else if($value.type === 'pdf'){
-	$out+=' <img src="images/pdf.png"> ';
+	$out+=' <input type="hidden" docType="pdf"> <img src="images/pdf.png"> ';
 	}
 	$out+=' <div> <h3>';
 	$out+=$escape($value.document_name);
