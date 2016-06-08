@@ -175,8 +175,8 @@ body {
       margin-bottom: 6px; }
       body section .report:hover {
         background-color: rgba(188, 193, 191, 0.33); }
-        body section .report:hover .report-logo {
-          background-color: transparent; }
+        body section .report:hover .icon .report-logo {
+          background-color: transparent !important; }
       body section .report .icon {
         float: left;
         width: 104px;
