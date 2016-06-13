@@ -28,6 +28,13 @@ body {
     display: none;
 }
 
+.clearfix {
+    &::after {
+        content: '';
+        display: table;
+    }
+}
+
 .search {
     position: relative;
     height: px2rem(90px);
@@ -250,4 +257,29 @@ body {
     top: 40%;
     left: 50%;
     @include translate(-50%, -50%);
+}
+
+.pc-hint {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    //height: px2rem(100px);
+    padding: px2rem(20px) px2rem(45px);
+    background-color: #1a5da8;
+    img {
+        position: absolute;
+        left: px2rem(45px);
+        top: 50%;
+        @include translateY(-50%);
+        height: px2rem(81px);
+    }
+    & > div {
+        padding-left: px2rem(125px);
+    }
+    p {
+        @include px2px(font-size, 30px);
+        color: #fff;
+        line-height: 1.5;
+    }
 }
