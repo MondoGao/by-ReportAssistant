@@ -154,8 +154,10 @@
 	            $(ifr).css({
 	                height: ifrH + 25 + 'px'
 	            });
-	            var containerW = ifrDoc.getElementById('page-container').offsetWidth,
-	                ifrPW = ifrP[0].offsetWidth;
+	            // var containerW = ifrDoc.getElementById('page-container').offsetWidth,
+	            //     ifrPW = ifrP[0].offsetWidth;
+	            var containerW = $('#page-container', ifrDoc).outerWidth(),
+	                ifrPW = $(ifrP[0], ifrDoc).outerWidth();
 	            // console.log(containerW, ifrPW);
 	            if (containerW > docWidth && ifrPW <= 833) {
 	                $('.pc', ifrDoc).addClass('opened');
