@@ -122,7 +122,7 @@ body {
     position: absolute;
     width: 100%;
     top: px2rem(90px);
-    bottom: 0;
+    bottom: px2rem(120px);
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
 }
@@ -260,12 +260,15 @@ body {
 }
 
 .pc-hint {
-    position: fixed;
+    position: absolute;
     left: 0;
     bottom: 0;
     right: 0;
-    //height: px2rem(100px);
+    height: px2rem(120px);
     padding: px2rem(20px) px2rem(45px);
+    @include box-sizing(border-box);
+    //overflow: scroll;
+    //-webkit-overflow-scrolling: touch;
     background-color: #1a5da8;
     img {
         position: absolute;
@@ -278,8 +281,12 @@ body {
         padding-left: px2rem(125px);
     }
     p {
-        @include px2px(font-size, 30px);
+        //@include px2px(font-size, 30px);
+        font-size: px2rem(30px);
         color: #fff;
-        line-height: 1.5;
+        //line-height: 1.5;
+        &:nth-of-type(1) {
+            margin-bottom: px2rem(20px);
+        }
     }
 }
