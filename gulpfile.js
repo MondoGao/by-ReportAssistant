@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var compass = require('gulp-compass');
 var webpack = require('gulp-webpack');
+var webserver = require('gulp-webserver');
 
 gulp.task('mobile_sass', function () {
     return gulp.src('./mobile/scss/*.scss')
@@ -50,10 +51,20 @@ gulp.task('mobile_module_sass', function () {
         .pipe(gulp.dest('./mobile/tpl/modules'));
 });
 
+
+gulp.task('webserver', function() {
+  gulp.src('./')
+    .pipe(webserver({
+      livereload: true,
+      directoryListing: true,
+      open: true
+    }));
+});
+
 gulp.task('watch', function () {
     gulp.watch('./mobile/scss/*.scss', ['mobile_sass']);
     gulp.watch('./mobile/scripts/src/*.js', ['mobile_webpack']);
     gulp.watch('./mobile/tpl/modules/*/*.scss', ['mobile_module_sass']);
 });
 
-gulp.task('default', ['mobile_sass', 'mobile_webpack', 'mobile_module_sass', 'watch']);
+gulp.task('default', ['mobile_sass', 'mobile_webpack', 'mobile_module_sass','webserver', 'watch']);

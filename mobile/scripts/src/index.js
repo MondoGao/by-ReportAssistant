@@ -6,6 +6,7 @@ var Reminder = require('./reminder');
 
 var pageBegin = 1;
 var itemCount = 10;
+var firstItemCount = 10;
 var pageCount = 1;
 var mainFlag = 1;
 var searchInfo = '';
@@ -21,6 +22,7 @@ function loadMoreReport() {
             $.ajax({
                 url: '/list',
                 type: 'POST',
+                // type: 'GET',
                 data: {
                     begin: pageBegin,
                     count: itemCount,
@@ -28,6 +30,9 @@ function loadMoreReport() {
                     sortDir: 'desc'
                 }
             }).done(function (data) {
+
+                // data = JSON.parse(data);
+
                 $('.load-more-container').remove();
                 if (data.result.length === 0) {
                     $('.result-item-container').append(endLine());
@@ -109,6 +114,9 @@ function jumpDetail(flag) {
         $('.result-item').on('tap', function (e) {
             var inputElem = $(e.currentTarget).children('input'),
                 document_id = $(inputElem).val();
+
+            sessionStorage.setItem('lastItem', getChildrenIndex(e.currentTarget));
+
             var url = "./report_detail.html?";
             document_id = encodeURIComponent(document_id);
             url = url + 'document_id=' + document_id;
@@ -119,6 +127,9 @@ function jumpDetail(flag) {
             var inputElem = $(e.currentTarget).children('input'),
                 document_id = $(inputElem).val();
             var url = "./report_detail.html?";
+
+            sessionStorage.setItem('lastItem', getChildrenIndex(e.currentTarget));
+
             document_id = encodeURIComponent(document_id);
             url = url + 'document_id=' + document_id;
             window.location.href = url;
@@ -199,16 +210,43 @@ $('.cancel-btn').on('click', function (e) {
 // $('.result-item-container').append(searchResult(test_data));
 // $('.result-item-container').append(loadMore());
 
+function getChildrenIndex(ele){
+    //IE is simplest and fastest
+    if(ele.sourceIndex){
+        return ele.sourceIndex - ele.parentNode.sourceIndex - 1;
+    }
+    //other browsers
+    var i = 0;
+    while(ele = ele.previousElementSibling) {
+        i++;
+    }
+    return i;
+}
+
+
+firstItemCount = Math.ceil(sessionStorage.getItem('lastItem')/10)*10 || 10;
+console.log(firstItemCount);
+
 $.ajax({
     url: '/list',
     type: 'POST',
+    //test
+    // type: 'GET',
+    //testend
     data: {
         begin: pageBegin,
-        count: itemCount,
+        // count: itemCount,
+        count: firstItemCount,
         sortType: 'downloads',
         sortDir: 'desc'
     }
 }).done(function (data) {
+
+    //test
+    // data = JSON.parse(data);
+    // console.log(data);
+    //testend
+
     $('.loading-icon').addClass('hide');
     if (data.result.length === 0) {
         // $('.result-item-container').append(endLine());
@@ -218,7 +256,8 @@ $.ajax({
         jumpDetail(true);
         $('.result-item-container').append(endLine());
     } else {
-        pageBegin += pageCount;
+        // pageBegin += pageCount;
+        pageBegin += firstItemCount/10;
         $('.result-item-container').append(searchResult(data));
         jumpDetail(true);
         $('.result-item-container').append(loadMore());
