@@ -50,7 +50,7 @@
 	var notFound = __webpack_require__(5);
 	var Reminder = __webpack_require__(6);
 
-	var pageBegin = 0;
+	var pageBegin = 1;
 	var itemCount = 10;
 	var pageCount = 1;
 	var mainFlag = 1;
@@ -70,7 +70,7 @@
 	                data: {
 	                    begin: pageBegin,
 	                    count: itemCount,
-	                    sortType: 'document_name',
+	                    sortType: 'downloads',
 	                    sortDir: 'desc'
 	                }
 	            }).done(function (data) {
@@ -105,7 +105,7 @@
 	                data: {
 	                    begin: pageBegin,
 	                    count: itemCount,
-	                    sortType: 'document_name',
+	                    sortType: 'downloads',
 	                    sortDir: 'desc',
 	                    keyword: searchInfo
 	                }
@@ -205,7 +205,7 @@
 	            data: {
 	                begin: pageBegin,
 	                count: itemCount,
-	                sortType: 'document_name',
+	                sortType: 'downloads',
 	                sortDir: 'desc',
 	                keyword: searchContent
 	            }
@@ -251,7 +251,7 @@
 	    data: {
 	        begin: pageBegin,
 	        count: itemCount,
-	        sortType: 'document_name',
+	        sortType: 'downloads',
 	        sortDir: 'desc'
 	    }
 	}).done(function (data) {

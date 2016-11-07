@@ -4,7 +4,7 @@ var endLine = require('../../tpl/end-line.tpl');
 var notFound = require('../../tpl/not-found-report.tpl');
 var Reminder = require('./reminder');
 
-var pageBegin = 0;
+var pageBegin = 1;
 var itemCount = 10;
 var pageCount = 1;
 var mainFlag = 1;
@@ -24,7 +24,7 @@ function loadMoreReport() {
                 data: {
                     begin: pageBegin,
                     count: itemCount,
-                    sortType: 'document_name',
+                    sortType: 'downloads',
                     sortDir: 'desc'
                 }
             }).done(function (data) {
@@ -59,7 +59,7 @@ function loadMoreReport() {
                 data: {
                     begin: pageBegin,
                     count: itemCount,
-                    sortType: 'document_name',
+                    sortType: 'downloads',
                     sortDir: 'desc',
                     keyword: searchInfo
                 }
@@ -159,7 +159,7 @@ $('#search-input').on('keyup', function (e) {
             data: {
                 begin: pageBegin,
                 count: itemCount,
-                sortType: 'document_name',
+                sortType: 'downloads',
                 sortDir: 'desc',
                 keyword: searchContent
             }
@@ -205,7 +205,7 @@ $.ajax({
     data: {
         begin: pageBegin,
         count: itemCount,
-        sortType: 'document_name',
+        sortType: 'downloads',
         sortDir: 'desc'
     }
 }).done(function (data) {

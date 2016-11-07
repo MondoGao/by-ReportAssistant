@@ -57,6 +57,10 @@ body {
     position: absolute;
     left: px2rem(40px);
     top: 50%;
+    height: px2rem(90px);
+    width: px2rem(80px);
+    line-height: px2rem(90px);
+    text-align: center;
     @include translate(-50%, -50%);
     &::before {
         content: '\e901';
