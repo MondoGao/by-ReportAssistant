@@ -88,7 +88,7 @@ body {
             width: 100%;
             text-align: right;
             &::before {
-                content: '\e902 退出全屏';
+                content: '\e902  退出全屏';
             }
         }
     }
@@ -107,7 +107,7 @@ body {
     @include translate(0, 0);
     transition: opacity .5s, transform .5s;
     &.hide {
-        @include translate(-10%, 0);
+        @include translate(-20%, 0);
         opacity: 0.3;
     }
 }
@@ -115,7 +115,7 @@ body {
     left: auto;
     right: 0;
     &::before {
-        content: '\e903 全屏';
+        content: '\e903  全屏';
         font-family: 'icomoon';
         // color: #c9c9c9;
         // font-size: px2rem(24px);

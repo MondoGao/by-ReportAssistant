@@ -76,10 +76,10 @@
 	// };
 
 	// setTimeout(function () {
-	//     $('.report-container').append(reportThumb(test_data2));
-	//     $('.report-preview-container').append(reportPreview(test_data));
-	//     $('.report-download').append(reportDownload(test_data));
-	//     $('.loading-icon').addClass('hide');
+	    // $('.report-container').append(reportThumb(test_data2));
+	    // $('.report-preview-container').append(reportPreview(test_data));
+	    // $('.report-download').append(reportDownload(test_data));
+	    // $('.loading-icon').addClass('hide');
 	// }, 1000);
 
 	var reminder = new Reminder();
@@ -144,7 +144,31 @@
 	        reminder.show('网络连接错误，请重试');
 	    });
 	}
+	$('#ifr-container').on('load', function () {
+	    function toggleBtn(fun) {
+	        $('.report-type-info').forEach(function(el) {
+	            el.classList[fun]('hide');
+	        });
+	    }
+	    $('#ifr-container').contents().find('#page-container').on('scroll',(function() {
+	        var _scrollTop = 0;
+	        var deltaTop;
+	        return function(e) {
+	            deltaTop = e.target.scrollTop - _scrollTop;
+	            _scrollTop = e.target.scrollTop;
+	            console.log(deltaTop);
+	            if(deltaTop > 0) {
+	                toggleBtn('add');
+	            } else {
+	                toggleBtn('remove');
+	            }
+	        };
+	    })());
+	    $('#btn-fullscreen').on('touchstart', function() {
+	        $('.report-preview-container').toggleClass('fullscreen');
+	    });
 
+	});
 	// $('#ifr-container').on('load', function () {
 	//     var ifr = document.getElementById('ifr-container'),
 	//         ifrDoc = ifr.contentDocument || ifr.contentWindow.document,
@@ -159,6 +183,7 @@
 	//     ifrStyle.innerHTML = text;
 	//     $(ifr).off('load');
 	// });
+
 
 /***/ },
 /* 1 */,
@@ -665,11 +690,11 @@
 	module.exports=template('mobile/tpl/report-preview',function($data,$filename
 	/**/) {
 	'use strict';var $utils=this,$helpers=$utils.$helpers,type=$data.type,$each=$utils.$each,preview=$data.preview,$value=$data.$value,$index=$data.$index,$escape=$utils.$escape,$out='';if(type === 'doc' || type === 'docx'){
-	$out+=' <div class="report-type-info">Word文档预览</div> ';
+	$out+=' <div id="btn-type-info" class="report-type-info">Word文档预览</div> ';
 	}else if(type === 'ppt' || type === 'pptx'){
-	$out+=' <div class="report-type-info">Ppt文档预览</div> ';
+	$out+=' <div id="btn-type-info" class="report-type-info">Ppt文档预览</div> ';
 	}else if(type === 'pdf'){
-	$out+=' <div class="report-type-info">Pdf文档预览</div> ';
+	$out+=' <div id="btn-type-info" class="report-type-info">Pdf文档预览</div> ';
 	}
 	$out+='  <!--';
 	$each(preview,function($value,$index){
@@ -679,7 +704,7 @@
 	});
 	$out+='-->  <div class="report-preview"> <iframe src="';
 	$out+=$escape(preview);
-	$out+='" id="ifr-container"></iframe> </div>';
+	$out+='" id="ifr-container"></iframe> </div> ';
 	return new String($out);
 	});
 

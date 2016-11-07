@@ -30,10 +30,10 @@ var Reminder = require('./reminder');
 // };
 
 // setTimeout(function () {
-//     $('.report-container').append(reportThumb(test_data2));
-//     $('.report-preview-container').append(reportPreview(test_data));
-//     $('.report-download').append(reportDownload(test_data));
-//     $('.loading-icon').addClass('hide');
+    // $('.report-container').append(reportThumb(test_data2));
+    // $('.report-preview-container').append(reportPreview(test_data));
+    // $('.report-download').append(reportDownload(test_data));
+    // $('.loading-icon').addClass('hide');
 // }, 1000);
 
 var reminder = new Reminder();
@@ -110,6 +110,7 @@ $('#ifr-container').on('load', function () {
         return function(e) {
             deltaTop = e.target.scrollTop - _scrollTop;
             _scrollTop = e.target.scrollTop;
+            console.log(deltaTop);
             if(deltaTop > 0) {
                 toggleBtn('add');
             } else {
@@ -118,7 +119,7 @@ $('#ifr-container').on('load', function () {
         };
     })());
     $('#btn-fullscreen').on('touchstart', function() {
-        $('.report-preview-container').classList.toggle('fullscreen');
+        $('.report-preview-container').toggleClass('fullscreen');
     });
 
 });
