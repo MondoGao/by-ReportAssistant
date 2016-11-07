@@ -1,6 +1,7 @@
 @import "compass/reset";
 @import "compass/css3";
 @import "base";
+@import "font";
 
 * {
     max-height: 999999999999px;
@@ -72,20 +73,53 @@ body {
 
 .report-preview-container {
     position: relative;
+    margin-top: px2rem(10px);
     height: 60%;
     padding: px2rem(20px) px2rem(25px);
+    &.fullscreen {
+        .report-preview {
+            position: fixed;
+        }
+        #btn-type-info {
+            opacity: 0;
+        }
+        #btn-fullscreen {
+            position: fixed;
+            width: 100%;
+            text-align: right;
+            &::before {
+                content: '\e902 退出全屏';
+            }
+        }
+    }
 }
 
 .report-type-info {
     position: absolute;
     top: 0;
     left: 0;
-    @include translate(6%, 20%);
+    // @include translate(6%, 20%);
     padding: px2rem(12px) px2rem(16px);
     background-color: #2b5796;
     color: #fff;
     @include px2px(font-size, 24px);
     z-index: 2;
+    @include translate(0, 0);
+    transition: opacity .5s, transform .5s;
+    &.hide {
+        @include translate(-10%, 0);
+        opacity: 0.3;
+    }
+}
+#btn-fullscreen {
+    left: auto;
+    right: 0;
+    &::before {
+        content: '\e903 全屏';
+        font-family: 'icomoon';
+        // color: #c9c9c9;
+        // font-size: px2rem(24px);
+    }
 }
 
 .report-preview {
