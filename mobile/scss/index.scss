@@ -2,17 +2,7 @@
 @import "compass/css3";
 @import "base";
 @import "func";
-
-@font-face {
-    font-family: 'icomoon';
-    src: url('../fonts/icomoon.eot?p8px5a');
-    src: url('../fonts/icomoon.eot?p8px5a#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?p8px5a') format('truetype'),
-    url('../fonts/icomoon.woff?p8px5a') format('woff'),
-    url('../fonts/icomoon.svg?p8px5a#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
+@import "font";
 
 html,
 body {
