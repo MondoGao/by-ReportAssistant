@@ -107,7 +107,7 @@ body {
     @include translate(0, 0);
     transition: opacity .5s, transform .5s;
     &.hide {
-        @include translate(-20%, 0);
+        @include translate(0, -20%);
         opacity: 0.3;
         display: block;
     }
