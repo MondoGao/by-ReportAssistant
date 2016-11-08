@@ -70,17 +70,16 @@ function loadMoreReport() {
                 }
             }).done(function (data) {
                 $('.load-more-container').remove();
+                data.result.reverse();
                 if (data.result.length === 0) {
                     $('.result-item-container').append(endLine());
                     resetLoadMoreReport();
                 } else if (data.result.length < itemCount) {
-                    data.result.reverse();
                     $('.result-item-container').append(searchResult(data));
                     jumpDetail(false);
                     $('.result-item-container').append(endLine());
                     resetLoadMoreReport();
                 } else {
-                    data.result.reverse();
                     pageBegin += pageCount;
                     $('.result-item-container').append(searchResult(data));
                     jumpDetail(false);
@@ -155,6 +154,8 @@ $('#search-input').on('blur', function () {
 
 $('#search-input').on('keyup', function (e) {
     if (e.keyCode === 13) {
+        var preventReload = 0;
+
         var searchContent = $(e.target).val();
         if (!searchContent) {
             return;
@@ -179,17 +180,18 @@ $('#search-input').on('keyup', function (e) {
         }).done(function (data) {
             $('.loading-icon').addClass('hide');
             $('.result-item-container').empty();
+            data.result.reverse();
+            console.log('searchLoad');
+            
             if (data.result.length === 0) {
                 // $('.result-item-container').append(endLine());
                 $('.result-item-container').append(notFound());
             } else if (data.result.length < itemCount) {
-                data.result.reverse();
                 $('.result-item-container').append(searchResult(data));
                 jumpDetail(true);
                 $('.result-item-container').append(endLine());
             } else {
                 pageBegin += pageCount;
-                data.result.reverse();
                 $('.result-item-container').append(searchResult(data));
                 jumpDetail(true);
                 $('.result-item-container').append(loadMore());
@@ -268,7 +270,9 @@ $.ajax({
         $('.result-container').attr('disabled', 0);
         // $('.load-more-report').on('click', loadMoreReport);
     }
-    $('.result-container').scrollTop((sessionStorage.getItem('lastItem') - 1)*$('.result-item')[0].clientHeight);
+    setTimeout(function() {
+        $('.result-container').scrollTop((sessionStorage.getItem('lastItem') - 1)*($('.result-item')[0].clientHeight + 1));
+    },100);
 
 }).fail(function (xhr, errorType, error) {
     $('.loading-icon').addClass('hide');
