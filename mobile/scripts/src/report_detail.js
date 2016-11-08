@@ -72,6 +72,7 @@ if (search !== '') {
         if (!data.result.preview) {
             $('.report-preview-container').append(reportMiss());
             $('.report-download').append(reportDownload(data.result));
+            $('.report-type-info').hide();
             $('.loading-icon').addClass('hide');
         } else {
             $('.report-preview-container').append(reportPreview(data.result));
