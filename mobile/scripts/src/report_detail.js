@@ -89,6 +89,27 @@ if (search !== '') {
                 ifrStyle.setAttribute('type', 'text/css');
                 ifrHead.appendChild(ifrStyle);
                 ifrStyle.innerHTML = scaleTxt + ' ' + touchTxt;
+
+                function toggleBtn(fun) {
+                    $('.report-type-info').forEach(function(el) {
+                        el.classList[fun]('hide');
+                    });
+                }
+                $('#ifr-container').contents().find('#page-container').on('scroll',(function() {
+                    var _scrollTop = 0;
+                    var deltaTop;
+                    return function(e) {
+                        deltaTop = e.target.scrollTop - _scrollTop;
+                        _scrollTop = e.target.scrollTop;
+                        console.log(deltaTop);
+                        if(deltaTop > 0) {
+                            toggleBtn('add');
+                        } else {
+                            toggleBtn('remove');
+                        }
+                    };
+                })());
+
                 $(ifr).off('load');
                 $('.loading-icon').addClass('hide');
             });
@@ -98,31 +119,12 @@ if (search !== '') {
         reminder.show('网络连接错误，请重试');
     });
 }
-$('#ifr-container').on('load', function () {
-    function toggleBtn(fun) {
-        $('.report-type-info').forEach(function(el) {
-            el.classList[fun]('hide');
-        });
-    }
-    $('#ifr-container').contents().find('#page-container').on('scroll',(function() {
-        var _scrollTop = 0;
-        var deltaTop;
-        return function(e) {
-            deltaTop = e.target.scrollTop - _scrollTop;
-            _scrollTop = e.target.scrollTop;
-            console.log(deltaTop);
-            if(deltaTop > 0) {
-                toggleBtn('add');
-            } else {
-                toggleBtn('remove');
-            }
-        };
-    })());
-    $('#btn-fullscreen').on('touchstart', function() {
-        $('.report-preview-container').toggleClass('fullscreen');
-    });
 
+
+$('#btn-fullscreen').on('touchstart', function() {
+    $('.report-preview-container').toggleClass('fullscreen');
 });
+
 // $('#ifr-container').on('load', function () {
 //     var ifr = document.getElementById('ifr-container'),
 //         ifrDoc = ifr.contentDocument || ifr.contentWindow.document,
