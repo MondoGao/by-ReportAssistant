@@ -109,6 +109,7 @@ body {
     &.hide {
         @include translate(-20%, 0);
         opacity: 0.3;
+        display: block;
     }
 }
 #btn-fullscreen {
