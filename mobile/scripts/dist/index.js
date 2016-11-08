@@ -120,11 +120,13 @@
 	                    $('.result-item-container').append(endLine());
 	                    resetLoadMoreReport();
 	                } else if (data.result.length < itemCount) {
+	                    data.result.reverse();
 	                    $('.result-item-container').append(searchResult(data));
 	                    jumpDetail(false);
 	                    $('.result-item-container').append(endLine());
 	                    resetLoadMoreReport();
 	                } else {
+	                    data.result.reverse();
 	                    pageBegin += pageCount;
 	                    $('.result-item-container').append(searchResult(data));
 	                    jumpDetail(false);
@@ -227,11 +229,13 @@
 	                // $('.result-item-container').append(endLine());
 	                $('.result-item-container').append(notFound());
 	            } else if (data.result.length < itemCount) {
+	                data.result.reverse();
 	                $('.result-item-container').append(searchResult(data));
 	                jumpDetail(true);
 	                $('.result-item-container').append(endLine());
 	            } else {
 	                pageBegin += pageCount;
+	                data.result.reverse();
 	                $('.result-item-container').append(searchResult(data));
 	                jumpDetail(true);
 	                $('.result-item-container').append(loadMore());
@@ -310,6 +314,8 @@
 	        $('.result-container').attr('disabled', 0);
 	        // $('.load-more-report').on('click', loadMoreReport);
 	    }
+	    $('.result-container').scrollTop((sessionStorage.getItem('lastItem') - 1)*$('.result-item')[0].clientHeight);
+
 	}).fail(function (xhr, errorType, error) {
 	    $('.loading-icon').addClass('hide');
 	    reminder.show('网络连接错误，请重试');
