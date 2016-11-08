@@ -10,6 +10,7 @@ var firstItemCount = 10;
 var pageCount = 1;
 var mainFlag = 1;
 var searchInfo = '';
+var searchTime = 0;
 
 function loadMoreReport() {
     var $this = $('.load-more-report');
@@ -154,8 +155,6 @@ $('#search-input').on('blur', function () {
 
 $('#search-input').on('keyup', function (e) {
     if (e.keyCode === 13) {
-        var preventReload = 0;
-
         var searchContent = $(e.target).val();
         if (!searchContent) {
             return;
@@ -181,23 +180,25 @@ $('#search-input').on('keyup', function (e) {
             $('.loading-icon').addClass('hide');
             $('.result-item-container').empty();
             data.result.reverse();
-            console.log('searchLoad');
-            
+
             if (data.result.length === 0) {
                 // $('.result-item-container').append(endLine());
                 $('.result-item-container').append(notFound());
-            } else if (data.result.length < itemCount) {
+            } else if (data.result.length < itemCount && searchTime) {
                 $('.result-item-container').append(searchResult(data));
                 jumpDetail(true);
                 $('.result-item-container').append(endLine());
             } else {
-                pageBegin += pageCount;
-                $('.result-item-container').append(searchResult(data));
-                jumpDetail(true);
-                $('.result-item-container').append(loadMore());
-                $('.result-container').attr('disabled', 0);
-                // $('.load-more-report').on('click', loadMoreReport);
+                if(searchTime) {
+                    pageBegin += pageCount;
+                    $('.result-item-container').append(searchResult(data));
+                    jumpDetail(true);
+                    $('.result-item-container').append(loadMore());
+                    $('.result-container').attr('disabled', 0);
+                    // $('.load-more-report').on('click', loadMoreReport);
+                }
             }
+            searchTime++;
         }).fail(function () {
             $('.loading-icon').addClass('hide');
             reminder.show('网络连接错误，请重试');
