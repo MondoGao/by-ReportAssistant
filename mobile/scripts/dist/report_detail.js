@@ -679,9 +679,9 @@
 	var template=__webpack_require__(2);
 	module.exports=template('mobile/tpl/report-download-info',function($data,$filename
 	/**/) {
-	'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,code=$data.code,$out='';$out+='<div class="report-download-container hide"> <p>请你在“华科学习帝”公众号回复该编号以获取下载链接，文档仅供参考。</p> <p class="report-download-id"> <span>';
+	'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,code=$data.code,$out='';$out+='<div class="report-download-container hide"> <p>请你在“iKnow华科”公众号回复该编号以获取下载链接，文档仅供参考。</p> <p class="report-download-id"> <span>';
 	$out+=$escape(code);
-	$out+='</span> </p> </div>';
+	$out+='</span> </p> </div> ';
 	return new String($out);
 	});
 
