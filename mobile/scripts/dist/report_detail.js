@@ -108,6 +108,10 @@
 	        type: 'GET'
 	    }).done(function (data) {
 	        var str = '我在"报告菌"上找到了' + data.result.document_name + ',这下不用担心了';
+
+	        // data.result.preview = "http://localhost:3000/mobi/6633.html";
+	        // console.log(data.result);
+
 	        $('title').text(str);
 	        $('.report-container').append(reportThumb(data));
 	        // if (data.result.preview.length === 0) {
@@ -131,7 +135,8 @@
 	                var container = ifrDoc.getElementById('page-container'),
 	                    pf = ifrDoc.getElementById('pf1');
 	                var scale = container.offsetWidth / pf.offsetWidth;
-	                var scaleTxt = "div[id^='pf']{-webkit-transform: scaleX(" + scale + ");transform:scaleX(" + scale + ");-webkit-transform-origin: 0 100%;transform-origin: 0 100%}";
+	                var scaleTxt = "div[id^='pf']{-webkit-transform: scaleX(" + scale + ");transform:scaleX(" + scale + ")}";
+	                // var scaleTxt = "div[id^='pf']{-webkit-transform: scaleX(" + scale + ");transform:scaleX(" + scale + ");-webkit-transform-origin: 0 100%;transform-origin: 0 100%}";
 	                var touchTxt = "#page-container{-webkit-overflow-scrolling: touch;}";
 	                ifrStyle.setAttribute('type', 'text/css');
 	                ifrHead.appendChild(ifrStyle);
@@ -148,7 +153,7 @@
 	                    return function(e) {
 	                        deltaTop = e.target.scrollTop - _scrollTop;
 	                        _scrollTop = e.target.scrollTop;
-	                        console.log(deltaTop);
+	                        // console.log(deltaTop);
 	                        if(deltaTop > 0) {
 	                            toggleBtn('add');
 	                        } else {

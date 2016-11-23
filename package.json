@@ -1,0 +1,36 @@
+{
+  "name": "report-assistant",
+  "version": "0.0.5",
+  "description": "报告君",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.18.2",
+    "css-loader": "^0.25.0",
+    "gulp": "^3.9.1",
+    "gulp-compass": "^2.1.0",
+    "gulp-devserver": "^0.6.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-webpack": "^1.5.0",
+    "gulp-webserver": "^0.9.1",
+    "http-proxy-middleware": "^0.17.2",
+    "node-sass": "^3.13.0",
+    "style-loader": "^0.13.1",
+    "tmodjs": "^1.0.4",
+    "tmodjs-loader": "^1.0.1",
+    "webpack": "^1.13.3",
+    "webpack-stream": "^3.2.0"
+  },
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.bingyan.net:88/Hugo/by-ReportAssistant.git"
+  },
+  "keywords": [
+    "bingyan"
+  ],
+  "author": "wyc, HugoGao",
+  "license": "ISC"
+}
