@@ -134,9 +134,16 @@
 	                var container = ifrDoc.getElementById('page-container'),
 	                    pf = ifrDoc.getElementById('pf1');
 	                var scale = container.offsetWidth / pf.offsetWidth;
-	                // var scaleTxt = "";
-	                // var scaleTxt = "div[id^='pf']{-webkit-transform: scaleX(" + scale + ");transform:scaleX(" + scale + ")}";
-	                var scaleTxt = "div[id^='pf']{-webkit-transform: scaleX(" + scale + ");transform:scaleX(" + scale + ");-webkit-transform-origin: 0 0;transform-origin: 0 0}";
+
+	                var u = navigator.userAgent;
+	                var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+	                var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+
+	                var scaleTxt = "div[id^='pf']{-webkit-transform: scaleX(" + scale + ");transform:scaleX(" + scale + ");";
+	                if (isAndroid) {
+	                    scaleTxt += "-webkit-transform-origin: 0 0;transform-origin: 0 0";
+	                }
+	                scaleTxt += "}";
 	                var touchTxt = "#page-container{-webkit-overflow-scrolling: touch;}";
 	                ifrStyle.setAttribute('type', 'text/css');
 	                ifrHead.appendChild(ifrStyle);
