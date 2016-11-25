@@ -3,19 +3,21 @@
 @import "base";
 @import "font";
 
-* {
-    max-height: 999999999999px;
-}
+//* {
+//    max-height: 999999999999px;
+//}
 
 html,
 body {
     height: 100%;
-    overflow: hidden;
 }
 
 body {
     background-color: #e6e6e6;
-    overflow-y: auto;
+    overflow: hidden;
+    &.scrollable {
+        overflow-y: auto;
+    }
 }
 
 .hide {
@@ -132,7 +134,7 @@ body {
     //right: px2rem(25px);
     left: 0;
     right: 0;
-    overflow-y: scroll;
+    //overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     background-color: #fff;
     //img {
@@ -146,7 +148,7 @@ body {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        padding: 0 px2rem(25px);
+        //padding: 0 px2rem(25px);
         -webkit-overflow-scrolling: touch;
     }
 }
