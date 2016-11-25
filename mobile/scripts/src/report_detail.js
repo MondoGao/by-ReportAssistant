@@ -13,11 +13,16 @@ if (searchUrl.indexOf('?') !== -1) {
     search = decodeURIComponent(searchUrl.substr(1));
 }
 
-$('.download-btn').on('tap', function () {
-    $('.report-download').addClass('show-download-info');
+var funToggleBodyScroll = function () {
     if(document.body.scrollHeight > document.body.clientHeight) {
         document.body.className = "scrollable";
     }
+}
+funToggleBodyScroll();
+
+$('.download-btn').on('tap', function () {
+    $('.report-download').addClass('show-download-info');
+    funToggleBodyScroll();
 });
 
 if (search !== '') {
@@ -87,9 +92,7 @@ if (search !== '') {
 
                 $(ifr).off('load');
                 $('.loading-icon').addClass('hide');
-                if(document.body.scrollHeight > document.body.clientHeight) {
-                    document.body.className = "scrollable";
-                }
+                funToggleBodyScroll();
             });
         }
     }).fail(function () {
