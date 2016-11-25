@@ -1,10 +1,27 @@
 ## ReportAssistant
 *报告菌*
 
+## 项目须知
+### 使用框架
+- zepto
+- tmodjs
+- pdf2htmlex(server)
+
 ## 更新记录
 ### 0.0.6 - 2016-11-23
+#### Fixed
+- 修复预览不居中的问题
+    - 第一版如 Deprecated 描述
+    - 第二次修复更改页宽高，对内部内容包裹进行缩放，待iOS测试
+
 #### Changed
 - 开发环境变更
+- 变更预览内容的缩放模式
+- 预览页小屏幕下内容超过屏幕边界后可滑动
+- 优化预览页js
+
+#### Deprecated
+- iOS 和 Android 在 scale 上表现有差异，带考证；对于原版处理方式修正是 iOS 平台不加 transform-origin
 
 ### 0.0.5 - 2016-11-10
 #### Changed
