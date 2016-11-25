@@ -75,7 +75,7 @@
 	        var str = '我在"报告菌"上找到了' + data.result.document_name + ',这下不用担心了';
 	        $('title').text(str);
 
-	        data.result.preview = "http://localhost:3000/mobi/6633.html";
+	        // data.result.preview = "http://localhost:3000/mobi/810dec29-aa0c-4b8a-b2b8-4ad7bdcedd98.html";
 
 	        $('.report-container').append(reportThumb(data));
 	        $('.report-download').append(reportDownload(data.result));
@@ -131,12 +131,11 @@
 	                    };
 	                })());
 
+	                $(ifr).off('load');
+	                $('.loading-icon').addClass('hide');
 	                if(document.body.scrollHeight > document.body.clientHeight) {
 	                    document.body.className = "scrollable";
 	                }
-
-	                $(ifr).off('load');
-	                $('.loading-icon').addClass('hide');
 	            });
 	        }
 	    }).fail(function () {
